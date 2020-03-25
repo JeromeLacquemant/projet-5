@@ -22,7 +22,6 @@
             $file = $_FILES['image']['name'];
             $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
             $extension = strrchr($file,'.');
-
             if(!in_array($extension,$extensions)){
                 $errors['image'] = "Cette image n'est pas valable";
             }
@@ -43,11 +42,13 @@
         }else{
             $model_article->post($title,$content,$posted);
             if(!empty($_FILES['image']['name'])){
+            
                 $model_article->post_img($_FILES['image']['tmp_name'], $extension);
+            
             }else{
                 $db = getPdo();
                 $id = $db->lastInsertId();
-                header("Location:index.php?page=list");
+               header("Location:index.php?page=list");
             }
         }
     }

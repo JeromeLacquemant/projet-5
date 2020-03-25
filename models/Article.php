@@ -133,6 +133,7 @@ class Article extends Model
     // Fonction permettant d'insérer un nouvel article dans la base de données
     function post($title,$content,$posted){
         global $db;
+        global $id;
         $db = getPdo();
 
         $p = [
@@ -150,24 +151,30 @@ class Article extends Model
 
         $req = $db->prepare($sql);
         $req->execute($p);
+
+        $id = $db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
+
     }
 
     // Fonction permettant d'insérer une nouvelle image dans la base de données
     function post_img($tmp_name, $extension){
         global $db;
+        global $id;
         $db = getPdo();
-
-        $id = $db->lastInsertId();
+        
+      
         $i = [
             'id'    =>  $id,
             'image' =>  $id.$extension  
         ];
 
         $sql = "UPDATE articles SET image = :image WHERE id = :id";
+        
         $req = $db->prepare($sql);
         $req->execute($i);
-        move_uploaded_file($tmp_name,"../public/img/posts/".$id.$extension);
-        header("Location:index.php?page=post&id=".$id);
+        move_uploaded_file("public/img/posts/".$id.$extension, $tmp_name);
+  
+        //header("Location:index.php?page=post&id=".$id);
     }
 
     // Fonction permettant de supprimer un article

@@ -94,7 +94,8 @@ if($post == false){
                     </div>
 
                     <div class="col s12">
-                        <button type="submit" name="submit" class="btn waves-effect">
+                        <button type="submit" name="submit" class="btn waves-effect" 
+                                onclick="return window.confirm(`Ce commentaire va être validé par notre équipe avant d'être affiché`)">
                             Commenter ce post
                         </button>
                     </div>
