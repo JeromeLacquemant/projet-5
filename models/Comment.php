@@ -5,6 +5,7 @@ require_once('Model.php');
 // Cette classe sert à manipuler tout ce qui touche aux commentaires
 class Comment extends Model
 {
+// FONCTIONS POUR LE FRONTEND
     // Fonction qui récupère les commentaires d'un article
     public function get_comments_blog(){
     
@@ -36,6 +37,7 @@ class Comment extends Model
     
     }
 
+//FONCTIONS POUR LE BACKEND
     // Fonction qui récupère l'ensemble des commentaires non vu par l'administrateur
     function get_comments(){
         $db = getPdo();
@@ -98,7 +100,7 @@ class Comment extends Model
     }
 
     // EN COURS
-    //Fonction permettant de supprimer tous les articles d'un commentaire (dans le cas où on veut supprimer un article)
+    //Fonction permettant de supprimer tous les commentaires d'un article (dans le cas où on veut supprimer un article)
     function delete_article_comments(){
         
         if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {

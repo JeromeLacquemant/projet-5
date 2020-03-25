@@ -87,7 +87,7 @@ class Article extends Model
         return $results;
         }
 
-// Fonction permettant d'obtenir un article
+// Fonction permettant d'obtenir un article en particulier
     function get_post(){
 
         global $db;
