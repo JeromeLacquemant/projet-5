@@ -172,7 +172,7 @@ class Article extends Model
         
         $req = $db->prepare($sql);
         $req->execute($i);
-        move_uploaded_file("public/img/posts/".$id.$extension, $tmp_name);
+        move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
   
         //header("Location:index.php?page=post&id=".$id);
     }
