@@ -44,7 +44,7 @@
             if(!empty($_FILES['image']['name'])){
             
                 $model_article->post_img($_FILES['image']['tmp_name'], $extension);
-            
+
             }else{
                 $db = getPdo();
                 $id = $db->lastInsertId();

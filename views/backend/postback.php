@@ -10,6 +10,7 @@
         }
     ?>
 
+
     </div>
         <div class="parallax-container">
             <div class="parallax">
@@ -38,9 +39,11 @@
                 $file = $_FILES['image']['name'];
                 $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
                 $extension = strrchr($file,'.');
-    
+                var_dump($_FILES);
+  
                 if(!in_array($extension,$extensions)){
                     $errors['image'] = "Cette image n'est pas valable.";
+                      
                 }
             }
             
@@ -58,17 +61,28 @@
                 <?php
             }else{
                 $model_article->edit($title,$content,$posted,$_GET['id']);
+             
+                if(!empty($_FILES['image']['name']))
+                {
+                    $model_article->update_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:index.php?page=list");
+                }
+                else
+                {
+                    header("Location:index.php?page=list");
+                }
+                
                 ?>
                     <script>
                         window.location.replace("index.php?page=postback&id=<?= $_GET['id'] ?>");
-                    </script>
+                    </script> 
                 <?php
             }
         }
     ?>
 
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>

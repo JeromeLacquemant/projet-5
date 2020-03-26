@@ -113,7 +113,6 @@ class Article extends Model
 
     // Fonction permettant d'éditer un article 
     function edit($title,$content,$posted,$id){
-
         global $db;
         $db = getPdo();
 
@@ -127,7 +126,6 @@ class Article extends Model
         $sql = "UPDATE articles SET title=:title, content=:content, date=NOW(), posted=:posted WHERE id=:id";
         $req = $db->prepare($sql);
         $req->execute($e);
-
     }
 
     // Fonction permettant d'insérer un nouvel article dans la base de données
@@ -153,7 +151,6 @@ class Article extends Model
         $req->execute($p);
 
         $id = $db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
-
     }
 
     // Fonction permettant d'insérer une nouvelle image dans la base de données
@@ -173,10 +170,26 @@ class Article extends Model
         $req = $db->prepare($sql);
         $req->execute($i);
         move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
-  
-        //header("Location:index.php?page=post&id=".$id);
     }
 
+        // Fonction permettant de mettre à jour l'image d'un article
+    function update_img($tmp_name, $extension){
+        $db = getPdo();
+        
+        $id = $_GET['id'];
+         
+        $i = [
+            'id'    =>  $id,
+            'image' =>  $id.$extension  
+        ];
+
+        $sql = "UPDATE articles SET image = :image WHERE id = :id";
+        
+        $req = $db->prepare($sql);
+        $req->execute($i);
+        move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
+    }
+    
     // Fonction permettant de supprimer un article
     function delete_article()
     {
@@ -197,9 +210,6 @@ class Article extends Model
         $query = $db->prepare('DELETE FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
 
-       
-
         exit();
-
     }
 }
