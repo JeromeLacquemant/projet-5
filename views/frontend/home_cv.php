@@ -49,7 +49,6 @@
   </div>
   <!--/.#headerwrap -->
 
-
   <section id="about" name="about">
     <div id="intro">
       <div class="container">
@@ -169,7 +168,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-lg-offset-1">
-          <h5>Compétences</h5>
+          <h5>COMPETENCES</h5>
         </div>
         <div class="col-lg-3 centered">
           <canvas id="photoshop" height="130" width="130"></canvas>
@@ -225,10 +224,11 @@
           <p><img class="img-responsive" src="../public/bootstrap/img/port01.jpg" alt=""></p>
         </div>
         <div class="col-lg-3">
-          <p>CANALS OF ENGLAND</p>
+          <p>Chalets et caviar (projet-2)</p>
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
-              <sm><i class="icon-tag"></i> design</sm>
+                <a href="http://projet-2.jeromelacquemant.fr/" target="_blank">Lien vers le projet</a>
+                <sm><i class="icon-tag"></i> Utilisation de Wordpress</sm>
             </more>
           </p>
         </div>
@@ -237,10 +237,11 @@
           <p><img class="img-responsive" src="../public/bootstrap/img/port02.jpg" alt=""></p>
         </div>
         <div class="col-lg-3">
-          <p>SANKEY</p>
+          <p>Festival Les Films De Plein Air (projet-3)</p>
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
-              <sm><i class="icon-tag"></i> front-end</sm>
+            <a href="http://projet-3.jeromelacquemant.fr/" target="_blank">Lien vers le projet</a>
+                <sm><i class="icon-tag"></i>Utilisation de Bootstrap 4</sm>
             </more>
           </p>
         </div>
@@ -249,10 +250,11 @@
           <p><img class="img-responsive" src="../public/bootstrap/img/port03.jpg" alt=""></p>
         </div>
         <div class="col-lg-3">
-          <p>WE GROW</p>
+          <p>Mon blog (projet-5)</p>
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
-              <sm><i class="icon-tag"></i> web design</sm>
+              <a href="http://projet-5.jeromelacquemant.fr/" target="_blank">Lien vers le projet</a>
+                <sm><i class="icon-tag"></i> Utilisation de PHP 7</sm>
             </more>
           </p>
         </div>
@@ -276,57 +278,55 @@
           </div>
           <div class="col-lg-4">
             <p>
-              <t>Email</t><br/> contact@example.com <br/>
+              <t>Email</t><br/> jerome.lacquemant@gmail.com <br/>
             </p>
             <p>
-              <t>Adress</t><br/> Some Ave. 987 <br/> Postal 23892 <br/> London, England. <br/>
+              <t>Adresse</t><br/> 8 rue de jean-Daniel <br/> 69003 <br/> Lyon, France <br/>
             </p>
             <p>
-              <t>Phone</t><br/> +55 8933-2383 <br/>
+              <t>Téléphone</t><br/> 06 XX XX XX XX<br/>
             </p>
             <p>
               <t>Social Links</t><br/>
-              <a href="#"><i class="fa fa-dribbble"></i></a>
               <a href="#"><i class="fa fa-twitter"></i></a>
               <a href="#"><i class="fa fa-facebook"></i></a>
               <a href="#"><i class="fa fa-linkedin"></i></a>
-              <a href="#"><i class="fa fa-apple"></i></a>
             </p>
           </div>
           <div class="col-lg-6">
             <p>
-              <sm>CONTACT FORM</sm>
+              <sm>FORMULAIRE DE CONTACT</sm>
             </p>
             <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
 
               <div class="form-group">
-                <label for="contact-name">Your Name</label>
-                <input type="name" name="name" class="form-control" id="contact-name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <label for="contact-name">Votre nom</label>
+                <input type="name" name="name" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <label for="contact-email">Your Email</label>
-                <input type="email" name="email" class="form-control" id="contact-email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                <label for="contact-email">Votre email</label>
+                <input type="email" name="email" class="form-control" id="contact-email" placeholder="example@gmail.com" data-rule="email" data-msg="Veuillez entrer une adresse mail valide.">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <label for="contact-subject">Subject</label>
-                <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                <label for="contact-subject">Sujet</label>
+                <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Veuillez entrer au mois 8 caractères pour votre sujet">
                 <div class="validate"></div>
               </div>
 
               <div class="form-group">
-                <label for="contact-message">Your Message</label>
-                <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+                <label for="contact-message">Votre message</label>
+                <textarea class="form-control" name="message" id="contact-message" placeholder="Votre message" rows="5" data-rule="required" data-msg="Veuillez écrire votre message, que je lirai avec attention."></textarea>
                 <div class="validate"></div>
               </div>
 
               <div class="loading"></div>
               <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="sent-message">Votre message a été envoyé. Merci !</div>
 
               <div class="form-send">
-                <button type="submit" class="btn btn-large">Send Message</button>
+                <button type="submit" class="btn btn-large">Envoyer le message à Jérôme</button>
               </div>
 
             </form>
@@ -340,10 +340,12 @@
     <!--/ #footer -->
   </section>
 
+</div> 
   <div id="copyrights">
     <div class="container">
-      <p>
-        &copy; Copyrights <strong>Kelvin</strong>. All Rights Reserved
+        <p><a href="https://templatemag.com/">Mentions légales</a></p>
+        <p>
+        &copy; Copyrights <strong>Jérôme LACQUEMANT</strong>. Tous droits réservés
       </p>
       <div class="credits">
         <!--
@@ -352,7 +354,10 @@
           Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/kelvin-bootstrap-resume-template/
           Licensing information: https://templatemag.com/license/
         -->
-        Created with Kelvin template by <a href="https://templatemag.com/">TemplateMag</a>
+        <p>Blog créé dans le cadre d'un projet de formation OpenClassrooms</p>
+        <p>Created with Kelvin template by <a href="https://templatemag.com/">TemplateMag</a></p>
+        
+        
       </div>
     </div>
   </div>
