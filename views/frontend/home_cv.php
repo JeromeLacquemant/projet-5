@@ -12,20 +12,20 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="public/bootstrap/img/favicon.png" rel="icon">
-  <link href="public/bootstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../../public/bootstrap/img/favicon.png" rel="icon">
+  <link href="../../public/bootstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="public/bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../public/bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="public/bootstrap/css/style.css" rel="stylesheet">
+  <link href="../../public/bootstrap/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Kelvin
@@ -288,7 +288,7 @@
           <h5>PORTFOLIO</h5>
         </div>
         <div class="col-lg-6">
-          <p><img class="img-responsive" src="img/port01.jpg" alt=""></p>
+          <p><img class="img-responsive" src="../public/bootstrap/img/port01.jpg" alt=""></p>
         </div>
         <div class="col-lg-3">
           <p>CANALS OF ENGLAND</p>
@@ -300,7 +300,7 @@
         </div>
 
         <div class="col-lg-6 col-lg-offset-3">
-          <p><img class="img-responsive" src="img/port02.jpg" alt=""></p>
+          <p><img class="img-responsive" src="../public/bootstrap/img/port02.jpg" alt=""></p>
         </div>
         <div class="col-lg-3">
           <p>SANKEY</p>
@@ -312,7 +312,7 @@
         </div>
 
         <div class="col-lg-6 col-lg-offset-3">
-          <p><img class="img-responsive" src="img/port03.jpg" alt=""></p>
+          <p><img class="img-responsive" src="../public/bootstrap/img/port03.jpg" alt=""></p>
         </div>
         <div class="col-lg-3">
           <p>WE GROW</p>
@@ -424,14 +424,14 @@
   </div>
 
   <!-- JavaScript Libraries -->
-  <script src="public/bootstrap/lib/jquery/jquery.min.js"></script>
-  <script src="public/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="public/bootstrap/lib/php-mail-form/validate.js"></script>
-  <script src="public/bootstrap/lib/chart/chart.js"></script>
-  <script src="public/bootstrap/lib/easing/easing.min.js"></script>
+  <script src="../../public/bootstrap/lib/jquery/jquery.min.js"></script>
+  <script src="../../public/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../public/bootstrap/lib/php-mail-form/validate.js"></script>
+  <script src="../../public/bootstrap/lib/chart/chart.js"></script>
+  <script src="../../public/bootstrap/lib/easing/easing.min.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="public/bootstrap/js/main.js"></script>
+  <script src="../public/bootstrap/js/main.js"></script>
 
 </body>
 </html>
