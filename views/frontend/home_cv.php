@@ -12,20 +12,20 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="public/bootstrap/img/favicon.png" rel="icon">
+  <link href="public/bootstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="public/bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="public/bootstrap/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Kelvin
@@ -424,14 +424,14 @@
   </div>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/php-mail-form/validate.js"></script>
-  <script src="lib/chart/chart.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
+  <script src="public/bootstrap/lib/jquery/jquery.min.js"></script>
+  <script src="public/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="public/bootstrap/lib/php-mail-form/validate.js"></script>
+  <script src="public/bootstrap/lib/chart/chart.js"></script>
+  <script src="public/bootstrap/lib/easing/easing.min.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="public/bootstrap/js/main.js"></script>
 
 </body>
 </html>

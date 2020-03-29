@@ -8,6 +8,11 @@ require_once('models/User.php');
 
 class Frontend
 {
+    public function home_cv()
+    {
+        require('views/frontend/home_cv.php');
+    }
+    
     public function home()
     {
         $model_article = new Article();
