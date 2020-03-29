@@ -16,8 +16,8 @@ require_once("controllers/Backend.php");
 if (!isset($_GET['page']))
 {
     $controller = new Frontend();
-    $controller->home();
-    require_once('views/frontend/home.php');
+    $controller->home_cv();
+    require_once('views/frontend/home_cv.php');
 }
 
 // Affichage des autres page en fonction du GET

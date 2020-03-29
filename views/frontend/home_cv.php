@@ -37,8 +37,9 @@
     <div class="container">
       <div class="row centered">
         <div class="col-lg-12">
-          <h1>William T. Kelvin</h1>
-          <h3>Web Designer | contact@example.com</h3>
+          <h1>Jérôme Lacquemant</h1>
+          <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
+          <p>contact@example.com</p>
         </div>
         <!--/.col-lg-12 -->
       </div>
@@ -55,15 +56,17 @@
         <div class="row">
 
           <div class="col-lg-2 col-lg-offset-1">
-            <h5>ABOUT</h5>
+            <h5>A propos de moi</h5>
           </div>
           <div class="col-lg-6">
-            <p>I'm web designer & front-end developer with 7 years of professional experience. I'm interested in all kinds of visual communication, but my major focus is on designing web, mobile & tablet interfaces. I also have skills in other fields like
-              branding, icon design or web development.</p>
+              <p>Développeur d'applications web spécialisé en PHP et Symfony avec quelques mois d'expériences, je prends les projets très à coeur.</p>
+              <p>Mon rôle est d'échanger avec vous, de conceptualiser et de créer l'application qui sera adaptée à vos besoins.</p>
+                Mon but est de vous fournir un outil fonctionnel dont vous pourrez vous servir facilement.
+              </p>
           </div>
           <div class="col-lg-3">
             <p><a href="#"><i class="icon-file"></i></a>
-              <sm>DOWNLOAD PDF</sm>
+              <sm>Télécharger mon CV</sm>
             </p>
           </div>
 
@@ -82,32 +85,32 @@
       <div class="row">
 
         <div class="col-lg-2 col-lg-offset-1">
-          <h5>EDUCATION</h5>
+          <h5>FORMATION</h5>
         </div>
         <div class="col-lg-6">
           <p>
-            <t>Master of Web Design</t><br/> St. Patrick University <br/>
-            <i>3 Years Course</i>
+            <t>Diplôme de développeur d'application PHP/Symfony</t><br/> OpenClassrooms <br/>
+            <i>1 an</i>
           </p>
         </div>
         <div class="col-lg-3">
           <p>
-            <sm>GRADUATING IN MAY 2014</sm><br/>
+            <sm>Diplômé en juillet 2020</sm><br/>
             <imp>
-              <sm>IN PROGRESS</sm>
+              <sm>En cours</sm>
             </imp>
           </p>
         </div>
 
         <div class="col-lg-6 col-lg-offset-3">
           <p>
-            <t>Degree of Web Developer</t><br/> Hastings University <br/>
-            <i>2 Years Course</i>
+            <t>Diplôme d'ingénieur en Maîtrise des Risques Industriels</t><br/> INSA Rouen<br/>
+            <i>3 ans</i>
           </p>
         </div>
         <div class="col-lg-3">
           <p>
-            <sm>JUNE 2012</sm>
+            <sm>2014 - 2017</sm>
           </p>
         </div>
 
@@ -125,11 +128,11 @@
     <div class="row">
 
       <div class="col-lg-2 col-lg-offset-1">
-        <h5>WORK</h5>
+        <h5>Expériences Professionnelles</h5>
       </div>
       <div class="col-lg-6">
         <p>
-          <t>Front-end Developer</t><br/> Example Corp. <br/>
+          <t>Développeur PHP / Symfony</t><br/> OpenClassrooms <br/>
         </p>
         <p>
           <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</more>
@@ -137,13 +140,13 @@
       </div>
       <div class="col-lg-3">
         <p>
-          <sm>AUGUST 2012 - CURRENT</sm>
+          <sm>Septembre 2019 - Aujourd'hui</sm>
         </p>
       </div>
 
       <div class="col-lg-6 col-lg-offset-3">
         <p>
-          <t>Web Designer - Intern</t><br/> Onassis Ltd. <br/>
+          <t>Ingénieur en Maîtrise des Risques Industriels</t><br/> Néodyme <br/>
         </p>
         <p>
           <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</more>
@@ -151,48 +154,9 @@
       </div>
       <div class="col-lg-3">
         <p>
-          <sm>JUNE 2010 - JULY 2012</sm>
+          <sm>Juillet 2017 - Aujourd'hui</sm>
         </p>
       </div>
-    </div>
-    <!--/.row -->
-    <br>
-    <hr>
-  </div>
-  <!--/.container -->
-
-
-  <!--AWARDS DESCRIPTION -->
-  <div class="container desc">
-    <div class="row">
-      <div class="col-lg-2 col-lg-offset-1">
-        <h5>AWARDS</h5>
-      </div>
-      <div class="col-lg-6">
-        <p>
-          <t>Best Web Design</t><br/> Example Site <br/>
-        </p>
-      </div>
-      <div class="col-lg-3">
-        <p>
-          <sm>NOVEMBER 2013</sm>
-        </p>
-      </div>
-
-      <div class="col-lg-6 col-lg-offset-3">
-        <p>
-          <t>Designer of the Year</t><br/> Awwwards Site
-        </p>
-        <p>
-          <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</more>
-        </p>
-      </div>
-      <div class="col-lg-3">
-        <p>
-          <sm>2013</sm>
-        </p>
-      </div>
-
     </div>
     <!--/.row -->
     <br>
@@ -205,16 +169,26 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-lg-offset-1">
-          <h5>SKILLS</h5>
+          <h5>Compétences</h5>
         </div>
         <div class="col-lg-3 centered">
-          <canvas id="javascript" height="130" width="130"></canvas>
-          <p>Javascript</p>
+          <canvas id="photoshop" height="130" width="130"></canvas>
+          <p>PHP 7</p>
           <br>
         </div>
         <div class="col-lg-3 centered">
+          <canvas id="illustrator" height="130" width="130"></canvas>
+          <p>Symfony 4</p>
+          <br>
+        </div>
+        <div class="col-lg-3 centered">
+          <canvas id="javascript" height="130" width="130"></canvas>
+          <p>CSS Materialize</p>
+          <br>
+        </div>
+        <div class="col-lg-3 col-lg-offset-3 centered">
           <canvas id="bootstrap" height="130" width="130"></canvas>
-          <p>Bootstrap</p>
+          <p>Bootstrap 4</p>
           <br>
         </div>
         <div class="col-lg-3 centered">
@@ -223,21 +197,12 @@
           <br>
         </div>
 
-        <div class="col-lg-3 col-lg-offset-3 centered">
+        <div class="col-lg-3 centered">
           <canvas id="html" height="130" width="130"></canvas>
-          <p>HTML/CSS</p>
+          <p>HTML 5 / CSS 3</p>
           <br>
         </div>
-        <div class="col-lg-3 centered">
-          <canvas id="photoshop" height="130" width="130"></canvas>
-          <p>Photoshop</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="illustrator" height="130" width="130"></canvas>
-          <p>Illustrator</p>
-          <br>
-        </div>
+   
 
       </div>
       <!--/.row -->
