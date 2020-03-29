@@ -3,7 +3,6 @@
 ob_start();
 
 ?>
-
 <!DOCTYPE html>
     <html>
         <head>
@@ -32,3 +31,5 @@ ob_start();
             <script type="text/javascript" src="public/js/post.func.js"></script>
         </body>
     </html>
+   
+

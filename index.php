@@ -24,6 +24,11 @@ if (!isset($_GET['page']))
 if (isset($_GET['page']))
 {
     switch($_GET['page']){
+        case 'home_cv':
+            $controller = new Frontend();
+            $controller->home_cv();
+        break;
+    
         case 'home':
             $controller = new Frontend();
             $controller->home();

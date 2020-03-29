@@ -10,7 +10,9 @@ class Frontend
 {
     public function home_cv()
     {
-        require('views/frontend/home_cv.php');
+        $page="frontend/home_cv";
+        $topbar="frontend/topbar";
+        require('views/presentation.php');
     }
     
     public function home()
