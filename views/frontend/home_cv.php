@@ -1,12 +1,11 @@
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
-
  
     <div class="col-lg-12 centered">
         <h1>Jérôme Lacquemant</h1>
         <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
         <h3>Votre projet, ma mission !</h3>
     </div>
-      <img class="img-responsive" src="../../public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
+      <img class="img-responsive" src="public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
     <div class="container">
       <div class="row centered">
         <!--/.col-lg-12 -->
@@ -30,7 +29,7 @@
           </div>
           <div class="col-lg-3">
             <p><a href="#"><i class="icon-file"></i></a>
-                <a href="../../public/fichier/CV_Jerome.pdf" download> Télécharger mon CV</a>
+                <a href="public/fichier/CV_Jerome.pdf" download> Télécharger mon CV</a>
             </p>
           </div>
 
@@ -182,13 +181,13 @@
     <!--PORTFOLIO DESCRIPTION -->
     <div class="container desc">
       <div class="row">
-        <div class="col-lg-2 col-lg-offset-1">
+        <div class="col-lg-2 ">
           <h5>PORTFOLIO</h5>
         </div>
         <div class="col-lg-6">
           <p><img class="img-responsive" src="../../public/img/accueil/Photo_Projet2.png" alt="Screenshot du projet 2"></p>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <p>Chalets et caviar (projet-2)</p>
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
@@ -197,7 +196,7 @@
           </p>
         </div>
 
-        <div class="col-lg-6 col-lg-offset-3">
+        <div class="col-lg-6 col-lg-offset-2">
           <p><img class="img-responsive" src="../../public/img/accueil/Photo_Projet3.png" alt="Screenshot du projet 3"></p>
         </div>
         <div class="col-lg-3">
@@ -209,7 +208,7 @@
           </p>
         </div>
 
-        <div class="col-lg-6 col-lg-offset-3">
+        <div class="col-lg-6 col-lg-offset-2">
           <p><img class="img-responsive" src="../public/img/accueil/Photo_Projet5.png" alt="Screenshot du projet 5"></p>
         </div>
         <div class="col-lg-3">
@@ -238,7 +237,7 @@
           <div class="col-lg-2">
             <h5>CONTACT</h5>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <p>
               <t>Email</t><br/> jerome.lacquemant@gmail.com <br/>
             </p>
@@ -288,7 +287,7 @@
               <div class="sent-message">Votre message a été envoyé. Merci !</div>
 
               <div class="form-send">
-                <button type="submit" class="btn btn-large">Envoyer le message à Jérôme</button>
+                <button type="submit" class="btn">Envoyer le message à Jérôme</button>
               </div>
 
             </form>
@@ -301,8 +300,5 @@
     </div>
     <!--/ #footer -->
   </section>
-
-
-
+  
 </body>
-</html>

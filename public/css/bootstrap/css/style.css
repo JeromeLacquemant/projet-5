@@ -9,7 +9,7 @@ body {
   background-color: #f2f2f2;
   font-family: "Lato";
   font-weight: 300;
-  font-size: 16px;
+  font-size: 20px;
   color: #555;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
@@ -99,7 +99,55 @@ Top Bar
 By default, top navigation bar uses "fixed" position
 */
 
+#section-topbar ul#nav {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid #222;
+  /* For IE, the outcast */
+  zoom: 1;
+  *display: inline;
+}
 
+#section-topbar ul#nav>li {
+  display: block;
+  float: left;
+  padding: 0;
+}
+
+#section-topbar ul#nav a {
+  display: block;
+  font: normal 11px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  padding: 18px 20px 18px 20px;
+  border-left: 1px solid #222;
+}
+
+#section-topbar ul#nav a:focus {
+  background: #111;
+  text-decoration: none;
+  border-left: 1px solid #111;
+}
+
+#section-topbar ul#nav a:hover {
+  background: #222;
+  text-decoration: none;
+  border-left: 1px solid #111;
+}
+
+#section-topbar ul#nav .active a {
+  background: #44bbaa;
+  border-left: 1px solid #111;
+}
+
+#section-topbar ul#nav .active a:hover {
+  background: #44bbaa;
+}
+
+#section-topbar i {
+  font-size: 25px;
+}
 
 /*---------------------------------------------------
 SECTION WRAPS
@@ -108,7 +156,7 @@ SECTION WRAPS
 /* Header Wrap */
 
 #headerwrap {
-  background: url(../img/favicon.png) no-repeat center top;
+  background: url(../img/header-bg.jpg) no-repeat center top;
   margin-top: 60px;
   padding-top: 140px;
   text-align: center;
@@ -234,7 +282,7 @@ SECTION WRAPS
 }
 
 sm {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 /* Contact Form */
