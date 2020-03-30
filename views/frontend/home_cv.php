@@ -12,13 +12,13 @@
 -->
   
   <!-- Bootstrap CSS File -->
-  <link href="../../public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../public/css/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="../../public/bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 
   <!-- Main Stylesheet File -->
-  <link href="public/bootstrap/css/style.css" rel="stylesheet">
+  <link href="public/css/bootstrap/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Kelvin
@@ -284,15 +284,15 @@
             <p>
               <t>Social Links</t><br/>
               <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
+              <a href="#" ><i class="fa fa-facebook"></i></a>
+              <a href="https://www.linkedin.com/in/j%C3%A9r%C3%B4me-lacquemant/" target="_blank"><i class="fa fa-linkedin"></i></a>
             </p>
           </div>
           <div class="col-lg-6">
             <p>
               <sm>FORMULAIRE DE CONTACT</sm>
             </p>
-            <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
+            <form class="contact-form php-mail-form" role="form" action="css/bootstrap/contactform/contactform.php" method="POST">
 
               <div class="form-group">
                 <label for="contact-name">Votre nom</label>
