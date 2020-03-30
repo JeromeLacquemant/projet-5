@@ -1,7 +1,7 @@
 <nav class="light-green">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="index.php?page=home" class="brand-logo">Accueil de Jérôme</a>
+            <a href="index.php?page=home" class="brand-logo">Accueil</a>
             <?php
             if($page != 'login' && $page != 'new' && $page != 'password'){
                 ?>

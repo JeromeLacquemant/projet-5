@@ -10,7 +10,6 @@
   <!-- Google Fonts 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
 -->
-<link type="text/css" rel="stylesheet" href="../../public/css/materialize.css"  media="screen,projection"/>
   
   <!-- Bootstrap CSS File -->
   <link href="../../public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,11 +30,11 @@
 
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
 
-  <div id="" name="">
+ 
     <div class="col-lg-12 centered">
         <h1>Jérôme Lacquemant</h1>
         <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
-        <p>jerome.lacquemant@gmail.com</p>
+        <h3>Votre projet, ma mission !</h3>
     </div>
       <img class="img-responsive" src="../../public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
     <div class="container">
@@ -45,10 +44,8 @@
       <!--/.row -->
     </div>
     <!--/.container -->
-  </div>
-  <!--/.#headerwrap -->
 
-  <section id="about" name="about">
+  <section id="about">
     <div id="intro">
       <div class="container">
         <div class="row">
@@ -58,9 +55,8 @@
           </div>
           <div class="col-lg-6">
               <p>Développeur d'applications web spécialisé en PHP et Symfony avec quelques mois d'expériences, je prends les projets très à coeur.</p>
-              <p>Mon rôle est d'échanger avec vous, de conceptualiser et de créer l'application qui sera adaptée à vos besoins.</p>
-                Mon but est de vous fournir un outil fonctionnel dont vous pourrez vous servir facilement.
-              </p>
+              <p>Mon rôle est d'échanger avec vous, de conceptualiser et de créer l'application qui sera adaptée à vos besoins.
+                Mon but est de vous fournir un outil fonctionnel dont vous pourrez vous servir facilement.</p>
           </div>
           <div class="col-lg-3">
             <p><a href="#"><i class="icon-file"></i></a>
@@ -77,7 +73,7 @@
   </section>
 
 
-  <section id="resume" name="resume">
+  <section id="resume">
     <!--EDUCATION DESCRIPTION -->
     <div class="container desc">
       <div class="row">
@@ -212,7 +208,7 @@
 
 
 
-  <section id="work" name="work">
+  <section id="work">
     <!--PORTFOLIO DESCRIPTION -->
     <div class="container desc">
       <div class="row">
@@ -266,7 +262,7 @@
     <!--/.container -->
   </section>
 
-  <section id="contact" name="contact">
+  <section id="contact">
     <!--FOOTER DESCRIPTION -->
     <div id="footwrap">
       <div class="container">
@@ -300,7 +296,7 @@
 
               <div class="form-group">
                 <label for="contact-name">Votre nom</label>
-                <input type="name" name="name" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
+                <input type="name" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
