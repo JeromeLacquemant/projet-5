@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Kelvin - Bootstrap Resume Template</title>
+  <title>Jérôme LACQUEMANT - Développeur d'application</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
-  <link href="../../public/bootstrap/img/favicon.png" rel="icon">
-  <link href="../../public/bootstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
+  <!-- Google Fonts 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
-
+-->
+  
   <!-- Bootstrap CSS File -->
   <link href="../../public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -221,7 +218,7 @@
           <h5>PORTFOLIO</h5>
         </div>
         <div class="col-lg-6">
-          <p><img class="img-responsive" src="../public/bootstrap/img/port01.jpg" alt=""></p>
+          <p><img class="img-responsive" src="../../public/img/accueil/Photo_Projet2.png" alt="Screenshot du projet 2"></p>
         </div>
         <div class="col-lg-3">
           <p>Chalets et caviar (projet-2)</p>
@@ -234,7 +231,7 @@
         </div>
 
         <div class="col-lg-6 col-lg-offset-3">
-          <p><img class="img-responsive" src="../public/bootstrap/img/port02.jpg" alt=""></p>
+          <p><img class="img-responsive" src="../../public/img/accueil/Photo_Projet3.png" alt="Screenshot du projet 3"></p>
         </div>
         <div class="col-lg-3">
           <p>Festival Les Films De Plein Air (projet-3)</p>
@@ -247,7 +244,7 @@
         </div>
 
         <div class="col-lg-6 col-lg-offset-3">
-          <p><img class="img-responsive" src="../public/bootstrap/img/port03.jpg" alt=""></p>
+          <p><img class="img-responsive" src="../public/img/accueil/Photo_Projet5.png.jpg" alt="Screenshot du projet 5"></p>
         </div>
         <div class="col-lg-3">
           <p>Mon blog (projet-5)</p>

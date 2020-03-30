@@ -6,10 +6,11 @@ ob_start();
 <!DOCTYPE html>
     <html>
         <head>
-            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="public/bootstrap/img/favicon_dev.png" rel="icon">
             <link type="text/css" rel="stylesheet" href="public/css/materialize.css"  media="screen,projection"/>
-            <title>Blog 2.0</title>
+            <title>Blog de Jérôme</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+             
         </head>
     
         <body>
