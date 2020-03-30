@@ -5,7 +5,6 @@ include('config/connexion_database.php');
 // Retourne une connexion à la base de données
 function getPdo(): PDO
 {
-    global $db;
 global $dbhost;
 global $dbname;
 global $dbuser;

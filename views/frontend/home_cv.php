@@ -1,34 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Jérôme LACQUEMANT - Développeur d'application</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-
-  <!-- Google Fonts 
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
--->
-  
-  <!-- Bootstrap CSS File -->
-  <link href="../../public/css/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-
-
-  <!-- Main Stylesheet File -->
-  <link href="public/css/bootstrap/css/style.css" rel="stylesheet">
-  
-
-  <!-- =======================================================
-    Template Name: Kelvin
-    Template URL: https://templatemag.com/kelvin-bootstrap-resume-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
-</head>
-
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
 
  
@@ -333,15 +302,7 @@
     <!--/ #footer -->
   </section>
 
-  <!-- JavaScript Libraries -->
-  <script src="../../public/bootstrap/lib/jquery/jquery.min.js"></script>
-  <script src="../../public/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../../public/bootstrap/lib/php-mail-form/validate.js"></script>
-  <script src="../../public/bootstrap/lib/chart/chart.js"></script>
-  <script src="../../public/bootstrap/lib/easing/easing.min.js"></script>
 
-  <!-- Template Main Javascript File -->
-  <script src="../public/bootstrap/js/main.js"></script>
 
 </body>
 </html>
