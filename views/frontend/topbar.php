@@ -1,7 +1,7 @@
 <nav class="grey darken-4">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="index.php?page=home" class="brand-logo">Blog 2.0</a>
+            <a href="index.php?page=home_cv" class="brand-logo">Accueil de Jérôme</a>
 
             <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 

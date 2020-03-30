@@ -39,7 +39,7 @@
         <div class="col-lg-12">
           <h1>Jérôme Lacquemant</h1>
           <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
-          <p>contact@example.com</p>
+          <p>jerome.lacquemant@gmail.com</p>
         </div>
         <!--/.col-lg-12 -->
       </div>
@@ -65,7 +65,7 @@
           </div>
           <div class="col-lg-3">
             <p><a href="#"><i class="icon-file"></i></a>
-              <sm>Télécharger mon CV</sm>
+                <a href="../../public/fichier/CV_Jerome.pdf" download> Télécharger mon CV</a>
             </p>
           </div>
 
