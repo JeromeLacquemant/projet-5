@@ -65,17 +65,6 @@ class Backend
         require('views/presentation.php');
     }
 
-    public function new()
-    {
-        $model_article = new Article();
-        $model_comment = new Comment();
-        $model_user = new User();
-        
-        $page="backend/new";
-        $topbar="backend/topbar";
-        require('views/presentation.php');
-    }
-
     public function password()
     {
         $model_article = new Article();

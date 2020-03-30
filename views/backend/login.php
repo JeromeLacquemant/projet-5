@@ -71,7 +71,6 @@
                         Se connecter
                     </button>
                     <br/><br/>
-                    <a href="index.php?page=new">Nouveau modérateur</a>
                 </center>
 
             </form>

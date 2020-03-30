@@ -47,7 +47,7 @@ if($model_user->admin()!=1){
                 $email = htmlspecialchars(trim($_POST['email']));
                 $email_again = htmlspecialchars(trim($_POST['email_again']));
                 $role = htmlspecialchars(trim($_POST['role']));
-                $token = $model_user->token(30);
+       
 
                 $errors = [];
 
@@ -76,7 +76,7 @@ if($model_user->admin()!=1){
                         </div>
                     <?php
                 }else{
-                    $model_user->add_modo($name,$email,$role,$token);
+                    $model_user->add_modo($name,$email,$role);
                 }
             }
         ?>

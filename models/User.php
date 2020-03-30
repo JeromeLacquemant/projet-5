@@ -63,14 +63,9 @@ class User{
 
         return $free;
     }
-    // Fonction permettant de créer un token
-    function token($length){
-        $chars = "azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN0123456789";
-        return substr(str_shuffle(str_repeat($chars,$length)),0,$length);
-    }
 
     // Fonction permettant d'ajouter un modérateur
-    function add_modo($name,$email,$role,$token){
+    function add_modo($name,$email,$role){
 
         global $db;
         $db = getPdo();
@@ -78,11 +73,10 @@ class User{
         $m= [
             'name'      =>  $name,
             'email'     =>  $email,
-            'token'     =>  $token,
             'role'      =>  $role
         ];
 
-        $sql = "INSERT INTO admins(name,email,token,role, password) VALUES(:name,:email,:token,:role, '')";
+        $sql = "INSERT INTO admins(name,email,role, password) VALUES(:name,:email,:role, '')";
         $req = $db->prepare($sql);
         $req->execute($m);
 
@@ -95,7 +89,6 @@ class User{
                 <body>
                     Voici votre identifiant et code unique à insérer sur <a href="http://tutos.dev/blog_2-0/admin/index.php?page=new">cette page</a>:
                     <br/>Identifiant: '.$email.'
-                    <br/>Mot de passe: '.$token.'
                     <br/>Vous êtes: '.$role.'
                     <br/><br/>Après avoir inséré ces informations, vous devrez choisir un mot de passe.
                 </body>
