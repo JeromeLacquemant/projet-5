@@ -14,6 +14,13 @@ class Frontend
         $topbar="frontend/topbar";
         require('views/presentation.php');
     }
+
+    public function legalnotice()
+    {
+        $page="frontend/legalnotice";
+        $topbar="frontend/topbar";
+        require('views/presentation.php');
+    }
     
     public function home()
     {

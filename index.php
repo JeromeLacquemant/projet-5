@@ -29,6 +29,11 @@ if (isset($_GET['page']))
             $controller->home_cv();
         break;
     
+        case 'legalnotice':
+            $controller = new Frontend();
+            $controller->legalnotice();
+        break;
+    
         case 'home':
             $controller = new Frontend();
             $controller->home();

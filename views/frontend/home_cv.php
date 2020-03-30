@@ -241,7 +241,7 @@
         </div>
 
         <div class="col-lg-6 col-lg-offset-3">
-          <p><img class="img-responsive" src="../public/img/accueil/Photo_Projet5.png.jpg" alt="Screenshot du projet 5"></p>
+          <p><img class="img-responsive" src="../public/img/accueil/Photo_Projet5.png" alt="Screenshot du projet 5"></p>
         </div>
         <div class="col-lg-3">
           <p>Mon blog (projet-5)</p>
@@ -336,7 +336,7 @@
 </div> 
   <div id="copyrights">
     <div class="container">
-        <p><a href="https://templatemag.com/">Mentions légales</a></p>
+        <p><a href="index.php?page=legalnotice">Mentions légales</a></p>
         <p>
         &copy; Copyrights <strong>Jérôme LACQUEMANT</strong>. Tous droits réservés
       </p>
