@@ -74,10 +74,8 @@ class Article extends Model
     // Fonction permettant de récupérer l'ensemble des articles
     function get_posts(){
 
-        $db = getPdo();
-        global $db;
         
-        $req = $db->query("SELECT * FROM articles ORDER BY date DESC");
+        $req = $this->db->query("SELECT * FROM articles ORDER BY date DESC");
         
         $results = [];
         while($rows = $req->fetchObject()){
