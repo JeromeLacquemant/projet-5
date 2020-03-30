@@ -19,6 +19,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="public/css/bootstrap/css/style.css" rel="stylesheet">
+  
 
   <!-- =======================================================
     Template Name: Kelvin
@@ -223,7 +224,6 @@
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
                 <a href="http://projet-2.jeromelacquemant.fr/" target="_blank">Lien vers le projet</a>
-                <sm><i class="icon-tag"></i> Utilisation de Wordpress</sm>
             </more>
           </p>
         </div>
@@ -236,7 +236,6 @@
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
             <a href="http://projet-3.jeromelacquemant.fr/" target="_blank">Lien vers le projet</a>
-                <sm><i class="icon-tag"></i>Utilisation de Bootstrap 4</sm>
             </more>
           </p>
         </div>
@@ -249,7 +248,6 @@
           <p>
             <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
               <a href="http://projet-5.jeromelacquemant.fr/" target="_blank">Lien vers le projet</a>
-                <sm><i class="icon-tag"></i> Utilisation de PHP 7</sm>
             </more>
           </p>
         </div>
