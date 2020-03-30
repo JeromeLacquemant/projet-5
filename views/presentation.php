@@ -6,11 +6,10 @@ ob_start();
 <!DOCTYPE html>
     <html>
         <head>
-            <link href="public/bootstrap/img/favicon_dev.png" rel="icon">
+            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link type="text/css" rel="stylesheet" href="public/css/materialize.css"  media="screen,projection"/>
             <title>Blog de Jérôme</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-             
         </head>
     
         <body>
@@ -18,7 +17,7 @@ ob_start();
                 include 'views/'.$topbar.'.php';
             ?>
 
-            <div class="container">
+            <div class="container" class="grey darken-4>
                 <?php
                     include 'views/'.$page.'.php';
                 ?>

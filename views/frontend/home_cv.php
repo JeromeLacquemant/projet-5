@@ -10,6 +10,7 @@
   <!-- Google Fonts 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
 -->
+<link type="text/css" rel="stylesheet" href="../../public/css/materialize.css"  media="screen,projection"/>
   
   <!-- Bootstrap CSS File -->
   <link href="../../public/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +19,7 @@
   <link href="../../public/bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="../../public/bootstrap/css/style.css" rel="stylesheet">
+  <link href="public/bootstrap/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Template Name: Kelvin
@@ -30,14 +31,15 @@
 
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
 
-  <div id="headerwrap">
+  <div id="" name="">
+    <div class="col-lg-12 centered">
+        <h1>Jérôme Lacquemant</h1>
+        <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
+        <p>jerome.lacquemant@gmail.com</p>
+    </div>
+      <img class="img-responsive" src="../../public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
     <div class="container">
       <div class="row centered">
-        <div class="col-lg-12">
-          <h1>Jérôme Lacquemant</h1>
-          <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
-          <p>jerome.lacquemant@gmail.com</p>
-        </div>
         <!--/.col-lg-12 -->
       </div>
       <!--/.row -->
