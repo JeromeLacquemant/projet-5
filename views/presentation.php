@@ -14,16 +14,19 @@ ob_start();
     </head>
         
     <body>
+        <?php
+            include 'views/'.$topbar.'.php';
+        ?>
+
+        <div class="container">
             <?php
-                include 'views/'.$topbar.'.php';
+                include 'views/'.$page.'.php';
             ?>
-
-            <div class="container">
-                <?php
-                    include 'views/'.$page.'.php';
-                ?>
-            </div>
-
+        </div>
+        
+        <?php
+            include 'views/footer.php';
+        ?>
 
 <!--import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
