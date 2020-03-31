@@ -11,7 +11,7 @@
         <div class="card-panel">
             <div class="row">
                 <div class="col s6 offset-s3">
-                    <img src="../../public/img/admin/admin.png" alt="Administrateur" width="100%"/>
+                    <img src="../../public/img/admin/admin.png" alt="Administrateur" width="100"/>
                 </div>    
             </div>
 
@@ -70,6 +70,8 @@
                         <i class="material-icons left">perm_identity</i>
                         Se connecter
                     </button>
+                    <br/><br/>
+                    <a href="index.php?page=new">Nouveau modérateur</a>
                     <br/><br/>
                 </center>
 

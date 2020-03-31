@@ -45,10 +45,7 @@ if(isset($_SESSION['admin'])){
                         $_SESSION['admin'] = $email;
                         header("Location:index.php?page=password");
                     }
-
                 }
-
-
             ?>
 
             <form method="post">
