@@ -97,4 +97,15 @@ class Backend
         $topbar="backend/topbar";
         require('views/layout.php');
     }
+    
+        public function new()
+    {
+        $model_article = new Article();
+        $model_comment = new Comment();
+        $model_user = new User();
+        
+        $page="backend/new";
+        $topbar="backend/topbar";
+        require('views/layout.php');
+    }
 }
