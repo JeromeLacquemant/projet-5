@@ -92,7 +92,7 @@
             <br/><br/>
             <button class="btn" type="submit" name="post">Publier</button>
         </div>
-        
-        <div id="alaska"></div>
+
     </div>
+    <div id="alaska"></div>
 </form>

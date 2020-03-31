@@ -23,10 +23,14 @@ body {
 
 /* Titles */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h5, h6 {
   font-family: "Raleway";
   font-weight: 300;
-  color: #333;
+  color: white;
+}
+
+h4{
+    color: black;
 }
 
 /* Paragraph & Typographic */
@@ -38,6 +42,7 @@ p {
 
 .centered {
   text-align: center;
+  background: #2c3e50;
 }
 
 /* Links */
@@ -214,11 +219,11 @@ SECTION WRAPS
   background: #2c3e50;
   padding-top: 60px;
   padding-bottom: 60px;
-  color: white;
+  color: black;
 }
 
 #skillswrap h5, p {
-  color: white;
+  color: black;
 }
 
 #footwrap {
@@ -247,7 +252,7 @@ SECTION WRAPS
 /* Copyright Wrap */
 
 #copyrights {
-  background: #2f2f2f;
+  background: black;
   padding: 20px 0;
   text-align: center;
   color: #fff;
@@ -260,6 +265,7 @@ height: 170px;
 
 #copyrights p {
   margin: 0 0 5px 0;
+  color: white;
 }
 
 .credits {

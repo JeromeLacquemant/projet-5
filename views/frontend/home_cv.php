@@ -1,10 +1,15 @@
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
  
+    <div class="row"></div>
+    
     <div class="col-lg-12 centered">
         <h1>Jérôme Lacquemant</h1>
         <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
         <h3>Votre projet, ma mission !</h3>
     </div>
+    
+     <div class="row"></div>
+     
       <img class="img-responsive" src="public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
     <div class="container">
       <div class="row centered">
@@ -14,6 +19,7 @@
     </div>
     <!--/.container -->
 
+ 
   <section id="about">
     <div id="intro">
       <div class="container">
@@ -301,5 +307,7 @@
     </div>
     <!--/ #footer -->
   </section>
+  
+  <div class="row"></div>
   
 </body>

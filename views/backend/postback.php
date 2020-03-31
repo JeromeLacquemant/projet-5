@@ -11,7 +11,6 @@
     ?>
 
 
-    </div>
         <div class="parallax-container">
             <div class="parallax">
                 <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
@@ -86,11 +85,11 @@
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
-                <label for="title">Titre de l'article</label>
+  
             </div>
             <div class="input-field col s12">
                 <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
-                <label for="content">Contenu de l'article</label>
+       
             </div>
 
             <div class="col s12">
@@ -121,4 +120,5 @@
                 <button type="submit" class="btn" name="delete" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer l'article</button>
             </div>
         </div>
+        <div id="alaska"></div>
     </form>
