@@ -69,7 +69,7 @@ class User{
         return substr(str_shuffle(str_repeat($chars,$length)),0,$length);
     }
 
-    // Fonction permettant d'ajouter un modérateur
+    // Fonction permettant d'ajouter un modérateur et de lui envoyer un mail
     function add_modo($name,$email,$role,$token){
     global $db;
 

@@ -5294,7 +5294,7 @@ nav {
     position: absolute;
     color: #fff;
     display: inline-block;
-    font-size: 2.1rem;
+    font-size: 3.5rem;
     padding: 0;
     white-space: nowrap; }
     nav .brand-logo.center {
@@ -5340,7 +5340,7 @@ nav {
       nav ul li:hover, nav ul li.active {
         background-color: rgba(0, 0, 0, 0.1); }
     nav ul a {
-      font-size: 1rem;
+      font-size: 2rem;
       color: #fff;
       display: block;
       padding: 0 15px; }

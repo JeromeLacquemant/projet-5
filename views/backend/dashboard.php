@@ -61,7 +61,7 @@
                 }
         ?>
         
-                <tr id="commentaire_<?= $comment->id ?>">
+                <tr id="commentaire_<?=$comment->id?>">
                     <td><?= $comment->title ?></td>
                     <td><?= substr($comment->comment, 0, 100); ?>...</td>
                     <td>
@@ -80,7 +80,7 @@
                            class="btn-floating btn-small waves-effect waves-light blue modal-trigger"><i
                             class="material-icons">more_vert</i></a>
 
-                        <div class="modal" id="comment_<?= $comment->id ?>">
+                        <div class="modal" id="comment_<?=$comment->id ?>">
                             <div class="modal-content">
                                 <h4><?= $comment->title ?></h4>
 
