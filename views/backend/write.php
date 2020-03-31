@@ -92,6 +92,7 @@
             <br/><br/>
             <button class="btn" type="submit" name="post">Publier</button>
         </div>
-
+        
+        <div id="alaska"></div>
     </div>
 </form>

@@ -108,5 +108,6 @@ if($model_user->admin()!=1){
                 </div>
             </div>
         </form>
+        <div id="alaska"></div>
     </div>
 </div>
