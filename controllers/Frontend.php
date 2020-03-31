@@ -12,14 +12,14 @@ class Frontend
     {
         $page="frontend/home_cv";
         $topbar="frontend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function legalnotice()
     {
         $page="frontend/legalnotice";
         $topbar="frontend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
     
     public function home()
@@ -29,7 +29,7 @@ class Frontend
 
         $page="frontend/home";
         $topbar="frontend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function blog()
@@ -39,7 +39,7 @@ class Frontend
         
         $page="frontend/blog";
         $topbar="frontend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function post()
@@ -49,6 +49,6 @@ class Frontend
                 
         $page="frontend/post";
         $topbar="frontend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 }

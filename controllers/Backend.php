@@ -18,7 +18,7 @@ class Backend
         
         $page="backend/dashboard";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function write()
@@ -29,7 +29,7 @@ class Backend
         
         $page="backend/write";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function settings()
@@ -40,7 +40,7 @@ class Backend
         
         $page="backend/settings";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function list()
@@ -51,7 +51,7 @@ class Backend
 
         $page="backend/list";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function logout()
@@ -62,7 +62,7 @@ class Backend
         
         $page="backend/logout";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function password()
@@ -73,7 +73,7 @@ class Backend
         
         $page="backend/password";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function postback()
@@ -84,7 +84,7 @@ class Backend
         
         $page="backend/postback";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 
     public function login()
@@ -95,6 +95,6 @@ class Backend
         
         $page="backend/login";
         $topbar="backend/topbar";
-        require('views/presentation.php');
+        require('views/layout.php');
     }
 }
