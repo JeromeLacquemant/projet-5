@@ -61,6 +61,7 @@
                 }
         ?>
         
+        <div>
                 <tr id="commentaire_<?=$comment->id?>">
                     <td><?= $comment->title ?></td>
                     <td><?= substr($comment->comment, 0, 100); ?>...</td>
@@ -75,7 +76,10 @@
                             class="btn-floating btn-small waves-effect waves-light red see_comment" 
                             onclick="return window.confirm(`Êtes vous sur de vouloir supprimer ce commentaire ?!`)"><i
                             class="material-icons">delete</i></a>
-       
+        
+                        <a href="#comment_<?= $comment->id ?>"
+                           class="btn-floating btn-small waves-effect waves-light blue modal-trigger"><i
+                            class="material-icons">more_vert</i></a>
 
                         <div class="modal" id="comment_<?=$comment->id ?>">
                             <div class="modal-content">
@@ -100,7 +104,7 @@
 
                     </td>
                 </tr>
-
+            
             <?php
             }
         }else{

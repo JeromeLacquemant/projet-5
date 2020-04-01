@@ -44,17 +44,19 @@
             ?>
             </div>
             
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../public/js/materialize.js"></script>
-        <script type="text/javascript" src="../../public/js/script.js"></script>  
-        <script type="text/javascript" src="../public/js/post.func.js"></script>
         
         <script src="public/css/bootstrap/lib/jquery/jquery.min.js"></script>
         <script src="public/css/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/css/bootstrap/lib/php-mail-form/validate.js"></script>
         <script src="public/css/bootstrap/lib/chart/chart.js"></script>
         <script src="public/css/bootstrap/lib/easing/easing.min.js"></script>
-        <script src="../../../public/css/bootstrap/js/main.js"></script>
+        <script src="public/css/bootstrap/js/main.js"></script>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="public/js/materialize.js"></script>
+        <script type="text/javascript" src="public/js/script.js"></script>  
+        <script type="text/javascript" src="../public/js/post.func.js"></script>
+        <script type="text/javascript" src="public/js/dashboard.func.js"></script>
 
         </body>
     </html> 

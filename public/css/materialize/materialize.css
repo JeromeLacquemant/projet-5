@@ -5277,7 +5277,7 @@ nav {
     height: 100%; }
     nav .nav-wrapper i {
       display: block;
-      font-size: 2rem; }
+      font-size: 3rem; }
   @media only screen and (min-width : 993px) {
     nav a.button-collapse {
       display: none; } }
@@ -6276,7 +6276,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   border-bottom: 1px solid #9e9e9e;
   border-radius: 0;
   outline: none;
-  height: 50px;
+  height: 30px;
   width: 100%;
   font-size: 2rem;
   margin: 0 0 15px 0;

@@ -163,7 +163,7 @@ class User{
         return $results;
     }
 
-    // Fonction qui vérifie qu'un utilisateur est bien modérateur
+    // Fonction qui vérifie qu'un utilisateur est bien modérateur ou admin
     function is_modo($email,$token){
         global $db;
         $db = getPdo();

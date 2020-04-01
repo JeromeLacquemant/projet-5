@@ -10,7 +10,7 @@
         }
     ?>
 
-
+<h2>Modifier un article</h2>
         <div class="row">
             <div class="row center">
                 <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>

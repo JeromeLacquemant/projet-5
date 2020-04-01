@@ -9,7 +9,7 @@
         <div class="card-panel">
             <div class="row">
                 <div class="col s6 offset-s3">
-                    <img src="public/img/modo.png" alt="Modérateur" width="100"/>
+                    <img src="public/img/admin/modo.png" alt="Modérateur" width="100"/>
                 </div>
             </div>
 
@@ -70,3 +70,5 @@
         </div>
     </div>
 </div>
+
+<div id="alaska"></div>

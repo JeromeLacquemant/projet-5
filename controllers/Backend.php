@@ -108,15 +108,4 @@ class Backend
         $topbar="backend/topbar";
         require('views/layout.php');
     }
-    
-            public function new_admin()
-    {
-        $model_article = new Article();
-        $model_comment = new Comment();
-        $model_user = new User();
-        
-        $page="backend/new_admin";
-        $topbar="backend/topbar";
-        require('views/layout.php');
-    }
 }
