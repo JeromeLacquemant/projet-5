@@ -1,4 +1,4 @@
- <div id="copyrights">
+<div id="copyrights">
     <div class="container">
         <p><a href="index.php?page=legalnotice">Mentions légales</a></p>
         <p>
@@ -13,7 +13,6 @@
         -->
         <p>Blog créé dans le cadre d'un projet de formation OpenClassrooms</p>
         <p>Created with Kelvin template by <a href="https://templatemag.com/">TemplateMag</a></p>
-        
         
       </div>
     </div>
