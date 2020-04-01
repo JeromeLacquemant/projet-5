@@ -1,9 +1,7 @@
 <?php
-
     if(isset($_SESSION['admin'])){
         header("Location:index.php?page=dashboard");
     }
-    
 ?>
 
 <div class="row">
@@ -78,6 +76,7 @@
             </form>
 
         </div>
+           <div id="alaska"></div>
     </div>
-    <div id="alaska"></div>
+ 
 </div>

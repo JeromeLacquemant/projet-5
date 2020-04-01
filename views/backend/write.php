@@ -67,11 +67,8 @@
         </div>
 
         <div class="col s12">
-            <div class="input-field">
-                <div class="btn col s2">
-                    <span>Image de l'article</span>
-                    <input type="file" name="image" class="col s12"/>
-                </div>
+            <div class="input-field">                 
+                <input type="file" name="image" class="col s12"/>
                 <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
             </div>
         </div>

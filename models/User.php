@@ -107,6 +107,45 @@ class User{
     mail($email,$subject,$message,$header);
 
 }
+
+  // Fonction permettant d'ajouter un administrateur et de lui envoyer un mail
+    function add_admin($name,$email,$role,$token){
+    global $db;
+
+    $m= [
+        'name'      =>  $name,
+        'email'     =>  $email,
+        'token'     =>  $token,
+        'role'      =>  $role
+    ];
+
+    $sql = "INSERT INTO admins(name,email,token,role) VALUES(:name,:email,:token,:role)";
+    $req = $db->prepare($sql);
+    $req->execute($m);
+
+    $subject = "Admin sur le blog";
+    $message = '
+        <html lang="en" style="font-family: sans-serif;">
+            <head>
+                <meta charset="UTF-8">
+            </head>
+            <body>
+                Voici votre identifiant et code unique à insérer sur <a href="http://projet-5.jeromelacquemant.fr/index.php?page=new">cette page</a>:
+                <br/>Identifiant: '.$email.'
+                <br/>Mot de passe: '.$token.'
+                <br/>Vous êtes: '.$role.'
+                <br/><br/>Après avoir inséré ces informations, vous devrez choisir un mot de passe.
+            </body>
+        </html>
+    ';
+
+    $header = "MIME-Version: 1.0\r\n";
+    $header .= "Content-type: text/html; charset=UTF-8\r\n";
+    $header .= 'From: no-reply@jeromelacquemant.com' . "\r\n" . 'Reply-To: jerome.lacquemant@gmail.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+
+    mail($email,$subject,$message,$header);
+
+}
     
     // Fonction permettant d'obtenir tous les modérateurs / administrateurs
     function get_modos(){

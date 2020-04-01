@@ -6,9 +6,9 @@ if($post == false){
     header("Location:index.php?page=error");
 }else{
     ?>
-        </div>
-    <div class="parallax-container">
-        <div class="parallax">
+    
+    <div class="row center">
+        <div class="row">
             <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
         </div>
     </div>

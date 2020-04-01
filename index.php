@@ -81,6 +81,11 @@ if (isset($_GET['page']))
             $controller->new();
         break;
 
+        case 'new_admin':
+            $controller = new Backend();
+            $controller->new();
+        break;
+    
         case 'password':
             $controller = new Backend();
             $controller->password();

@@ -5122,7 +5122,7 @@ nav ul a span.badge {
     .row .col.offset-s2 {
       margin-left: 16.66667%; }
     .row .col.offset-s3 {
-      margin-left: 25%; }
+      margin-left: 35%; }
     .row .col.offset-s4 {
       margin-left: 33.33333%; }
     .row .col.offset-s5 {
@@ -6250,7 +6250,7 @@ button:focus {
   background-color: #2ab7a9; }
 
 label {
-  font-size: 0.8rem;
+  font-size: 2rem;
   color: #9e9e9e; }
 
 /***************************
@@ -6276,9 +6276,9 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   border-bottom: 1px solid #9e9e9e;
   border-radius: 0;
   outline: none;
-  height: 100%;
+  height: 50px;
   width: 100%;
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0 0 15px 0;
   padding: 0;
   box-shadow: none;
@@ -8208,4 +8208,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .parallax-container{
     height:340px;
+    
+}.daniel {
+
 }

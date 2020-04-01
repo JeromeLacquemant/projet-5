@@ -11,8 +11,8 @@
     ?>
 
 
-        <div class="parallax-container">
-            <div class="parallax">
+        <div class="row">
+            <div class="row center">
                 <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
             </div>
         </div>
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
-  
+             
             </div>
             <div class="input-field col s12">
                 <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
@@ -94,10 +94,7 @@
 
             <div class="col s12">
                 <div class="input-field">
-                    <div class="btn col s2">
-                        <span>Image de l'article</span>
-                        <input type="file" name="image" class="col s12"/>
-                    </div>
+                    <input type="file" name="image" class="col s12"/>
                     <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
                 </div>
             </div>

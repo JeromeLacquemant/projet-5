@@ -4,8 +4,7 @@
 <?php
 $posts = $model_article->get_posts_blog1();
 foreach($posts as $post){
-    ?>
-        <div class="col l6 m6 s12">
+        ?><div class="col l6 m6 s12">
             <div class="card">
                 <div class="card-content">
                     <h5 class="grey-text text-darken-2"><?= $post->title ?></h5>
@@ -23,9 +22,7 @@ foreach($posts as $post){
                     <p><?= substr(nl2br($post->content),0,1000); ?>...</p>
                 </div>
             </div>
-        </div>
-    <?php
+        </div><?php
 }
-
 ?>
 </div>
