@@ -31,7 +31,7 @@ class User{
 
         $a = [
             'email'     =>  $email,
-            'password'  =>  $password
+            'password'  =>  sha1($password)
         ];
         $sql = "SELECT * FROM admins WHERE email = :email AND password = :password";
         $req = $db->prepare($sql);
@@ -85,17 +85,24 @@ class User{
     $req->execute($m);
 
     $subject = "Modo / Admin sur le blog";
-    $message = '
-                Voici votre identifiant et code unique à insérer sur <a href="http://projet-5.jeromelacquemant.fr/index.php?page=new">cette page :
-                Identifiant: '.$email.'
-                Mot de passe: '.$token.'
-                Vous êtes: '.$role.'
-                Après avoir inséré ces informations, vous devrez choisir un mot de passe.
+    $message = '              
+       <html lang="en" style="font-family: sans-serif;">
+            <head>
+                <meta charset="UTF-8">
+            </head>
+            <body>
+                Voici votre identifiant et code unique à insérer sur <a href="http://projet-5.jeromelacquemant.fr/index.php?page=new">cette page</a>.
+                <br/>Identifiant: '.$email.'
+                <br/>Mot de passe: '.$token.'
+                <br/>Vous êtes: '.$role.'
+                <br/><br/>Après avoir inséré ces informations, vous devrez choisir un mot de passe.
+            </body>
+        </html>
     ';
 
     $header = "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html; charset=UTF-8\r\n";
-    $header .= 'From: no-reply@gmail.com' . "\r\n" . 'Reply-To: jerome.lacquemant@gmail.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+    $header .= 'From: jerome.lacquemant@gmail.com' . "\r\n" . 'Reply-To: jerome.lacquemant@gmail.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
     mail($email,$subject,$message,$header);
 
