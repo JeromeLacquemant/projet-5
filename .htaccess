@@ -1,0 +1,29 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+Options -Indexes
+
+RewriteCond %{HTTP_HOST} ^projet-5.jeromelacquemant.fr/$
+RewriteRule ^(.*)   http://www.projet-5.jerome.lacquemant.fr/$1  [QSA,L,R=301]
+
+RewriteRule ^salut$ /index.php [L]
+
+
+RewriteRule ^curriculum-vitae\.html apropos.php [L]
+RewriteRule ^blog-article-(.*)-([0-9]+)-([0-9]+)\.html$ tribune.php?annee=$2&id=$3 [L]
+RewriteRule ^maintenancewordpress\.html$ maintenancewordpress.php [L]
+RewriteRule ^ontact-et-informations\.html$ contact.php [L]
+RewriteRule ^blog\.html$ tribunes.php [L]
+RewriteRule ^blog-article-([0-9]+)\.html$ tribunes.php?annee=$2&id=$3 [L]
+RewriteRule ^blog-article-(.*)-([0-9]+)-([0-9]+)\.html$ tribune.php?annee=$2&id=$3 [L]
+RewriteRule ^realisations\.html$ clients.php [L]
+RewriteRule ^realisations-categories-(.*)-([0-9]+)\.html$ clients.php?cat=$2 [L]
+RewriteRule ^realisations-(.*)-([0-9]+)\.html$ client.php?id=$2 [L]
+RewriteRule ^mentions-legales\.html$ legal.php [L]
+
+
+
+
+RedirectPermanent /realisations-graphiques.php http://www.marionw.fr/realisations.html
+RedirectPermanent /project/site-web-www-absolue-beaute-fr http://www.mariow.fr/realisations.html
+RedirectPermanent /?page_id=38 http://www.mariow.fr/
