@@ -10,8 +10,6 @@ RewriteRule ^salut$ /index.php [L]
 RewriteRule ^article/([a-z0-9-]+)-([0-9]+)$ /index.php?page=post&titre=$1&id=$2 [L]
 
 
-
-
 RewriteRule ^curriculum-vitae\.html apropos.php [L]
 RewriteRule ^blog-article-(.*)-([0-9]+)-([0-9]+)\.html$ tribune.php?annee=$2&id=$3 [L]
 RewriteRule ^maintenancewordpress\.html$ maintenancewordpress.php [L]
