@@ -27,6 +27,16 @@ RewriteRule ^mentions-legales\.html$ legal.php [L]
 
 
 
-RedirectPermanent /realisations-graphiques.php http://www.marionw.fr/realisations.html
-RedirectPermanent /project/site-web-www-absolue-beaute-fr http://www.mariow.fr/realisations.html
-RedirectPermanent /?page_id=38 http://www.mariow.fr/
+#GESTION DES ERREURS
+ErrorDocument 400 /views/frontend/error.php
+ErrorDocument 401 /views/frontend/error.php
+ErrorDocument 402 /views/frontend/error.php
+ErrorDocument 403 /views/frontend/error.php
+ErrorDocument 404 /views/frontend/error.php
+ErrorDocument 405 /views/frontend/error.php
+ErrorDocument 500 /views/frontend/error.php
+ErrorDocument 501 /views/frontend/error.php
+ErrorDocument 502 /views/frontend/error.php
+ErrorDocument 503 /views/frontend/error.php
+ErrorDocument 504 /views/frontend/error.php
+ErrorDocument 505 /views/frontend/error.php
