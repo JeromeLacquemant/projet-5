@@ -9,7 +9,7 @@ if($post == false){
     
     <div class="row center">
         <div class="row">
-            <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+            <img src="/public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
         </div>
     </div>
         <div class="container">
