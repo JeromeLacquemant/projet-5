@@ -32,6 +32,7 @@ if($post == false){
                                 <strong><?= $response->name ?> (<?= date("d/m/Y", strtotime($response->date)) ?>)</strong>
                                 <p><?= nl2br($response->comment); ?></p>
                             </blockquote>
+            
                         <?php
                     }
                 }else echo "Aucun commentaire n'a été publié... Soyez le premier!";
