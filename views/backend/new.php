@@ -64,7 +64,7 @@ if(isset($_SESSION['admin'])){
                             Se connecter
                         </button>
                         <br/><br/>
-                        <a href="index.php?page=login">Déjà modérateur / administrateur</a>
+                        <a href="connexion-espace-membre">Déjà modérateur / administrateur</a>
                     </center>
                 </div>
 

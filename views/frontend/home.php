@@ -15,7 +15,7 @@ foreach($posts as $post){
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
-                    <p><a href="index.php?page=post&id=<?= $post->id ?>">Voir l'article complet</a></p>
+                    <p><a href="/article/<?= transforme_en_url($post->title) ?>-<?= $post->id ?>">Voir l'article complet</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><?= $post->title ?> <i class="material-icons right">close</i></span>

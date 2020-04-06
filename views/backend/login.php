@@ -42,7 +42,7 @@
                         <?php
                     }else{
                         $_SESSION['admin'] = $email;
-                        header("Location:index.php?page=dashboard");
+                        header("Location:/dashboard");
                     }
 
                 }
@@ -69,7 +69,7 @@
                         Se connecter
                     </button>
                     <br/><br/>
-                    <a href="index.php?page=new">Nouveau modérateur</a>
+                    <a href="/nouveau-moderateur">Nouveau modérateur</a>
                     <br/><br/>
                 </center>
 

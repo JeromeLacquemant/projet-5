@@ -1,7 +1,6 @@
 <h2>Blog</h2>
 
 <?php
-require_once("config/function_url.php");
 
     $posts = $model_article->get_posts_blog();
     foreach($posts as $post){
