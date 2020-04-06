@@ -1,7 +1,7 @@
 <nav class="light-green">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="index.php?page=home_cv" class="brand-logo">Accueil</a>
+            <a href="accueil-de-jerome" class="brand-logo">Accueil</a>
             <?php
             if($page != 'login' && $page != 'new' && $page != 'password'){
                 ?>
@@ -46,15 +46,15 @@
                         <?php
                         if($model_user->admin()==1){
                             ?>
-                                <li class="<?php echo ($page=="write")?"active" : ""; ?>"><a href="index.php?page=write">Publier un article</a></li>
-                                <li class="<?php echo ($page=="list")?"active" : ""; ?>"><a href="index.php?page=list">Listing des articles</a></li>
-                                <li class="<?php echo ($page=="settings")?"active" : ""; ?>"><a href="index.php?page=settings">Paramètres</a></li>
+                                <li class="<?php echo ($page=="write")?"active" : ""; ?>"><a href="/ecrire-un-article">Publier un article</a></li>
+                                <li class="<?php echo ($page=="list")?"active" : ""; ?>"><a href="/liste-de-tous-les-articles">Listing des articles</a></li>
+                                <li class="<?php echo ($page=="settings")?"active" : ""; ?>"><a href="/gestion-des-admins-et-modos">Paramètres</a></li>
                             <?php
                         }
 
                         ?>
-                        <li><a href="index.php?page=home">Quitter</a></li>
-                        <li><a href="index.php?page=logout">Déconnexion</a></li>
+                        <li><a href="/articles-a-la-une">Quitter</a></li>
+                        <li><a href="/articles-a-la-une">Déconnexion</a></li>
 
                     </ul>
                 <?php

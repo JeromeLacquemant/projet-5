@@ -1,6 +1,6 @@
     <?php
         if($model_user->admin()!=1){
-            header("Location:index.php?page=dashboard");
+            header("Location:/dashboard");
         }
 
 
@@ -13,16 +13,13 @@
 <h2>Modifier un article</h2>
         <div class="row">
             <div class="row center">
-                <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+                <img src="/public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
             </div>
         </div>
     <div class="container">
 
     <?php
-        if(isset($_POST['delete'])){
-            $article = $model_article->delete_article();
-            $comment = $model_comment->delete_article_comments();
-        }
+
 
         if(isset($_POST['submit'])){
             $title = htmlspecialchars(trim($_POST['title']));
@@ -64,11 +61,11 @@
                 if(!empty($_FILES['image']['name']))
                 {
                     $model_article->update_img($_FILES['image']['tmp_name'], $extension);
-                    header("Location:index.php?page=list");
+                    header("Location:/liste-de-tous-les-articles");
                 }
                 else
                 {
-                    header("Location:index.php?page=list");
+                    header("Location:/liste-de-tous-les-articles");
                 }
                 
                 ?>
@@ -78,6 +75,11 @@
                 <?php
             }
         }
+        
+            if(isset($_POST['delete'])){
+                $article = $model_article->delete_article();
+                header("Location:/liste-de-tous-les-articles");
+            }
     ?>
 
 

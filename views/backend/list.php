@@ -23,7 +23,7 @@ foreach($posts as $post){
                 <div class="col s12 m6 l4">
                     <img src="public/img/posts/<?= $post->image ?>" class="materialboxed responsive-img" alt="<?= $post->title ?>"/>
                     <br/><br/>
-                    <a class="btn light-blue waves-effect waves-light" href="index.php?page=postback&id=<?= $post->id ?>">Modifier l'article</a>
+                    <a class="btn light-blue waves-effect waves-light" href="/modifier-un-article/<?= transforme_en_url($post->title) ?>-<?= $post->id ?>">Modifier l'article</a>
                 </div>
             </div>
         </div>
