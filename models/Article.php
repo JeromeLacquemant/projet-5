@@ -207,7 +207,14 @@ class Article extends Model
 
         $query = $db->prepare('DELETE FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
-        unlink()
+                    
+        unlink("public/img/posts/".$id.".png");
+        unlink("public/img/posts/".$id.".jpg");  
+        unlink("public/img/posts/".$id.".jpeg");  
+        unlink("public/img/posts/".$id.".gif");  
+        unlink("public/img/posts/".$id.".PNG");  
+        unlink("public/img/posts/".$id.".JPG");  
+        unlink("public/img/posts/".$id.".JPEG");  
+        unlink("public/img/posts/".$id.".GIF");  
     }
-}
 }
