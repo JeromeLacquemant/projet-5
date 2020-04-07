@@ -108,14 +108,12 @@ class Comment extends Model
         }
 
         $id = $_GET['id'];
-
-        $query = $db->prepare('
-        DELETE 
-        FROM comments 
-        JOIN articles
-        ON comments.article_id = article.id
-        ');
+        
+           $db = getPdo();
+           
+           $query = $db->prepare('DELETE FROM comments WHERE article_id = :id');
         $query->execute(['id' => $id]);
+
 
         header("Location: /liste-de-tous-les-articles");
 

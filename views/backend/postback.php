@@ -78,7 +78,7 @@
         
             if(isset($_POST['delete'])){
                 $article = $model_article->delete_article();
-                $article_comment->delete_article_comments();
+                $comment = $model_comment->delete_article_comments();
                 header("Location:/liste-de-tous-les-articles");
             }
     ?>

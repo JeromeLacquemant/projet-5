@@ -35,7 +35,8 @@ if($post == false){
             
                         <?php
                     }
-                }else echo "Aucun commentaire n'a été publié... Soyez le premier!";
+                }else 
+                    echo "Aucun commentaire n'a été publié... Soyez le premier!";
             ?>
 
             <h4>Commenter:</h4>
@@ -72,7 +73,7 @@ if($post == false){
                         $model_comment->insert_comment($name,$email,$comment);
                         ?>
                             <script>
-                                window.location.replace("index.php?page=post&id=<?= $_GET['id'] ?>");
+                                window.location.replace("/article/<?= transforme_en_url($post->title) ?>-<?= $_GET['id'] ?>");
                             </script>
                         <?php
                     }
