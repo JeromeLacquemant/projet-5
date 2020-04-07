@@ -1,6 +1,6 @@
 <?php
 if($model_user->admin()!=1){
-    header("Location:index.php?page=dashboard");
+    header("Location:/dashboard");
 }
 
 ?>
@@ -21,7 +21,7 @@ foreach($posts as $post){
                     <?= substr(nl2br($post->content),0,1200) ?>...
                 </div>
                 <div class="col s12 m6 l4">
-                    <img src="public/img/posts/<?= $post->image ?>" class="materialboxed responsive-img" alt="<?= $post->title ?>"/>
+                    <img src="/public/img/posts/<?= $post->image ?>" class="materialboxed responsive-img" alt="<?= $post->title ?>"/>
                     <br/><br/>
                     <a class="btn light-blue waves-effect waves-light" href="/modifier-un-article/<?= transforme_en_url($post->title) ?>-<?= $post->id ?>">Modifier l'article</a>
                 </div>

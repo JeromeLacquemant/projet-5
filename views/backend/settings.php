@@ -1,6 +1,6 @@
 <?php
 if($model_user->admin()!=1){
-    header("Location:index.php?page=dashboard");
+    header("Location:/dashboard");
 }
 
 ?>
@@ -77,7 +77,7 @@ if($model_user->admin()!=1){
                     <?php
                 }else{
                     $model_user->add_modo($name,$email,$role,$token);
-                    header("Location:index.php?page=settings");
+                    header("Location:/gestion-des-admins-et-modos");
                 }
             }
         ?>

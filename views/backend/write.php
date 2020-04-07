@@ -1,6 +1,6 @@
 <?php
     if($model_user->admin()!=1){
-        header("Location:index.php?page=dashboard");
+        header("Location:/dashboard");
     }
 ?>
 
@@ -44,11 +44,12 @@
             if(!empty($_FILES['image']['name'])){
             
                 $model_article->post_img($_FILES['image']['tmp_name'], $extension);
-
+                header("Location:/liste-de-tous-les-articles");
+                
             }else{
                 $db = getPdo();
                 $id = $db->lastInsertId();
-               header("Location:index.php?page=list");
+                header("Location:/liste-de-tous-les-articles");
             }
         }
     }

@@ -1,5 +1,5 @@
 <?php
     unset($_SESSION['admin']);
-    header("Location:index.php?page=home");
+    header("Location:/articles-a-la-une");
 
     

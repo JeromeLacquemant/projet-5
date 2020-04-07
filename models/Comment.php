@@ -75,7 +75,7 @@ class Comment extends Model
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');
         $req->execute(array($delete));
 
-        header("Location: index.php?page=dashboard");
+        header("Location: /dashboard");
         
         exit();    
         }
@@ -94,7 +94,7 @@ class Comment extends Model
         $query = $db->prepare('UPDATE comments SET seen=1 WHERE id=:id');
         $query->execute(['id' => $id]);
 
-        header("Location: index.php?page=dashboard");
+        header("Location: /dashboard");
 
         exit();
     }
@@ -117,7 +117,7 @@ class Comment extends Model
         ');
         $query->execute(['id' => $id]);
 
-        header("Location: index.php?page=list");
+        header("Location: /liste-de-tous-les-articles");
 
         exit();
 

@@ -43,7 +43,7 @@ if(isset($_SESSION['admin'])){
                     <?php
                     }else{
                         $_SESSION['admin'] = $email;
-                        header("Location:index.php?page=password");
+                        header("Location:/modification-du-mot-de-passe");
                     }
                 }
             ?>

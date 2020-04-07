@@ -29,7 +29,7 @@
                         ?>
 
                         <li><a href="/articles-a-la-une">Quitter</a></li>
-                        <li><a href="/articles-a-la-une">Déconnexion</a></li>
+                        <li><a href="/index.php?page=logout">Déconnexion</a></li>
 
                     </ul>
 
@@ -54,7 +54,7 @@
 
                         ?>
                         <li><a href="/articles-a-la-une">Quitter</a></li>
-                        <li><a href="/articles-a-la-une">Déconnexion</a></li>
+                        <li><a href="/index.php?page=logout">Déconnexion</a></li>
 
                     </ul>
                 <?php
