@@ -207,6 +207,7 @@ class Article extends Model
 
         $query = $db->prepare('DELETE FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
-
+        unlink()
     }
+}
 }
