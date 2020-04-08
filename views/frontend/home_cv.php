@@ -258,6 +258,7 @@
               <a href="#"><i class="fa fa-twitter"></i></a>
               <a href="#" ><i class="fa fa-facebook"></i></a>
               <a href="https://www.linkedin.com/in/j%C3%A9r%C3%B4me-lacquemant/" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href="https://github.com/JeromeLacquemant" target="_blank"><i class="fa fa-github"></i></a>
             </p>
           </div>
           <div class="col-lg-6">
