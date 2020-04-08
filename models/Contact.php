@@ -34,7 +34,7 @@ class Contact extends Model
     }
     
     // Fonction permettant de m'envoyer un mail lors du formulaire de contact'envoyer un mail au client qui m'envoie
-        function contact_mail_user($name,$email,$subject,$message){
+    function contact_mail_user($name,$email,$subject,$message){
     global $db;
 
     $subject_mail= "Message posté sur le blog de Jé'";
@@ -68,6 +68,5 @@ class Contact extends Model
     $header .= 'From: jerome.lacquemant@gmail.com' . "\r\n" . 'Reply-To: jerome.lacquemant@gmail.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
     mail($email,$subject_mail,$message_mail,$header);
-
     }
 }

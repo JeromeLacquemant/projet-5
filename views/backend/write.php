@@ -48,7 +48,7 @@
             }else{
                 $db = getPdo();
                 $id = $db->lastInsertId();
-               header("Location:index.php?page=list");
+               header("Location:/liste-de-tous-les-articles");
             }
         }
     }

@@ -1,6 +1,6 @@
 <div id="copyrights">
     <div class="container">
-        <p><a href="index.php?page=legalnotice">Mentions légales</a></p>
+        <p><a href="/mentions-legales">Mentions légales</a></p>
         <p>
         &copy; Copyrights <strong>Jérôme LACQUEMANT</strong>. Tous droits réservés
       </p>
