@@ -10,7 +10,7 @@
     if(isset($_POST['post'])){
         $title = htmlspecialchars(trim($_POST['title']));
         $content = htmlspecialchars(trim($_POST['content']));
-        $posted = isset($_POST['submit']) ? "1" : "0";
+        $posted = isset($_POST['public']) ? "1" : "0";
 
         $errors = [];
 
