@@ -234,6 +234,40 @@
     <!--/.container -->
   </section>
 
+  <?php
+            if(isset($_POST['submit'])){
+
+                $name = htmlspecialchars(trim($_POST['name']));
+                $email = htmlspecialchars(trim($_POST['email']));
+                $subject = htmlspecialchars(trim($_POST['subject']));
+                $message = htmlspecialchars(trim($_POST['message']));
+
+                
+                $errors = [];
+
+                if(empty($name) || empty($email) || empty($subject) || empty($message)){
+                    $errors['empty'] = "Veuillez remplier tous les champs";
+                }
+
+                if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error."<br/>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                }else{
+                    $model_contact->contact_mail($name,$email,$subject,$message);
+                    $model_contact->contact_mail_user($name,$email,$subject,$message);
+                }
+            }
+        ?>
+  
   <section id="contact">
     <!--FOOTER DESCRIPTION -->
     <div id="footwrap">
@@ -265,11 +299,11 @@
             <p>
               <sm>FORMULAIRE DE CONTACT</sm>
             </p>
-            <form class="contact-form php-mail-form" role="form" action="css/bootstrap/contactform/contactform.php" method="POST">
+            <form class="" role="form" method="POST">
 
               <div class="form-group">
                 <label for="contact-name">Votre nom</label>
-                <input type="name" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
+                <input name="name" type="name" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
@@ -289,14 +323,9 @@
                 <div class="validate"></div>
               </div>
 
-              <div class="loading"></div>
-              <div class="error-message"></div>
-              <div class="sent-message">Votre message a été envoyé. Merci !</div>
-
-              <div class="form-send">
-                <button type="submit" class="btn">Envoyer le message à Jérôme</button>
+              <div class="">
+                <button name="submit"  class="btn">Envoyer le message à Jérôme</button>
               </div>
-
             </form>
 
           </div>

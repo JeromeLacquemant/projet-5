@@ -2,6 +2,7 @@
 
 require_once('models/Article.php');
 require_once('models/Comment.php');
+require_once('models/Contact.php');
 
 require_once('models/Model.php');
 require_once('models/User.php');
@@ -10,6 +11,8 @@ class Frontend
 {
     public function home_cv()
     {
+        $model_contact = new Contact();
+        
         $page="frontend/home_cv";
         $topbar="frontend/topbar";
         require('views/layout.php');
