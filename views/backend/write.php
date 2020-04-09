@@ -71,7 +71,11 @@
                 <input type="file" name="image" class="col s12"/>
                 <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
             </div>
+     
         </div>
+               <div class="row">
+            <p>Veuillez insérer une image de 940*530 px pour que les articles soient homogènes sur le site.</p>
+            </div>
 
         <div class="col s6">
             <p>Public</p>

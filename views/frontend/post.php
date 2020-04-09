@@ -7,9 +7,9 @@ if($post == false){
 }else{
     ?>
     
-    <div class="row center">
-        <div class="row">
-            <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+    <div class="row">
+        <div class="col s12 m6 l4">
+            <img class="materialboxed responsive-img" src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
         </div>
     </div>
         <div class="container">

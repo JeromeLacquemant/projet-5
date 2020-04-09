@@ -12,8 +12,8 @@
 
 <h2>Modifier un article</h2>
         <div class="row">
-            <div class="row center">
-                <img src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+            <div class="col s12 m6 l6">
+                <img class="materialboxed responsive-img" src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
             </div>
         </div>
     <div class="container">
@@ -64,11 +64,11 @@
                 if(!empty($_FILES['image']['name']))
                 {
                     $model_article->update_img($_FILES['image']['tmp_name'], $extension);
-                    header("Location:index.php?page=list");
+                    header("Location:/liste-de-tous-les-articles");
                 }
                 else
                 {
-                    header("Location:index.php?page=list");
+                    header("Location:/liste-de-tous-les-articles");
                 }
                 
                 ?>
@@ -113,7 +113,7 @@
 
             <div class="col s6 right-align">
                 <br/><br/>
-                <button type="submit" class="btn" name="submit">Modifier l'article</button>
+                <button type="submit" class="btn" name="submit" onclick="return window.confirm(`Êtes vous sur de vouloir modifier cet article ?!`)">Modifier l'article</button>
                 <button type="submit" class="btn" name="delete" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer l'article</button>
             </div>
         </div>
