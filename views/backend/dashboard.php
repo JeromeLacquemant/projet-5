@@ -93,10 +93,10 @@
 
                             </div>
                             <div class="modal-footer">
-                                <a href="#" id="<?= $comment->id ?>"
+                                <a href="index.php?page=dashboard&delete=<?= $comment->id ?>" id="<?= $comment->id ?>" type="submit"
                                    class="modal-action modal-close waves-effect waves-red btn-flat delete_comment"><i
                                         class="material-icons">delete</i></a>
-                                <a href="#" id="<?= $comment->id ?>"
+                                <a href="index.php?page=dashboard&delete=<?= $comment->id ?>" id="<?= $comment->id ?>" type="submit"
                                    class="modal-action modal-close waves-effect waves-green btn-flat see_comment"><i
                                         class="material-icons">done</i></a>
                             </div>

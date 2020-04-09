@@ -1,6 +1,6 @@
     <?php
         if($model_user->admin()!=1){
-            header("Location:index.php?page=dashboard");
+            header("Location:/dashboard");
         }
 
 
@@ -11,9 +11,9 @@
     ?>
 
 <h2>Modifier un article</h2>
-        <div class="row">
-            <div class="col s12 m6 l6">
-                <img class="materialboxed responsive-img" src="public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+        <div class="row center">
+            <div class="row">
+                <img class="responsive-img" src="/public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
             </div>
         </div>
     <div class="container">

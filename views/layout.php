@@ -37,6 +37,7 @@
 
             if($showcookie)
             { ?>
+        <div class="container">
             <div class="cookie-container center">
                 <p>
                     En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies 
@@ -45,6 +46,7 @@
 
                 <a class="cookie-btn" href="config/accept_cookie.php">Ok</a>
             </div>
+        </div>
             <?php } ?>
         
         <body>
