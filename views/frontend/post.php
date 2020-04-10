@@ -1,7 +1,7 @@
 <?php
 $post = $model_article->get_article_blog();
 if($post == false){
-    header("Location:index.php?page=error");
+    header("Location:/page-erreur");
 }else{
     ?>
     

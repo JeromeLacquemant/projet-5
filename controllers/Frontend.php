@@ -57,7 +57,6 @@ class Frontend
     
     public function error()
     {
-       
         $page="frontend/error";
         $topbar="frontend/topbar";
         require('views/layout.php');

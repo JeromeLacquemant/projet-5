@@ -12,14 +12,16 @@ RewriteRule ^article/([a-z0-9-]+)-([0-9]+)$ /index.php?page=post&titre=$1&id=$2 
 RewriteRule ^articles-a-la-une$ /index.php?page=home [L]
 RewriteRule ^ensemble-des-articles$ /index.php?page=blog [L]
 RewriteRule ^connexion-espace-membre$ /index.php?page=login [L]
-RewriteRule ^dashboard$ /index.php?page=dashboard
+RewriteRule ^dashboard$ /index.php?page=dashboard [L]
 RewriteRule ^ecrire-un-article /index.php?page=write
-RewriteRule ^liste-de-tous-les-articles$ index.php?page=list
-RewriteRule ^gestion-des-admins-et-modos$ index.php?page=settings
-RewriteRule ^nouveau-moderateur$ index.php?page=new
+RewriteRule ^liste-de-tous-les-articles$ index.php?page=list [L]
+RewriteRule ^gestion-des-admins-et-modos$ index.php?page=settings [L]
+RewriteRule ^nouveau-moderateur$ index.php?page=new [L]
 RewriteRule ^modifier-un-article/([a-z0-9-]+)-([0-9]+)$ /index.php?page=postback&titre=$1&id=$2 [L]
-RewriteRule ^modification-du-mot-de-passe$ index.php?page=password
-RewriteRule ^mentions-legales$ index.php?page=legalnotice
+RewriteRule ^modification-du-mot-de-passe$ index.php?page=password [L]
+RewriteRule ^mentions-legales$ index.php?page=legalnotice [L]
+RewriteRule ^page-erreur$ index.php?page=error [L]
+RewriteRule ^page-erreur-administrateur$ index.php?page=errorback [L]
 
 #GESTION DES ERREURS
 ErrorDocument 400 /views/frontend/error.php

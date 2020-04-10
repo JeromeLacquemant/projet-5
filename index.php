@@ -111,9 +111,9 @@ if (isset($_GET['page']))
             $controller->login();
         break;
     
-        case'error':
-            $controller = new FBackend();
-            $controller->error();
+        case'errorback':
+            $controller = new Backend();
+            $controller->errorback();
         break;
         
     }

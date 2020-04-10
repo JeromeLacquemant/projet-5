@@ -6,8 +6,9 @@
 
         $post = $model_article->get_post();
         if($post == false){
-            header("Location:index.php?page=error");
+            header("Location:/page-erreur-administrateur");
         }
+   
     ?>
 
 <h2>Modifier un article</h2>

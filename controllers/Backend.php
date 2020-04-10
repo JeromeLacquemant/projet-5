@@ -109,9 +109,10 @@ class Backend
         require('views/layout.php');
     }
 
-    public function error()
+    public function errorback()
     {
-        $page="backend/error";
+        $model_user = new User();
+        $page="backend/errorback";
         $topbar="backend/topbar";
         require('views/layout.php');
     }
