@@ -7,10 +7,10 @@
         <head>
 
             <title>Blog de Jé' - Développeur d'application</title>
-            <link rel="icon" href="public/img/accueil/favicon_dev.png" />
+            <link rel="icon" href="/public/img/accueil/favicon_dev.png" />
             
             <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <link type="text/css" rel="stylesheet" href="public/css/materialize/materialize.css"/>
+            <link type="text/css" rel="stylesheet" href="/public/css/materialize/materialize.css"/>
            
             <link href="../public/css/bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
             <link href="../public/css/bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">

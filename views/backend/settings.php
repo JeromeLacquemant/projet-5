@@ -1,6 +1,6 @@
 <?php
 if($model_user->admin()!=1){
-    header("Location:index.php?page=dashboard");
+    header("Location:/dashboard");
 }
 
 ?>

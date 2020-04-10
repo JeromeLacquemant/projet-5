@@ -1,6 +1,6 @@
 <?php
     if($model_user->hasnt_password() == 0){
-        header("Location:index.php?page=dashboard");
+        header("Location:/dashboard");
     }
 ?>
 

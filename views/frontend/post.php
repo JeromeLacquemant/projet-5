@@ -1,6 +1,4 @@
 <?php
-
-
 $post = $model_article->get_article_blog();
 if($post == false){
     header("Location:index.php?page=error");
@@ -101,3 +99,5 @@ if($post == false){
                     </div>
                 </div>
             </form>
+                            
+        </div>
