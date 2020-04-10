@@ -98,13 +98,20 @@ class Backend
         require('views/layout.php');
     }
     
-        public function new()
+    public function new()
     {
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/new";
+        $topbar="backend/topbar";
+        require('views/layout.php');
+    }
+
+    public function error()
+    {
+        $page="backend/error";
         $topbar="backend/topbar";
         require('views/layout.php');
     }

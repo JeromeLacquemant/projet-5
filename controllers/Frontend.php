@@ -54,4 +54,12 @@ class Frontend
         $topbar="frontend/topbar";
         require('views/layout.php');
     }
+    
+    public function error()
+    {
+       
+        $page="frontend/error";
+        $topbar="frontend/topbar";
+        require('views/layout.php');
+    }
 }

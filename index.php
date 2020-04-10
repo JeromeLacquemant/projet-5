@@ -26,6 +26,7 @@ if (!isset($_GET['page']))
 // Affichage des autres page en fonction du GET
 if (isset($_GET['page']))
 {
+    // FRONTEND
     switch($_GET['page']){
         case 'home_cv':
             $controller = new Frontend();
@@ -54,6 +55,12 @@ if (isset($_GET['page']))
             }
         break;
         
+        case'error':
+            $controller = new Frontend();
+            $controller->error();
+        break;
+        
+        // BACKEND
         case 'dashboard':
             $controller = new Backend();
             $controller->dashboard();
@@ -103,6 +110,12 @@ if (isset($_GET['page']))
             $controller = new Backend();
             $controller->login();
         break;
+    
+        case'error':
+            $controller = new FBackend();
+            $controller->error();
+        break;
+        
     }
 }
 
