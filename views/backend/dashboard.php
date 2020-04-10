@@ -20,10 +20,10 @@
             ?>
                 <div class="col l4 m6 s12">
                     <div class="card">
-                        <div class="card-content <?= $model_dashboard->getColor($table,$colors) ?> white-text">
+                        <div class="card-content <?= $model_dashboard->getColor($table,$colors) ?> ">
                             <span class="card-title"><?= $table_name ?></span>
                             <?php $nbrInTable = $model_dashboard->inTable($table); ?>
-                            <h4><?= $nbrInTable[0] ?></h4>
+                            <h4 class="chiffres"><?= $nbrInTable[0] ?></h4>
                         </div>
                     </div>
                 </div>

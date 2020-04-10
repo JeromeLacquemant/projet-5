@@ -23,10 +23,23 @@ body {
 
 /* Titles */
 
-h1, h3, h5, h6 {
+h1, h5, h6 {
   font-family: "Raleway";
   font-weight: 300;
-  color: white;
+  color: black;
+}
+
+h3{
+    color: white;
+}
+
+.accueil-h1{
+    color:white;
+}
+
+.chiffres{
+    color: white;
+    font-size: 3rem;
 }
 
 h4{
@@ -43,9 +56,13 @@ p {
 
 .centered {
   text-align: center;
-  background: #2c3e50;
+ 
 }
 
+.fond{
+ background: #2c3e50;
+ text-align: center;
+}
 /* Links */
 
 a {
@@ -225,6 +242,10 @@ SECTION WRAPS
 
 #skillswrap h5, p {
   color: black;
+}
+
+.introduction{
+    color: white;
 }
 
 #footwrap {

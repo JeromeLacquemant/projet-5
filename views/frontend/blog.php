@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col s12 m12 l12">
-            <h4><?= $post->title ?></h4>
+            <h1><?= $post->title ?></h1>
 
             <div class="row">
                 <div class="col s12 m6 l8">

@@ -12,7 +12,7 @@ if($post == false){
     </div>
         <div class="container">
 
-            <h2><?= $post->title ?></h2>
+            <h1><?= $post->title ?></h1>
             <h6>Par <?= $post->name ?> le <?= date("d/m/Y à H:i", strtotime($post->date)) ?></h6>
             <p><?= nl2br($post->content); ?></p>
     <?php

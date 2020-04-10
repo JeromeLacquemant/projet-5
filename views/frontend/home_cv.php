@@ -2,8 +2,8 @@
  
     <div class="row"></div>
     
-    <div class="col-lg-12 centered">
-        <h1>Jérôme Lacquemant</h1>
+    <div class="col-lg-12 fond">
+        <h1 class="accueil-h1">Jérôme Lacquemant</h1>
         <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
         <h3>Votre projet, ma mission !</h3>
     </div>
@@ -26,11 +26,11 @@
         <div class="row">
 
           <div class="col-lg-2 col-lg-offset-1">
-            <h5>A propos de moi</h5>
+            <h5>A PROPOS DE MOI</h5>
           </div>
           <div class="col-lg-6">
-              <p>Développeur d'applications web spécialisé en PHP et Symfony avec quelques mois d'expériences, je prends les projets très à coeur.</p>
-              <p>Mon rôle est d'échanger avec vous, de conceptualiser et de créer l'application qui sera adaptée à vos besoins.
+              <p class="introduction">Développeur d'applications web spécialisé en PHP et Symfony avec quelques mois d'expériences, je prends les projets très à coeur.</p>
+              <p class="introduction">Mon rôle est d'échanger avec vous, de conceptualiser et de créer l'application qui sera adaptée à vos besoins.
                 Mon but est de vous fournir un outil fonctionnel dont vous pourrez vous servir facilement.</p>
           </div>
           <div class="col-lg-3">
@@ -138,37 +138,37 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-lg-offset-1">
-          <h5>COMPETENCES</h5>
+          <h5 class="intro">COMPETENCES</h5>
         </div>
         <div class="col-lg-3 centered">
           <canvas id="photoshop" height="130" width="130"></canvas>
-          <p>PHP 7</p>
+          <p class="introduction">PHP 7</p>
           <br>
         </div>
         <div class="col-lg-3 centered">
           <canvas id="illustrator" height="130" width="130"></canvas>
-          <p>Symfony 4</p>
+          <p class="introduction">Symfony 4</p>
           <br>
         </div>
         <div class="col-lg-3 centered">
           <canvas id="javascript" height="130" width="130"></canvas>
-          <p>CSS Materialize</p>
+          <p class="introduction">CSS Materialize</p>
           <br>
         </div>
         <div class="col-lg-3 col-lg-offset-3 centered">
           <canvas id="bootstrap" height="130" width="130"></canvas>
-          <p>Bootstrap 4</p>
+          <p class="introduction">Bootstrap 4</p>
           <br>
         </div>
         <div class="col-lg-3 centered">
           <canvas id="wordpress" height="130" width="130"></canvas>
-          <p>Wordpress</p>
+          <p class="introduction">Wordpress</p>
           <br>
         </div>
 
         <div class="col-lg-3 centered">
           <canvas id="html" height="130" width="130"></canvas>
-          <p>HTML 5 / CSS 3</p>
+          <p class="introduction">HTML 5 / CSS 3</p>
           <br>
         </div>
    
