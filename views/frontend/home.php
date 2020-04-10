@@ -11,7 +11,7 @@ foreach($posts as $post){
                     <h6 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->date)); ?> par <?= $post->name ?></h6>
                 </div>
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img src="public/img/posts/<?= $post->image ?>" class="activator" alt="<?= $post->title ?>"/>
+                    <img src="/public/img/posts/<?= $post->image ?>" class="activator" alt="<?= $post->title ?>"/>
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>

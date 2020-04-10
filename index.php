@@ -12,6 +12,9 @@ error_reporting(E_ALL);
 require_once("controllers/Frontend.php");
 require_once("controllers/Backend.php");
 
+// Appel d'un fichier pour l'url rewritting
+require_once("config/function_url.php");
+
 // Affichage de la page d'accueil lors du lancement de l'index.php
 if (!isset($_GET['page']))
 {
