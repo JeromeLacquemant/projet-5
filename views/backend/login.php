@@ -17,9 +17,13 @@
 
             <?php
                 if(isset($_POST['submit'])){
-                    $email = htmlspecialchars(trim($_POST['email']));
-                    $password = htmlspecialchars(trim($_POST['password']));
-
+                    if(isset($_POST['email'])){
+                        $email = htmlspecialchars(trim($_POST['email']));  
+                    }
+                    if(isset($_POST['password'])){
+                        $password = htmlspecialchars(trim($_POST['password']));   
+                    }
+                    
                     $errors = [];
 
                     if(empty($email) || empty($password)){

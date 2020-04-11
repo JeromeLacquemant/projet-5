@@ -202,7 +202,7 @@ class Article extends Model
         $query = $db->prepare('SELECT * FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
         if ($query->rowCount() === 0) {
-            die("Aucun commentaire n'a l'identifiant $id !");
+            echo("Aucun commentaire n'a l'identifiant $id !");
         }
 
         $query = $db->prepare('DELETE FROM articles WHERE id = :id');

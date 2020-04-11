@@ -42,11 +42,19 @@ if($model_user->admin()!=1){
 
         <?php
             if(isset($_POST['submit'])){
-
-                $name = htmlspecialchars(trim($_POST['name']));
-                $email = htmlspecialchars(trim($_POST['email']));
-                $email_again = htmlspecialchars(trim($_POST['email_again']));
-                $role = htmlspecialchars(trim($_POST['role']));
+                if(isset($_POST['name'])){
+                    $name = htmlspecialchars(trim($_POST['name']));
+                }
+                if(isset($_POST['email'])){
+                    $email = htmlspecialchars(trim($_POST['email']));
+                }
+                if(isset($_POST['email_again'])){
+                    $email_again = htmlspecialchars(trim($_POST['email_again']));
+                }
+                if(isset($_POST['role'])){
+                    $role = htmlspecialchars(trim($_POST['role']));
+                }
+                
                 $token = $model_user->token(30);
 
                 $errors = [];
