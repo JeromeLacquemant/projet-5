@@ -46,7 +46,6 @@
   
                 if(!in_array($extension,$extensions)){
                     $errors['image'] = "Cette image n'est pas valable.";
-                      
                 }
             }
             

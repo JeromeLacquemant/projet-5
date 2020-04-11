@@ -235,12 +235,12 @@
   </section>
 
   <?php
-            if(isset($_POST['submit'])){
+            if(((filter_var(INPUT_POST, 'submit', FILTER_SANITIZE_STRING)))){
 
-                $name = htmlspecialchars(trim($_POST['name']));
-                $email = htmlspecialchars(trim($_POST['email']));
-                $subject = htmlspecialchars(trim($_POST['subject']));
-                $message = htmlspecialchars(trim($_POST['message']));
+                $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
+                $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING)));
+                $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING)));
 
                 
                 $errors = [];
