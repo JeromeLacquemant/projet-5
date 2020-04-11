@@ -83,9 +83,7 @@ class Article extends Model
 
 // Fonction permettant d'obtenir un article en particulier
     function get_post(){
-        $db = getPdo();
-
-        $req = $db->query("
+        $req = $this->db->query("
             SELECT  articles.id,
                     articles.title,
                     articles.image,

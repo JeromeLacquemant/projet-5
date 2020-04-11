@@ -235,38 +235,9 @@
   </section>
 
   <?php
-            if(((filter_var(INPUT_POST, 'submit', FILTER_SANITIZE_STRING)))){
-
-                $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
-                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
-                $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING)));
-                $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING)));
-
-                
-                $errors = [];
-
-                if(empty($name) || empty($email) || empty($subject) || empty($message)){
-                    $errors['empty'] = "Veuillez remplier tous les champs";
-                }
-
-                if(!empty($errors)){
-                    ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                foreach($errors as $error){
-                                    echo $error;
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                }else{
-                    $model_contact->contact_mail($name,$email,$subject,$message);
-                    $model_contact->contact_mail_user($name,$email,$subject,$message);
-                }
-            }
-        ?>
+  // Appel de la fonction permettant de traiter le formualire de la page d'accueil "home_cv".        
+  $model_contact->form_page_home_cv()
+ ?>
   
   <section id="contact">
     <!--FOOTER DESCRIPTION -->

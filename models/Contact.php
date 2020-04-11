@@ -5,6 +5,41 @@ require_once('Model.php');
 // Cette classe sert à manipuler tout ce qui concerne le formulaire de contact de la page d'accueil
 class Contact extends Model
 {
+    //Formulaire d'accueil
+    function form_page_home_cv(){
+      if(filter_has_var(INPUT_POST, 'submit')){
+
+                $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
+                $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING)));
+                $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING)));
+
+                
+                $errors = [];
+
+                if(empty($name) || empty($email) || empty($subject) || empty($message)){
+                    $errors['empty'] = "Veuillez remplier tous les champs";
+                }
+
+                if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                }else{
+                    Contact::contact_mail($name,$email,$subject,$message);
+                    Contact::contact_mail_user($name,$email,$subject,$message);
+                }
+            }
+    }
+            
     // Fonction permettant de m'envoyer un mail lorsqu'un client m'envoie un message
     function contact_mail($name,$email,$subject,$message){
     global $db;
