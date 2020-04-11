@@ -3,7 +3,6 @@
             header("Location:/dashboard");
         }
 
-
         $post = $model_article->get_post();
         if($post == false){
             header("Location:/page-erreur-administrateur");
@@ -26,9 +25,14 @@
         }
 
         if(isset($_POST['submit'])){
-            $title = htmlspecialchars(trim($_POST['title']));
-            $content = htmlspecialchars(trim($_POST['content']));
+            if(isset($_POST['title'])){
+                $title = htmlspecialchars(trim($_POST['title']));
+            }
+            if(isset($_POST['content'])){
+                $content = htmlspecialchars(trim($_POST['content']));
+            }
             $posted = isset($_POST['public']) ? "1" : "0";
+            
             $errors = [];
 
             if(empty($title) || empty($content)){
@@ -39,7 +43,6 @@
                 $file = $_FILES['image']['name'];
                 $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
                 $extension = strrchr($file,'.');
-                var_dump($_FILES);
   
                 if(!in_array($extension,$extensions)){
                     $errors['image'] = "Cette image n'est pas valable.";
@@ -53,7 +56,7 @@
                     <div class="card-content white-text">
                         <?php
                         foreach($errors as $error){
-                            echo $error."<br/>";
+                            echo $error;
                         }
                         ?>
                     </div>

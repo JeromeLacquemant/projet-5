@@ -8,8 +8,13 @@
 
 <?php
     if(isset($_POST['post'])){
-        $title = htmlspecialchars(trim($_POST['title']));
-        $content = htmlspecialchars(trim($_POST['content']));
+        if(isset($_POST['title'])){
+            $title = htmlspecialchars(trim($_POST['title']));
+        }
+        if(isset($_POST['content'])){
+            $content = htmlspecialchars(trim($_POST['content']));
+        }
+        
         $posted = isset($_POST['public']) ? "1" : "0";
 
         $errors = [];
@@ -17,7 +22,7 @@
         if(empty($title) || empty($content)){
             $errors['empty'] = "Veuillez remplir tous les champs";
         }
-
+        
         if(!empty($_FILES['image']['name'])){
             $file = $_FILES['image']['name'];
             $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
@@ -33,7 +38,7 @@
                     <div class="card-content white-text">
                         <?php
                             foreach($errors as $error){
-                                echo $error."<br/>";
+                                echo $error;
                             }
                         ?>
                     </div>

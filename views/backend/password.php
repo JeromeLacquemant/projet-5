@@ -43,7 +43,7 @@
                     <?php
                     }else{
                         $model_user->update_password($password);
-                        header("Location:index.php?page=dashboard");
+                        header("Location:/modification-du-mot-de-passe");
                     }
                 }
             ?>

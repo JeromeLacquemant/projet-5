@@ -9,20 +9,19 @@ class Article extends Model
 // FONCTIONS POUR LE FRONTEND
     // Fonction permettant de récupérer tous les articles postés
     public function get_posts_blog(){
-
         $req = $this->db->query("SELECT * FROM articles WHERE posted='1' ORDER BY date DESC");
 
         $results = [];
         while($rows = $req->fetchObject()){
             $results[] = $rows;
         }
+        
         return $results;
     }
     
 
     // Fonction qui permet de récupérer les détails des articles postés
     public function get_posts_blog1(){
-
         $req = $this->db->query("
             SELECT  articles.id,
                     articles.title,
@@ -49,7 +48,6 @@ class Article extends Model
     
     // Fonction qui récupère un article avec le posted = 1
     public function get_article_blog(){
-    
         $req = $this->db->query("
             SELECT  articles.id,
                     articles.title,
@@ -73,8 +71,6 @@ class Article extends Model
 //FONCTIONS POUR LE BACKEND
     // Fonction permettant de récupérer l'ensemble des articles
     function get_posts(){
-
-        
         $req = $this->db->query("SELECT * FROM articles ORDER BY date DESC");
         
         $results = [];
@@ -83,12 +79,10 @@ class Article extends Model
         }
         
         return $results;
-        }
+    }
 
 // Fonction permettant d'obtenir un article en particulier
     function get_post(){
-
-        global $db;
         $db = getPdo();
 
         $req = $db->query("
@@ -106,12 +100,12 @@ class Article extends Model
         ");
 
         $result = $req->fetchObject();
+        
         return $result;
     }
 
     // Fonction permettant d'éditer un article 
     function edit($title,$content,$posted,$id){
-        global $db;
         $db = getPdo();
 
         $e = [
@@ -128,7 +122,6 @@ class Article extends Model
 
     // Fonction permettant d'insérer un nouvel article dans la base de données
     function post($title,$content,$posted){
-        global $db;
         global $id;
         $db = getPdo();
 
@@ -153,7 +146,6 @@ class Article extends Model
 
     // Fonction permettant d'insérer une nouvelle image dans la base de données
     function post_img($tmp_name, $extension){
-        global $db;
         global $id;
         $db = getPdo();
         
@@ -196,8 +188,9 @@ class Article extends Model
         if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
             echo("Ho ! Fallait préciser le paramètre id en GET !");
         }
-
-        $id = $_GET['id'];
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+        }
 
         $query = $db->prepare('SELECT * FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
