@@ -17,14 +17,48 @@ class Comment extends Model
         
         return $results;
     }
+    
+    // Fonction permettant de vérifier que les données envoyées pat l'utilisateur sont bonnes.
+    function form_comment_verification(){
+        if(filter_has_var(INPUT_POST, 'submit')){
+            $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
+            $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING)));
+            $errors = [];
 
+            if(empty($name) || empty($email) || empty($comment)){
+                $errors['empty'] = "Tous les champs n'ont pas été remplis";
+            }else{
+                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    $errors['email'] = "L'adresse email n'est pas valide";
+                }
+            }
+
+            if(!empty($errors)){
+            ?>
+                <div class="card red">
+                    <div class="card-content white-text">
+                        <?php
+                            foreach($errors as $error){
+                                echo $error;
+                            }
+                        ?>
+                    </div>
+                </div>
+            <?php
+            }else{
+                Comment::insert_comment($name,$email,$comment);
+            }
+        }
+    }
+    
     // Fonction qui insère un commentaire dans la base de données avec un seen = 0
     function insert_comment($name,$email,$comment){
     
         $db = getPdo();
     
         if(isset($_GET['id'])){
-            $c = array(
+            $tableau = array(
             'name'      => $name,
             'email'     => $email,
             'comment'   => $comment,
@@ -35,7 +69,7 @@ class Comment extends Model
     
         $sql = "INSERT INTO comments(name,email,comment,article_id,date,seen) VALUES(:name, :email, :comment, :article_id, NOW(), 0)";
         $req = $db->prepare($sql);
-        $req->execute($c);
+        $req->execute($tableau);
     
     }
 

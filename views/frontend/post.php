@@ -15,7 +15,7 @@ if($post == false){
             <h1><?= $post->title ?></h1>
             <h6>Par <?= $post->name ?> le <?= date("d/m/Y à H:i", strtotime($post->date)) ?></h6>
             <p><?= nl2br($post->content); ?></p>
-    <?php
+<?php
 }
 ?>
 
@@ -37,44 +37,10 @@ if($post == false){
 
             <h4>Commenter:</h4>
 
-            <?php
-                if(isset($_POST['submit'])){
-                    $name = htmlspecialchars(trim($_POST['name']));
-                    $email = htmlspecialchars(trim($_POST['email']));
-                    $comment = htmlspecialchars(trim($_POST['comment']));
-                    $errors = [];
-
-                    if(empty($name) || empty($email) || empty($comment)){
-                        $errors['empty'] = "Tous les champs n'ont pas été remplis";
-                    }else{
-                        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                            $errors['email'] = "L'adresse email n'est pas valide";
-                        }
-                    }
-
-
-                    if(!empty($errors)){
-                        ?>
-                            <div class="card red">
-                                <div class="card-content white-text">
-                                    <?php
-                                        foreach($errors as $error){
-                                            echo $error."<br/>";
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-                        <?php
-                    }else{
-                        $model_comment->insert_comment($name,$email,$comment);
-                        ?>
-                            <script>
-                                window.location.replace("index.php?page=post&id=<?= $_GET['id'] ?>");
-                            </script>
-                        <?php
-                    }
-                }
-            ?>
+<?php
+// Fonction permettant de vérifier le contenu envoyé par l'utilisateur pour insérer un commentaire sur un article.
+$model_comment->form_comment_verification();
+?>
 
             <form method="post">
                 <div class="row">
@@ -93,7 +59,8 @@ if($post == false){
 
                     <div class="col s12">
                         <button type="submit" name="submit" class="btn waves-effect" 
-                                onclick="return window.confirm(`Ce commentaire va être validé par notre équipe avant d'être affiché`)">
+                                onclick="return window.confirm(`Ce commentaire va être validé par notre équipe avant d'être affiché`)"
+                            href="/article/<?= transforme_en_url($post->title) ?>-<?= $post->id ?>">
                             Commenter ce post
                         </button>
                     </div>
