@@ -36,7 +36,7 @@
             $errors = [];
 
             if(empty($title) || empty($content)){
-                $errors['empty'] = "Veuillez remplir tous les champs";
+                $errors['empty'] = "Veuillez remplir tous les champs svp";
             }
 
             if(!empty($_FILES['image']['name'])){
