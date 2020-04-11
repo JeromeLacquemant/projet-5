@@ -2,7 +2,6 @@
 if(isset($_SESSION['admin'])){
     header("Location:/dashboard");
 }
-
 ?>
 
 <div class="row">
@@ -35,7 +34,7 @@ if(isset($_SESSION['admin'])){
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error."<br/>";
+                                    echo $error;
                                 }
                                 ?>
                             </div>

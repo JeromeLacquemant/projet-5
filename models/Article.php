@@ -194,7 +194,7 @@ class Article extends Model
         $db = getPdo();
         
         if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
-            die("Ho ! Fallait préciser le paramètre id en GET !");
+            echo("Ho ! Fallait préciser le paramètre id en GET !");
         }
 
         $id = $_GET['id'];

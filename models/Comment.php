@@ -23,13 +23,15 @@ class Comment extends Model
     
         $db = getPdo();
     
-        $c = array(
+        if(isset($_GET['id'])){
+            $c = array(
             'name'      => $name,
             'email'     => $email,
             'comment'   => $comment,
             'article_id'   => $_GET["id"]
-    
-        );
+            );
+        }
+  
     
         $sql = "INSERT INTO comments(name,email,comment,article_id,date,seen) VALUES(:name, :email, :comment, :article_id, NOW(), 0)";
         $req = $db->prepare($sql);
@@ -84,7 +86,7 @@ class Comment extends Model
     // Fonction permettant d'approuver un commentaire
     function approve_comment(){
         if (empty($_GET['approve']) || !ctype_digit($_GET['approve'])) {
-            die("Ho ! Fallait préciser le paramètre id en GET !");
+            echo("Ho ! Fallait préciser le paramètre id en GET !");
         }
 
         $id = $_GET['approve'];
