@@ -4,7 +4,6 @@ class Dashboard
 {
     // Fonction qui récupère le nombre d'éléments dans la table
     function inTable($table){
-        global $db;
         $db = getPdo();
         $query = $db->query("SELECT COUNT(id) FROM $table");
         return $nombre = $query->fetch();
