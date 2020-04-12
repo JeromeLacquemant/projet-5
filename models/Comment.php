@@ -8,9 +8,9 @@ class Comment extends Model
 // FONCTIONS POUR LE FRONTEND
     // Fonction qui récupère les commentaires d'un article
     public function get_comments_blog(){
-    
         $req = $this->db->query("SELECT * FROM comments WHERE article_id = '{$_GET['id']}' AND seen = 1 ORDER BY date DESC");
         $results = [];
+        
         while($rows = $req->fetchObject()){
             $results[] = $rows;
         }
@@ -19,11 +19,10 @@ class Comment extends Model
     }
     
     // Fonction qui insère un commentaire dans la base de données avec un seen = 0
-    function insert_comment($name,$email,$comment){
-    
-        $db = getPdo();
-    
-        if(isset($_GET['id'])){
+    public static function insert_comment($name,$email,$comment){
+       $db = getPdo();
+        
+        if(filter_has_var(INPUT_GET, 'id')){
             $tableau = array(
             'name'      => $name,
             'email'     => $email,
@@ -31,20 +30,16 @@ class Comment extends Model
             'article_id'   => $_GET["id"]
             );
         }
-  
     
         $sql = "INSERT INTO comments(name,email,comment,article_id,date,seen) VALUES(:name, :email, :comment, :article_id, NOW(), 0)";
         $req = $db->prepare($sql);
         $req->execute($tableau);
-    
     }
 
 //FONCTIONS POUR LE BACKEND
     // Fonction qui récupère l'ensemble des commentaires non vu par l'administrateur
     function get_comments(){
-        $db = getPdo();
-    
-        $req = $db->query("
+        $req = $this->db->query("
             SELECT  comments.id,
                     comments.name,
                     comments.email,
@@ -71,10 +66,8 @@ class Comment extends Model
         if (isset($_GET['delete']) AND !empty($_GET['delete'])) {
         
         $delete = (int) $_GET['delete'];
-
-        $db = getPdo();
         
-        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $req = $this->db->prepare('DELETE FROM comments WHERE id = ?');
         $req->execute(array($delete));
 
         header("Location: index.php?page=dashboard");
@@ -91,9 +84,7 @@ class Comment extends Model
 
         $id = $_GET['approve'];
 
-        $db = getPdo();
-
-        $query = $db->prepare('UPDATE comments SET seen=1 WHERE id=:id');
+        $query = $this->db->prepare('UPDATE comments SET seen=1 WHERE id=:id');
         $query->execute(['id' => $id]);
 
         header("Location: index.php?page=dashboard");
