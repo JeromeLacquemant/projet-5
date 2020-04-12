@@ -236,7 +236,7 @@ class Article extends Model
                     Article::post_img($_FILES['image']['tmp_name'], $extension);
                     header("Location:/liste-de-tous-les-articles");
                 }else{
-                    $id = $this->db->lastInsertId();
+                    $this->db->lastInsertId();
                    header("Location:/liste-de-tous-les-articles");
                 }
             }
@@ -244,20 +244,19 @@ class Article extends Model
     }
     
     function form_page_postback(){
-        if(isset($_POST['delete'])){
+        if(filter_has_var(INPUT_POST, 'delete')){
             Article::delete_article_comments();
             Article::delete_article();
-            
         }
 
-        if(isset($_POST['submit'])){
-            if(isset($_POST['title'])){
-                $title = htmlspecialchars(trim($_POST['title']));
+        if(filter_has_var(INPUT_POST, 'submit')){
+            if(filter_has_var(INPUT_POST, 'title')){
+                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
             }
-            if(isset($_POST['content'])){
-                $content = htmlspecialchars(trim($_POST['content']));
+            if(filter_has_var(INPUT_POST, 'content')){
+                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING)));
             }
-            $posted = isset($_POST['public']) ? "1" : "0";
+            $posted = filter_has_var(INPUT_POST, 'public') ? "1" : "0";
             
             $errors = [];
 
