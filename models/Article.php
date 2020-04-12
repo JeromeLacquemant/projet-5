@@ -7,20 +7,9 @@ require_once('Model.php');
 class Article extends Model
 {
 // FONCTIONS POUR LE FRONTEND
-    // Fonction permettant de récupérer tous les articles postés
-    public function get_posts_blog(){
-        $req = $this->db->query("SELECT * FROM articles WHERE posted='1' ORDER BY date DESC");
-
-        $results = [];
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
-        }
-        
-        return $results;
-    }
     
     // Fonction qui permet de récupérer les détails des articles postés
-    public function get_posts_blog1(){
+    public function get_posts_blog(){
         $req = $this->db->query("
             SELECT  articles.id,
                     articles.title,
@@ -174,8 +163,16 @@ class Article extends Model
             WHERE id = :id'
         );
         
-        $query->execute(['id' => $id]
-        );
+        $query->execute(['id' => $id]);
+        
+        unlink("public/img/posts/".$id.".png");
+        unlink("public/img/posts/".$id.".jpg");
+        unlink("public/img/posts/".$id.".jpeg");
+        unlink("public/img/posts/".$id.".gif");
+        unlink("public/img/posts/".$id.".PNG");
+        unlink("public/img/posts/".$id.".JPG");
+        unlink("public/img/posts/".$id.".JPEG");
+        unlink("public/img/posts/".$id.".GIF");
     }
     
       // Fonction permettant de supprimer les commentaires d'un article

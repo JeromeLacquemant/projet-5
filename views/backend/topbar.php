@@ -27,7 +27,7 @@
                         }
                         ?>
 
-                        <li><a href="/articles-a-la-une">Quitter</a></li>
+                        <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
                         <li><a href="index.php?page=logout">Déconnexion</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
@@ -50,7 +50,7 @@
                         }
 
                         ?>
-                        <li><a href="/articles-a-la-une">Quitter</a></li>
+                        <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
                         <li><a href="index.php?page=logout">Déconnexion</a></li>
 
                     </ul>

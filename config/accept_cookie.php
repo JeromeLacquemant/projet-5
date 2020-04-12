@@ -10,4 +10,3 @@ if(isset($_SERVER['HTTP_REFERER']) AND !empty($_SERVER['HTTP_SERVER']))
  {
     header('Location:/'); 
  }
-?>

@@ -8,7 +8,6 @@
 
 <?php
    //Fonction permettant de vérifier les données envoyées par l'utilsiateur
-     function form_page_write(){
         if(filter_has_var(INPUT_POST, 'post')){
             if(filter_has_var(INPUT_POST, 'title')){
                 $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
@@ -57,7 +56,6 @@
                 }
             }
         }
-    }
 ?>
 
 <form method="post" enctype="multipart/form-data">

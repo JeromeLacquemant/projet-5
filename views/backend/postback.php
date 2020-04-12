@@ -18,7 +18,6 @@
     <div class="container">
 
 <?php
-   function form_page_postback(){
         if(filter_has_var(INPUT_POST, 'delete')){
             $model_article->delete_article_comments();
             $model_article->delete_article();
@@ -31,7 +30,7 @@
             if(filter_has_var(INPUT_POST, 'content')){
                 $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING)));
             }
-            $posted = filter_has_var(INPUT_POST, 'public') ? "1" : "0";
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
             
             $errors = [];
 
@@ -81,7 +80,6 @@
                 <?php
             }
         }
-    }
 ?>
 
     <form method="post" enctype="multipart/form-data">

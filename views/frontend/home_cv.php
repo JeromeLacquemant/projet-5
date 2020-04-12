@@ -236,22 +236,22 @@
             </p>
             <form class="" role="form" method="POST">
               <div class="form-group">
-                <label for="contact-name">Votre nom</label>
-                <input name="name" type="text" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
+                <label for="contact-name"></label>
+                <input name="name" type="text" class="form-control" id="contact-name" placeholder="Votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <label for="contact-email">Votre email</label>
+                <label for="contact-email"></label>
                 <input type="email" name="email" class="form-control" id="contact-email" placeholder="example@gmail.com" data-rule="email" data-msg="Veuillez entrer une adresse mail valide.">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <label for="contact-subject">Sujet</label>
+                <label for="contact-subject"></label>
                 <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Veuillez entrer au mois 8 caractères pour votre sujet">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <label for="contact-message">Votre message</label>
+                <label for="contact-message"></label>
                 <textarea class="form-control" name="message" id="contact-message" placeholder="Votre message" rows="5" data-rule="required" data-msg="Veuillez écrire votre message, que je lirai avec attention."></textarea>
                 <div class="validate"></div>
               </div>
