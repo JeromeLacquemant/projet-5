@@ -1,14 +1,13 @@
-    <?php
-        if($model_user->admin()!=1){
-            header("Location:/dashboard");
-        }
+<?php
+    if($model_user->admin()!=1){
+        header("Location:/dashboard");
+    }
 
-        $post = $model_article->get_post();
-        if($post == false){
-            header("Location:/page-erreur-administrateur");
-        }
-   
-    ?>
+    $post = $model_article->get_post();
+    if($post == false){
+        header("Location:/page-erreur-administrateur");
+    }
+?>
 
 <h2>Modifier un article</h2>
         <div class="row center">
@@ -18,81 +17,18 @@
         </div>
     <div class="container">
 
-    <?php
-        if(isset($_POST['delete'])){
-            $article = $model_article->delete_article();
-            $comment = $model_comment->delete_article_comments();
-        }
-
-        if(isset($_POST['submit'])){
-            if(isset($_POST['title'])){
-                $title = htmlspecialchars(trim($_POST['title']));
-            }
-            if(isset($_POST['content'])){
-                $content = htmlspecialchars(trim($_POST['content']));
-            }
-            $posted = isset($_POST['public']) ? "1" : "0";
-            
-            $errors = [];
-
-            if(empty($title) || empty($content)){
-                $errors['empty'] = "Veuillez remplir tous les champs svp";
-            }
-
-            if(!empty($_FILES['image']['name'])){
-                $file = $_FILES['image']['name'];
-                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
-                $extension = strrchr($file,'.');
-  
-                if(!in_array($extension,$extensions)){
-                    $errors['image'] = "Cette image n'est pas valable.";
-                }
-            }
-            
-            if(!empty($errors)){
-                ?>
-                <div class="card red">
-                    <div class="card-content white-text">
-                        <?php
-                        foreach($errors as $error){
-                            echo $error;
-                        }
-                        ?>
-                    </div>
-                </div>
-                <?php
-            }else{
-                $model_article->edit($title,$content,$posted,$_GET['id']);
-             
-                if(!empty($_FILES['image']['name']))
-                {
-                    $model_article->update_img($_FILES['image']['tmp_name'], $extension);
-                    header("Location:/liste-de-tous-les-articles");
-                }
-                else
-                {
-                    header("Location:/liste-de-tous-les-articles");
-                }
-                
-                ?>
-                    <script>
-                        window.location.replace("index.php?page=postback&id=<?= $_GET['id'] ?>");
-                    </script> 
-                <?php
-            }
-        }
-    ?>
-
+<?php
+$model_contact->form_page_postback();
+?>
 
     <form method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
-             
             </div>
+            
             <div class="input-field col s12">
                 <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
-       
             </div>
 
             <div class="col s12">

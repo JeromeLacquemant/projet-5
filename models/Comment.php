@@ -18,40 +18,6 @@ class Comment extends Model
         return $results;
     }
     
-    // Fonction permettant de vérifier que les données envoyées pat l'utilisateur sont bonnes.
-    function form_comment_verification(){
-        if(filter_has_var(INPUT_POST, 'submit')){
-            $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
-            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
-            $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING)));
-            $errors = [];
-
-            if(empty($name) || empty($email) || empty($comment)){
-                $errors['empty'] = "Tous les champs n'ont pas été remplis";
-            }else{
-                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                    $errors['email'] = "L'adresse email n'est pas valide";
-                }
-            }
-
-            if(!empty($errors)){
-            ?>
-                <div class="card red">
-                    <div class="card-content white-text">
-                        <?php
-                            foreach($errors as $error){
-                                echo $error;
-                            }
-                        ?>
-                    </div>
-                </div>
-            <?php
-            }else{
-                Comment::insert_comment($name,$email,$comment);
-            }
-        }
-    }
-    
     // Fonction qui insère un commentaire dans la base de données avec un seen = 0
     function insert_comment($name,$email,$comment){
     
@@ -138,14 +104,9 @@ class Comment extends Model
     // EN COURS
     //Fonction permettant de supprimer tous les commentaires d'un article (dans le cas où on veut supprimer un article)
     function delete_article_comments(){
-        
-        if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
-            die("Ho ! Fallait préciser le paramètre id en GET !");
-        }
-
         $id = $_GET['id'];
 
-        $query = $db->prepare('
+        $query = $this->db->prepare('
         DELETE 
         FROM comments 
         JOIN articles
@@ -153,7 +114,7 @@ class Comment extends Model
         ');
         $query->execute(['id' => $id]);
 
-        header("Location: index.php?page=list");
+        header("Location: /liste-de-tous-les-articles");
 
         exit();
 

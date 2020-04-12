@@ -236,7 +236,7 @@
 
   <?php
   // Appel de la fonction permettant de traiter le formualire de la page d'accueil "home_cv".        
-  $model_contact->form_page_home_cv()
+  $model_form->form_page_home_cv()
  ?>
   
   <section id="contact">

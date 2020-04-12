@@ -3,7 +3,7 @@
 require_once('models/Article.php');
 require_once('models/Comment.php');
 require_once('models/Dashboard.php');
-
+require_once('models/Form.php');
 require_once('models/Model.php');
 require_once('models/User.php');
 
@@ -26,6 +26,7 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
+        $model_contact = new Form();
         
         $page="backend/write";
         $topbar="backend/topbar";
@@ -37,6 +38,7 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
+        $model_contact = new Form();
         
         $page="backend/settings";
         $topbar="backend/topbar";
@@ -70,6 +72,7 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
+        $model_contact = new Form();
         
         $page="backend/password";
         $topbar="backend/topbar";
@@ -81,6 +84,7 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
+        $model_contact = new Form();
         
         $page="backend/postback";
         $topbar="backend/topbar";

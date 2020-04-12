@@ -7,56 +7,7 @@
 <h2>Poster un article</h2>
 
 <?php
-    if(isset($_POST['post'])){
-        if(isset($_POST['title'])){
-            $title = htmlspecialchars(trim($_POST['title']));
-        }
-        if(isset($_POST['content'])){
-            $content = htmlspecialchars(trim($_POST['content']));
-        }
-        
-        $posted = isset($_POST['public']) ? "1" : "0";
-
-        $errors = [];
-
-        if(empty($title) || empty($content)){
-            $errors['empty'] = "Veuillez remplir tous les champs";
-        }
-        
-        if(!empty($_FILES['image']['name'])){
-            $file = $_FILES['image']['name'];
-            $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
-            $extension = strrchr($file,'.');
-            if(!in_array($extension,$extensions)){
-                $errors['image'] = "Cette image n'est pas valable";
-            }
-        }
-
-        if(!empty($errors)){
-            ?>
-                <div class="card red">
-                    <div class="card-content white-text">
-                        <?php
-                            foreach($errors as $error){
-                                echo $error;
-                            }
-                        ?>
-                    </div>
-                </div>
-            <?php
-        }else{
-            $model_article->post($title,$content,$posted);
-            if(!empty($_FILES['image']['name'])){
-            
-                $model_article->post_img($_FILES['image']['tmp_name'], $extension);
-
-            }else{
-                $db = getPdo();
-                $id = $db->lastInsertId();
-               header("Location:/liste-de-tous-les-articles");
-            }
-        }
-    }
+$model_form->form_page_write();
 ?>
 
 <form method="post" enctype="multipart/form-data">

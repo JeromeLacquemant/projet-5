@@ -19,7 +19,6 @@ class Article extends Model
         return $results;
     }
     
-
     // Fonction qui permet de récupérer les détails des articles postés
     public function get_posts_blog1(){
         $req = $this->db->query("
@@ -35,7 +34,6 @@ class Article extends Model
             WHERE posted='1'
             ORDER BY date DESC
             LIMIT 0,5
-        
         ");
         
         $results = array();
@@ -64,7 +62,6 @@ class Article extends Model
     
         $result = $req->fetchObject();
         return $result;
-    
     }
 
 
@@ -104,9 +101,7 @@ class Article extends Model
 
     // Fonction permettant d'éditer un article 
     function edit($title,$content,$posted,$id){
-        $db = getPdo();
-
-        $e = [
+        $tableau = [
             'title'     => $title,
             'content'   => $content,
             'posted'    => $posted,
@@ -114,21 +109,17 @@ class Article extends Model
         ];
 
         $sql = "UPDATE articles SET title=:title, content=:content, date=NOW(), posted=:posted WHERE id=:id";
-        $req = $db->prepare($sql);
-        $req->execute($e);
+        $req = $this->db->prepare($sql);
+        $req->execute($tableau);
     }
 
     // Fonction permettant d'insérer un nouvel article dans la base de données
     function post($title,$content,$posted){
-        global $id;
-        $db = getPdo();
-
-        $p = [
+        $tableau = [
             'title'     =>  $title,
             'content'   =>  $content,
             'writer'    =>  $_SESSION['admin'],
             'posted'    =>  $posted
-
         ];
 
         $sql = "
@@ -136,69 +127,59 @@ class Article extends Model
         VALUES(:title, '', '', :content,:writer,NOW(),:posted, '')
         ";
 
-        $req = $db->prepare($sql);
-        $req->execute($p);
+        $req = $this->db->prepare($sql);
+        $req->execute($tableau);
 
-        $id = $db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
+        $id = $this->db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
     }
 
     // Fonction permettant d'insérer une nouvelle image dans la base de données
     function post_img($tmp_name, $extension){
         global $id;
-        $db = getPdo();
-        
       
-        $i = [
+        $tableau = [
             'id'    =>  $id,
             'image' =>  $id.$extension  
         ];
 
         $sql = "UPDATE articles SET image = :image WHERE id = :id";
         
-        $req = $db->prepare($sql);
-        $req->execute($i);
+        $req = $this->db->prepare($sql);
+        $req->execute($tableau);
         move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
     }
 
         // Fonction permettant de mettre à jour l'image d'un article
     function update_img($tmp_name, $extension){
-        $db = getPdo();
-        
-        $id = $_GET['id'];
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
          
-        $i = [
+        $tableau = [
             'id'    =>  $id,
             'image' =>  $id.$extension  
         ];
 
         $sql = "UPDATE articles SET image = :image WHERE id = :id";
         
-        $req = $db->prepare($sql);
-        $req->execute($i);
+        $req = $this->db->prepare($sql);
+        $req->execute($tableau);
         move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
     }
     
     // Fonction permettant de supprimer un article
     function delete_article()
-    {
-        $db = getPdo();
-        
-        if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
-            echo("Ho ! Fallait préciser le paramètre id en GET !");
-        }
-        if(isset($_GET['id'])){
-            $id = $_GET['id'];
+    {  
+        if(filter_has_var(INPUT_GET, 'id')){
+            $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         }
 
-        $query = $db->prepare('SELECT * FROM articles WHERE id = :id');
+        $query = $this->db->prepare('SELECT * FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
         if ($query->rowCount() === 0) {
             echo("Aucun commentaire n'a l'identifiant $id !");
         }
 
-        $query = $db->prepare('DELETE FROM articles WHERE id = :id');
+        $query = $this->db->prepare('DELETE FROM articles WHERE id = :id');
         $query->execute(['id' => $id]);
-
-        exit();
     }
+    
 }
