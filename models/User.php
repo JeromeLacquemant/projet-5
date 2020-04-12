@@ -4,21 +4,21 @@
 class User extends Model{
     // Fonction permettant de vérifier que la session est bien active sous le role administrateur
     function admin(){
-    if(isset($_SESSION['admin'])){
-        $tableau = [
-            'email'     =>  $_SESSION['admin'],
-            'role'      =>  'admin'
-        ];
+        if(isset($_SESSION['admin'])){
+            $tableau = [
+                'email'     =>  $_SESSION['admin'],
+                'role'      =>  'admin'
+            ];
 
-        $sql = "SELECT * FROM admins WHERE email=:email AND role=:role";
-        $req = $this->db->prepare($sql);
-        $req->execute($tableau);
-        $exist = $req->rowCount($sql);
+            $sql = "SELECT * FROM admins WHERE email=:email AND role=:role";
+            $req = $this->db->prepare($sql);
+            $req->execute($tableau);
+            $exist = $req->rowCount($sql);
 
-        return $exist;
-    }else{
-        return 0;
-    }
+            return $exist;
+        }else{
+            return 0;
+        }
     }
 
     // Fonction qui vérifie qu'un utilisateur est bien administrateur

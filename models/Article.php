@@ -176,7 +176,7 @@ class Article extends Model
         );
     }
     
-      // Fonction permettant de supprimer un article
+      // Fonction permettant de supprimer les commentaires d'un article
     function delete_article_comments()
     {  
         $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -184,9 +184,7 @@ class Article extends Model
         $query = $this->db->prepare('
         DELETE 
         FROM comments 
-        JOIN articles
-        ON comments.article_id = article.id
-        WHERE id = :id;
+        WHERE article_id = :id
         ');
         $query->execute(['id' => $id]);
 
@@ -247,8 +245,9 @@ class Article extends Model
     
     function form_page_postback(){
         if(isset($_POST['delete'])){
-            Article::delete_article();
             Article::delete_article_comments();
+            Article::delete_article();
+            
         }
 
         if(isset($_POST['submit'])){
