@@ -2,9 +2,6 @@
 // Fichier nécessaire pour avoir les identifiants de la bdd
 include('config/connexion_database.php');
 
-class Model{
-    protected $db; 
-
     // Retourne une connexion à la base de données
     function getPdo(): PDO
     {
@@ -21,10 +18,12 @@ class Model{
 
             return $db;
     }
+    
+class Model{
 
     public function __construct()
     {
-        $this->db = Model::getPdo();
+        $this->db = getPdo();
     }
 
 }

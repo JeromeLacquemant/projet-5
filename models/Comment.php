@@ -7,7 +7,7 @@ class Comment extends Model
 {
 // FONCTIONS POUR LE FRONTEND
     // Fonction qui récupère les commentaires d'un article
-    public function get_comments_blog(){
+    function get_comments_blog(){
         $req = $this->db->query("SELECT * FROM comments WHERE article_id = '{$_GET['id']}' AND seen = 1 ORDER BY date DESC");
         $results = [];
         
@@ -19,9 +19,8 @@ class Comment extends Model
     }
     
     // Fonction qui insère un commentaire dans la base de données avec un seen = 0
-    public static function insert_comment($name,$email,$comment){
-       $db = getPdo();
-        
+    function insert_comment($name,$email,$comment){
+ 
         if(filter_has_var(INPUT_GET, 'id')){
             $tableau = array(
             'name'      => $name,
@@ -32,7 +31,7 @@ class Comment extends Model
         }
     
         $sql = "INSERT INTO comments(name,email,comment,article_id,date,seen) VALUES(:name, :email, :comment, :article_id, NOW(), 0)";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute($tableau);
     }
 
@@ -82,20 +81,38 @@ class Comment extends Model
         header("Location: /dashboard");
     }
 
-    // EN COURS
-    //Fonction permettant de supprimer tous les commentaires d'un article (dans le cas où on veut supprimer un article)
-    function delete_article_comments(){
-        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    
+    // Fonction permettant de vérifier que les données envoyées pat l'utilisateur sont bonnes.
+    function form_comment_verification(){
+        if(filter_has_var(INPUT_POST, 'submit')){
+            $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
+            $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING)));
+            $errors = [];
 
-        $query = $this->db->prepare('
-        DELETE 
-        FROM comments 
-        JOIN articles
-        ON comments.article_id = article.id
-        ');
-        
-        $query->execute(['id' => $id]);
+            if(empty($name) || empty($email) || empty($comment)){
+                $errors['empty'] = "Tous les champs n'ont pas été remplis";
+            }else{
+                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    $errors['email'] = "L'adresse email n'est pas valide";
+                }
+            }
 
-        header("Location: /liste-de-tous-les-articles");
+            if(!empty($errors)){
+            ?>
+                <div class="card red">
+                    <div class="card-content white-text">
+                        <?php
+                            foreach($errors as $error){
+                                echo $error;
+                            }
+                        ?>
+                    </div>
+                </div>
+            <?php
+            }else{
+                Comment::insert_comment($name,$email,$comment);
+            }
+        }
     }
 }

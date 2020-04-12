@@ -18,7 +18,7 @@
     <div class="container">
 
 <?php
-$model_contact->form_page_postback();
+$model_article->form_page_postback();
 ?>
 
     <form method="post" enctype="multipart/form-data">

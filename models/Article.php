@@ -129,14 +129,12 @@ class Article extends Model
 
         $req = $this->db->prepare($sql);
         $req->execute($tableau);
-
-        $id = $this->db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
     }
 
     // Fonction permettant d'insérer une nouvelle image dans la base de données
     function post_img($tmp_name, $extension){
-        global $id;
-      
+        $id = $this->db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
+        
         $tableau = [
             'id'    =>  $id,
             'image' =>  $id.$extension  
@@ -168,18 +166,147 @@ class Article extends Model
     // Fonction permettant de supprimer un article
     function delete_article()
     {  
-        if(filter_has_var(INPUT_GET, 'id')){
-            $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-        }
-
-        $query = $this->db->prepare('SELECT * FROM articles WHERE id = :id');
-        $query->execute(['id' => $id]);
-        if ($query->rowCount() === 0) {
-            echo("Aucun commentaire n'a l'identifiant $id !");
-        }
-
-        $query = $this->db->prepare('DELETE FROM articles WHERE id = :id');
-        $query->execute(['id' => $id]);
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        
+        $query = $this->db->prepare('
+        DELETE
+        FROM articles 
+        WHERE id = :id');
+        $query->execute(['id' => $id]
+        );
     }
     
+      // Fonction permettant de supprimer un article
+    function delete_article_comments()
+    {  
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+        $query = $this->db->prepare('
+        DELETE 
+        FROM comments 
+        JOIN articles
+        ON comments.article_id = article.id
+        WHERE id = :id;
+        ');
+        $query->execute(['id' => $id]);
+
+        header("Location: /liste-de-tous-les-articles");
+    }
+    
+    //Fonction permettant de vérifier les données envoyées par l'utilsiateur
+     function form_page_write(){
+        if(isset($_POST['post'])){
+            if(isset($_POST['title'])){
+                $title = htmlspecialchars(trim($_POST['title']));
+            }
+            if(isset($_POST['content'])){
+                $content = htmlspecialchars(trim($_POST['content']));
+            }
+
+            $posted = isset($_POST['public']) ? "1" : "0";
+
+            $errors = [];
+
+            if(empty($title) || empty($content)){
+                $errors['empty'] = "Veuillez remplir tous les champs";
+            }
+
+            if(!empty($_FILES['image']['name'])){
+                $file = $_FILES['image']['name'];
+                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+                $extension = strrchr($file,'.');
+                if(!in_array($extension,$extensions)){
+                    $errors['image'] = "Cette image n'est pas valable";
+                }
+            }
+
+            if(!empty($errors)){
+                ?>
+                    <div class="card red">
+                        <div class="card-content white-text">
+                            <?php
+                                foreach($errors as $error){
+                                    echo $error;
+                                }
+                            ?>
+                        </div>
+                    </div>
+                <?php
+            }else{
+                Article::post($title,$content,$posted);
+                if(!empty($_FILES['image']['name'])){
+                    Article::post_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:/liste-de-tous-les-articles");
+                }else{
+                    $id = $this->db->lastInsertId();
+                   header("Location:/liste-de-tous-les-articles");
+                }
+            }
+        }
+    }
+    
+    function form_page_postback(){
+        if(isset($_POST['delete'])){
+            Article::delete_article();
+            Article::delete_article_comments();
+        }
+
+        if(isset($_POST['submit'])){
+            if(isset($_POST['title'])){
+                $title = htmlspecialchars(trim($_POST['title']));
+            }
+            if(isset($_POST['content'])){
+                $content = htmlspecialchars(trim($_POST['content']));
+            }
+            $posted = isset($_POST['public']) ? "1" : "0";
+            
+            $errors = [];
+
+            if(empty($title) || empty($content)){
+                $errors['empty'] = "Veuillez remplir tous les champs svp";
+            }
+
+            if(!empty($_FILES['image']['name'])){
+                $file = $_FILES['image']['name'];
+                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+                $extension = strrchr($file,'.');
+  
+                if(!in_array($extension,$extensions)){
+                    $errors['image'] = "Cette image n'est pas valable.";
+                }
+            }
+            
+            if(!empty($errors)){
+                ?>
+                <div class="card red">
+                    <div class="card-content white-text">
+                        <?php
+                        foreach($errors as $error){
+                            echo $error;
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php
+            }else{
+                Article::edit($title,$content,$posted,$_GET['id']);
+             
+                if(!empty($_FILES['image']['name']))
+                {
+                    Article::update_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:/liste-de-tous-les-articles");
+                }
+                else
+                {
+                    header("Location:/liste-de-tous-les-articles");
+                }
+                
+                ?>
+                    <script>
+                        window.location.replace("index.php?page=postback&id=<?= $_GET['id'] ?>");
+                    </script> 
+                <?php
+            }
+        }
+    }
 }

@@ -39,7 +39,7 @@ if($post == false){
 
 <?php
 // Fonction permettant de vérifier le contenu envoyé par l'utilisateur pour insérer un commentaire sur un article.
-$model_form->form_comment_verification();
+$model_comment->form_comment_verification();
 ?>
 
             <form method="post">

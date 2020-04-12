@@ -1,7 +1,5 @@
 <?php 
 
-require_once('Model.php');
-
 // Cette classe sert à manipuler tout ce qui touche aux users
 class User extends Model{
     // Fonction permettant de vérifier que la session est bien active sous le role administrateur

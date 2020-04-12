@@ -7,7 +7,7 @@
 <h2>Poster un article</h2>
 
 <?php
-$model_form->form_page_write();
+$model_article->form_page_write();
 ?>
 
 <form method="post" enctype="multipart/form-data">
