@@ -1,7 +1,7 @@
 <?php
-if(isset($_SESSION['admin'])){
-    header("Location:/dashboard");
-}
+    if(isset($_SESSION['admin'])){
+        header("Location:/dashboard");
+    }
 ?>
 
 <div class="row">
@@ -15,7 +15,6 @@ if(isset($_SESSION['admin'])){
             <h4 class="center-align">Se connecter</h4>
 
             <?php
-
                 if(isset($_POST['submit'])){
                     $email = htmlspecialchars(trim($_POST['email']));
                     $token = htmlspecialchars(trim($_POST['token']));
@@ -42,7 +41,7 @@ if(isset($_SESSION['admin'])){
                     <?php
                     }else{
                         $_SESSION['admin'] = $email;
-                        header("Location:index.php?page=password");
+                        header("Location:/modification-du-mot-de-passe");
                     }
                 }
             ?>
@@ -63,12 +62,11 @@ if(isset($_SESSION['admin'])){
                             Se connecter
                         </button>
                         <br/><br/>
-                        <a href="index.php?page=login">Déjà modérateur / administrateur</a>
+                        <a href="/connexion-espace-membre">Déjà modérateur / administrateur</a>
                     </center>
                 </div>
-
             </form>
         </div>
-<div id="alaska"></div>
+    <div id="alaska"></div>
     </div>
 </div>

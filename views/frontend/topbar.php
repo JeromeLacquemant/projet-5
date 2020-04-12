@@ -14,7 +14,7 @@
             <ul class="side-nav" id="mobile-menu">
                 <li class="<?php echo ($page=="home")?"active" : ""; ?>"><a href="/articles-a-la-une">Blog</a></li>
                 <li class="<?php echo ($page=="blog")?"active" : ""; ?>"><a href="/ensemble-des-articles">Articles</a></li>
-                <li class="<?php echo ($page=="blog")?"active" : ""; ?>"><a href="/connexion-espace-membre">Espace membre</a></li>            
+                <li class="<?php echo ($page=="login")?"active" : ""; ?>"><a href="/connexion-espace-membre">Espace membre</a></li>            
             </ul>
 
         </div>

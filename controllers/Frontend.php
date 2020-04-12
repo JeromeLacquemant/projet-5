@@ -48,7 +48,6 @@ class Frontend
     {
         $model_article = new Article();
         $model_comment = new Comment();
-        $model_form = new Form();
                 
         $page="frontend/post";
         $topbar="frontend/topbar";

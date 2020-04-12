@@ -1,8 +1,7 @@
 <?php
-if($model_user->admin()!=1){
-    header("Location:/dashboard");
-}
-
+    if($model_user->admin()!=1){
+        header("Location:/dashboard");
+    }
 ?>
 
 <h2>Paramètres</h2>
@@ -34,7 +33,6 @@ if($model_user->admin()!=1){
             ?>
             </tbody>
         </table>
-
 
     </div>
     <div class="col m6 s12">
@@ -85,7 +83,7 @@ if($model_user->admin()!=1){
                     <?php
                 }else{
                     $model_user->add_modo($name,$email,$role,$token);
-                    header("Location:index.php?page=settings");
+                    header("Location:/gestion-des-admins-et-modos");
                 }
             }
         ?>
@@ -111,10 +109,8 @@ if($model_user->admin()!=1){
                     <option value="modo">Modérateur</option>
                     <option value="admin">Administrateur</option>
                 </select>
-
                 <div class="row"></div>
                 <div class="row"></div>
-                
                 <div class="col s12">
                     <button type="submit" name="submit" class="btn">Ajouter</button>
                 </div>

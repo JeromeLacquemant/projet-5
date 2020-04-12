@@ -26,7 +26,6 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
-        $model_form= new Form();
         
         $page="backend/write";
         $topbar="backend/topbar";
@@ -38,7 +37,6 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
-        $model_form = new Form();
         
         $page="backend/settings";
         $topbar="backend/topbar";
@@ -72,7 +70,6 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
-        $model_form = new Form();
         
         $page="backend/password";
         $topbar="backend/topbar";
@@ -84,7 +81,6 @@ class Backend
         $model_article = new Article();
         $model_comment = new Comment();
         $model_user = new User();
-        $model_form = new Form();
         
         $page="backend/postback";
         $topbar="backend/topbar";
@@ -116,6 +112,7 @@ class Backend
     public function errorback()
     {
         $model_user = new User();
+        
         $page="backend/errorback";
         $topbar="backend/topbar";
         require('views/layout.php');

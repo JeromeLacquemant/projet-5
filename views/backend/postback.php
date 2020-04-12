@@ -18,7 +18,7 @@
     <div class="container">
 
 <?php
-$model_article->form_page_postback();
+    $model_article->form_page_postback();
 ?>
 
     <form method="post" enctype="multipart/form-data">
@@ -26,18 +26,15 @@ $model_article->form_page_postback();
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
             </div>
-            
             <div class="input-field col s12">
                 <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
             </div>
-
             <div class="col s12">
                 <div class="input-field">
                     <input type="file" name="image" class="col s12"/>
                     <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
                 </div>
             </div>
-
             <div class="col s6">
                 <p>Public</p>
                 <div class="switch">
@@ -49,7 +46,6 @@ $model_article->form_page_postback();
                     </label>
                 </div>
             </div>
-
             <div class="col s6 right-align">
                 <br/><br/>
                 <button type="submit" class="btn" name="submit" onclick="return window.confirm(`Êtes vous sur de vouloir modifier cet article ?!`)">Modifier l'article</button>

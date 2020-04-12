@@ -1,30 +1,22 @@
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
- 
     <div class="row"></div>
-    
     <div class="col-lg-12 fond">
         <h1 class="accueil-h1">Jérôme Lacquemant</h1>
         <h3>Développeur d'applications PHP 7 / Symfony 4</h3>
         <h3>Votre projet, ma mission !</h3>
-    </div>
-    
-     <div class="row"></div>
-     
-      <img class="img-responsive" src="public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
+    </div>  
+    <div class="row"></div>   
+    <img class="img-responsive" src="public/img/accueil/Photo_Jerome.jpg" alt="Screenshot du projet 2">
     <div class="container">
       <div class="row centered">
-        <!--/.col-lg-12 -->
       </div>
-      <!--/.row -->
     </div>
-    <!--/.container -->
-
  
+<!--ABOUT-->
   <section id="about">
     <div id="intro">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-2 col-lg-offset-1">
             <h5>A PROPOS DE MOI</h5>
           </div>
@@ -38,21 +30,15 @@
                 <a href="public/fichier/CV_Jerome.pdf" download> Télécharger mon CV</a>
             </p>
           </div>
-
         </div>
-        <!--/.row -->
       </div>
-      <!--/.container -->
     </div>
-    <!--/ #intro -->
   </section>
 
-
+<!--DIPLOMAS -->
   <section id="resume">
-    <!--EDUCATION DESCRIPTION -->
     <div class="container desc">
       <div class="row">
-
         <div class="col-lg-2 col-lg-offset-1">
           <h5>FORMATION</h5>
         </div>
@@ -70,7 +56,6 @@
             </imp>
           </p>
         </div>
-
         <div class="col-lg-6 col-lg-offset-3">
           <p>
             <t>Diplôme d'ingénieur en Maîtrise des Risques Industriels</t><br/> INSA Rouen<br/>
@@ -82,17 +67,13 @@
             <sm>2014 - 2017</sm>
           </p>
         </div>
-
       </div>
-      <!--/.row -->
       <br>
       <hr>
     </div>
-    <!--/.container -->
   </section>
 
-
-  <!--WORK DESCRIPTION -->
+<!--EXPERIENCES -->
   <div class="container desc">
     <div class="row">
 
@@ -112,7 +93,6 @@
           <sm>Septembre 2019 - Aujourd'hui</sm>
         </p>
       </div>
-
       <div class="col-lg-6 col-lg-offset-3">
         <p>
           <t>Ingénieur en Maîtrise des Risques Industriels</t><br/> Néodyme <br/>
@@ -127,11 +107,8 @@
         </p>
       </div>
     </div>
-    <!--/.row -->
     <br>
   </div>
-  <!--/.container -->
-
 
   <!--SKILLS DESCRIPTION -->
   <div id="skillswrap">
@@ -165,26 +142,18 @@
           <p class="introduction">Wordpress</p>
           <br>
         </div>
-
         <div class="col-lg-3 centered">
           <canvas id="html" height="130" width="130"></canvas>
           <p class="introduction">HTML 5 / CSS 3</p>
           <br>
         </div>
-   
-
       </div>
-      <!--/.row -->
       <br>
     </div>
-    <!--/.container -->
   </div>
-  <!--/ #skillswrap -->
 
-
-
+<!--PORTFOLIO DESCRIPTION -->
   <section id="work">
-    <!--PORTFOLIO DESCRIPTION -->
     <div class="container desc">
       <div class="row">
         <div class="col-lg-2 ">
@@ -201,7 +170,6 @@
             </more>
           </p>
         </div>
-
         <div class="col-lg-6 col-lg-offset-2">
           <p><img class="img-responsive" src="../../public/img/accueil/Photo_Projet3.png" alt="Screenshot du projet 3"></p>
         </div>
@@ -213,7 +181,6 @@
             </more>
           </p>
         </div>
-
         <div class="col-lg-6 col-lg-offset-2">
           <p><img class="img-responsive" src="../public/img/accueil/Photo_Projet5.png" alt="Screenshot du projet 5"></p>
         </div>
@@ -225,26 +192,23 @@
             </more>
           </p>
         </div>
-
       </div>
-      <!--/.row -->
       <br>
       <br>
     </div>
-    <!--/.container -->
   </section>
 
-  <?php
-  // Appel de la fonction permettant de traiter le formualire de la page d'accueil "home_cv".        
-  $model_form->form_page_home_cv()
- ?>
-  
+<?php
+    // Appel de la fonction permettant de traiter le formualire de la page d'accueil "home_cv".        
+    $model_form->form_page_home_cv()
+?>
+
+<!--FOOTER DESCRIPTION -->
   <section id="contact">
-    <!--FOOTER DESCRIPTION -->
+
     <div id="footwrap">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-2">
             <h5>CONTACT</h5>
           </div>
@@ -271,10 +235,9 @@
               <sm>FORMULAIRE DE CONTACT</sm>
             </p>
             <form class="" role="form" method="POST">
-
               <div class="form-group">
                 <label for="contact-name">Votre nom</label>
-                <input name="name" type="name" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
+                <input name="name" type="text" class="form-control" id="contact-name" placeholder="votre nom" data-rule="minlen:4" data-msg="Veuillez entrer au moins 4 caractères">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
@@ -287,26 +250,19 @@
                 <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Veuillez entrer au mois 8 caractères pour votre sujet">
                 <div class="validate"></div>
               </div>
-
               <div class="form-group">
                 <label for="contact-message">Votre message</label>
                 <textarea class="form-control" name="message" id="contact-message" placeholder="Votre message" rows="5" data-rule="required" data-msg="Veuillez écrire votre message, que je lirai avec attention."></textarea>
                 <div class="validate"></div>
               </div>
-
               <div class="">
                 <button name="submit"  class="btn">Envoyer le message à Jérôme</button>
               </div>
             </form>
-
           </div>
-
         </div>
-        <!--/.row -->
       </div>
-      <!--/.container -->
     </div>
-    <!--/ #footer -->
   </section>
   
   <div class="row"></div>

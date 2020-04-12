@@ -1,17 +1,17 @@
 <?php
-$post = $model_article->get_article_blog();
-if($post == false){
-    header("Location:/page-erreur");
-}else{
-    ?>
+    $post = $model_article->get_article_blog();
+    if($post == false){
+        header("Location:/page-erreur");
+    }else{
+?>
     
     <div class="row center">
         <div class=" row ">
             <img class="responsive-img" src="/public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
         </div>
     </div>
-        <div class="container">
-
+    
+    <div class="container">
             <h1><?= $post->title ?></h1>
             <h6>Par <?= $post->name ?> le <?= date("d/m/Y à H:i", strtotime($post->date)) ?></h6>
             <p><?= nl2br($post->content); ?></p>
@@ -34,14 +34,13 @@ if($post == false){
                     }
                 }else echo "Aucun commentaire n'a été publié... Soyez le premier!";
             ?>
-
             <h4>Commenter:</h4>
 
 <?php
 // Fonction permettant de vérifier le contenu envoyé par l'utilisateur pour insérer un commentaire sur un article.
 $model_comment->form_comment_verification();
 ?>
-
+            
             <form method="post">
                 <div class="row">
                     <div class="input-field col s12 m6">

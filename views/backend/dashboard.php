@@ -30,14 +30,13 @@
             <?php
         }
     ?>
-
-
 </div>
 
 <h4>Commentaires non lus</h4>
 <?php
     $comments = $model_comment->get_comments();
 ?>
+
 <table>
     <thead>
         <tr>

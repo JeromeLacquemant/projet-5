@@ -7,7 +7,7 @@
 <h2>Poster un article</h2>
 
 <?php
-$model_article->form_page_write();
+    $model_article->form_page_write();
 ?>
 
 <form method="post" enctype="multipart/form-data">
@@ -21,18 +21,15 @@ $model_article->form_page_write();
             <textarea name="content" id="content" class="materialize-textarea"></textarea>
             <label for="content">Contenu de l'article</label>
         </div>
-
         <div class="col s12">
             <div class="input-field">                 
                 <input type="file" name="image" class="col s12"/>
                 <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
             </div>
-     
         </div>
                <div class="row">
             <p>Veuillez insérer une image de 940*530 px pour que les articles soient homogènes sur le site.</p>
             </div>
-
         <div class="col s6">
             <p>Public</p>
             <div class="switch">
@@ -44,12 +41,10 @@ $model_article->form_page_write();
                 </label>
             </div>
         </div>
-
         <div class="col s6 right-align">
             <br/><br/>
             <button class="btn" type="submit" name="post">Publier</button>
         </div>
-
     </div>
     <div id="alaska"></div>
 </form>
