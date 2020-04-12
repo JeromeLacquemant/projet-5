@@ -12,7 +12,6 @@
                     <img src="public/img/admin/modo.png" alt="Modérateur" width="100"/>
                 </div>
             </div>
-
             <h4 class="center-align">Choisir un mot de passe</h4>
 
             <?php
@@ -35,7 +34,7 @@
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error."<br/>";
+                                    echo $error;
                                 }
                                 ?>
                             </div>
@@ -43,7 +42,7 @@
                     <?php
                     }else{
                         $model_user->update_password($password);
-                        header("Location:index.php?page=dashboard");
+                        header("Location:/modification-du-mot-de-passe");
                     }
                 }
             ?>
@@ -54,7 +53,6 @@
                         <input type="password" id="password" name="password"/>
                         <label for="password">Mot de passe</label>
                     </div>
-
                     <div class="input-field col s12">
                         <input type="password" name="password_again" id="password_again"/>
                         <label for="password_again">Répéter le mot de passe</label>
