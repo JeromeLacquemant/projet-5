@@ -18,7 +18,70 @@
     <div class="container">
 
 <?php
-    $model_article->form_page_postback();
+   function form_page_postback(){
+        if(filter_has_var(INPUT_POST, 'delete')){
+            $model_article->delete_article_comments();
+            $model_article->delete_article();
+        }
+
+        if(filter_has_var(INPUT_POST, 'submit')){
+            if(filter_has_var(INPUT_POST, 'title')){
+                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
+            }
+            if(filter_has_var(INPUT_POST, 'content')){
+                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING)));
+            }
+            $posted = filter_has_var(INPUT_POST, 'public') ? "1" : "0";
+            
+            $errors = [];
+
+            if(empty($title) || empty($content)){
+                $errors['empty'] = "Veuillez remplir tous les champs svp";
+            }
+
+            if(!empty($_FILES['image']['name'])){
+                $file = $_FILES['image']['name'];
+                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+                $extension = strrchr($file,'.');
+  
+                if(!in_array($extension,$extensions)){
+                    $errors['image'] = "Cette image n'est pas valable.";
+                }
+            }
+            
+            if(!empty($errors)){
+                ?>
+                <div class="card red">
+                    <div class="card-content white-text">
+                        <?php
+                        foreach($errors as $error){
+                            echo $error;
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php
+            }else{
+                $model_article->edit($title,$content,$posted, filter_input(INPUT_GET, 'id'));
+             
+                if(!empty($_FILES['image']['name']))
+                {
+                    $model_article->update_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:/liste-de-tous-les-articles");
+                }
+                else
+                {
+                    header("Location:/liste-de-tous-les-articles");
+                }
+                
+                ?>
+                    <script>
+                        window.location.replace("index.php?page=postback&id=<?= filter_input(INPUT_GET, 'id') ?>");
+                    </script> 
+                <?php
+            }
+        }
+    }
 ?>
 
     <form method="post" enctype="multipart/form-data">

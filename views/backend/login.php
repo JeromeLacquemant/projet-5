@@ -16,10 +16,10 @@
             <?php
                 if(isset($_POST['submit'])){
                     if(isset($_POST['email'])){
-                        $email = htmlspecialchars(trim($_POST['email']));  
+                        $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
                     }
                     if(isset($_POST['password'])){
-                        $password = htmlspecialchars(trim($_POST['password']));   
+                        $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
                     }
                     
                     $errors = [];

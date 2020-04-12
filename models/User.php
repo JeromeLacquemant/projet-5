@@ -37,7 +37,7 @@ class User extends Model{
 
     function hasnt_password(){
         $sql = "SELECT * FROM admins WHERE email = '{$_SESSION['admin']}' AND password = ''";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute();
         $exist = $req->rowCount($sql);
         

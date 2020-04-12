@@ -40,17 +40,17 @@
 
         <?php
             if(isset($_POST['submit'])){
-                if(isset($_POST['name'])){
-                    $name = htmlspecialchars(trim($_POST['name']));
+                if(filter_has_var(INPUT_POST, 'name')){
+                    $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
                 }
-                if(isset($_POST['email'])){
-                    $email = htmlspecialchars(trim($_POST['email']));
+                if(filter_has_var(INPUT_POST, 'email')){
+                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
                 }
-                if(isset($_POST['email_again'])){
-                    $email_again = htmlspecialchars(trim($_POST['email_again']));
+                if(filter_has_var(INPUT_POST, 'email_again')){
+                    $email_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email_again', FILTER_SANITIZE_STRING)));
                 }
-                if(isset($_POST['role'])){
-                    $role = htmlspecialchars(trim($_POST['role']));
+                if(filter_has_var(INPUT_POST, 'role')){
+                    $role = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING)));
                 }
                 
                 $token = $model_user->token(30);

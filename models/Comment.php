@@ -67,7 +67,7 @@ class Comment extends Model
         $req = $this->db->prepare('DELETE FROM comments WHERE id = ?');
         $req->execute(array($delete));
 
-        header("Location: index.php?page=dashboard");
+        header("Location: /dashboard");
     }
 
     // Fonction permettant d'approuver un commentaire

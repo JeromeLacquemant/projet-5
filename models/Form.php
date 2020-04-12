@@ -5,7 +5,6 @@ require_once('Model.php');
 // Cette classe sert à manipuler tout ce qui concerne le formulaire de contact de la page d'accueil
 class Form extends Model
 {
-    
     //Formulaire d'accueil
     function form_page_home_cv(){
       if(filter_has_var(INPUT_POST, 'submit')){
