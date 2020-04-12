@@ -3,19 +3,17 @@
 require_once('Model.php');
 
 // Cette classe sert à manipuler tout ce qui touche aux users
-class User{
+class User extends Model{
     // Fonction permettant de vérifier que la session est bien active sous le role administrateur
     function admin(){
     if(isset($_SESSION['admin'])){
-        $db = getPdo();
-        
         $tableau = [
             'email'     =>  $_SESSION['admin'],
             'role'      =>  'admin'
         ];
 
         $sql = "SELECT * FROM admins WHERE email=:email AND role=:role";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute($tableau);
         $exist = $req->rowCount($sql);
 
@@ -27,14 +25,12 @@ class User{
 
     // Fonction qui vérifie qu'un utilisateur est bien administrateur
     function is_admin($email,$password){
-        $db = getPdo();
-
         $tableau = [
             'email'     =>  $email,
             'password'  =>  sha1($password)
         ];
         $sql = "SELECT * FROM admins WHERE email = :email AND password = :password";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute($tableau);
         $exist = $req->rowCount($sql);
         
@@ -42,8 +38,6 @@ class User{
     }
 
     function hasnt_password(){
-        $db = getPdo();
-
         $sql = "SELECT * FROM admins WHERE email = '{$_SESSION['admin']}' AND password = ''";
         $req = $db->prepare($sql);
         $req->execute();
@@ -54,11 +48,9 @@ class User{
 
     // Fonction qui gère les settings
     function email_taken($email){
-        $db = getPdo();
-
         $tableau = ['email'   =>  $email];
         $sql = "SELECT * FROM admins WHERE email = :email";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute($tableau);
         $free = $req->rowCount($sql);
 
@@ -74,8 +66,6 @@ class User{
 
     // Fonction permettant d'ajouter un modérateur / administrateur et de lui envoyer un mail
     function add_modo($name,$email,$role,$token){
-        $db = getPdo();
-
         $tableau= [
             'name'      =>  $name,
             'email'     =>  $email,
@@ -84,7 +74,7 @@ class User{
         ];
 
         $sql = "INSERT INTO admins(name,email,token,role) VALUES(:name,:email,:token,:role)";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute($tableau);
 
         $subject = "Modo / Admin sur le blog";
@@ -112,9 +102,7 @@ class User{
     
     // Fonction permettant d'obtenir tous les modérateurs / administrateurs
     function get_modos(){
-        $db = getPdo();
-
-        $req = $db->query("
+         $req = $this->db->query("
             SELECT * FROM admins
         ");
 
@@ -128,14 +116,12 @@ class User{
 
     // Fonction qui vérifie qu'un utilisateur est bien modérateur ou admin
     function is_modo($email,$token){
-        $db = getPdo();
-
         $tableau = [
             'email' =>  $email,
             'token' =>  $token
         ];
         $sql = "SELECT * FROM admins WHERE email=:email AND token=:token";
-        $req= $db->prepare($sql);
+        $req= $this->db->prepare($sql);
         $req->execute($tableau);
         
         return $req->rowCount($sql);
@@ -143,24 +129,20 @@ class User{
 
     // Fonction permettant la mise à jour du mot de passe 
     function update_password($password){
-        $db = getPdo();
-
-        $tableau = [
+         $tableau = [
             'password'  =>  sha1($password),
             'session'   =>  $_SESSION['admin']
         ];
 
         $sql = "UPDATE admins SET password = :password WHERE email=:session";
-        $req = $db->prepare($sql);
+        $req = $this->db->prepare($sql);
         $req->execute($tableau);
 
     }
 
     // Fonction permettant de récupérer la liste des administrateurs
     function get_user(){
-        $db = getPdo();
-
-        $req = $db->query("
+        $req = $this->db->query("
             SELECT * FROM admins WHERE email='{$_SESSION['admin']}';
         ");
 
