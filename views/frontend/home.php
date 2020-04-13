@@ -1,14 +1,14 @@
-<h1>Page d'accueil</h1>
+<h1>TOP 5 DES ARTICLES</h1>
 <div class="row">
 
 <?php
-$posts = $model_article->get_posts_blog1();
+$posts = $model_article->get_posts_blog();
 foreach($posts as $post){
         ?><div class="col l6 m6 s12">
             <div class="card">
                 <div class="card-content">
                     <h1 class="grey-text text-darken-2"><?= $post->title ?></h1>
-                    <h6 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->date)); ?> par <?= $post->name ?></h6>
+                    <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->date)); ?> par <?= $post->name ?></h5>
                 </div>
                 <div class="card-image waves-effect waves-block waves-light">
                     <img src="/public/img/posts/<?= $post->image ?>" class="activator" alt="<?= $post->title ?>"/>

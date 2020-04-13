@@ -1,8 +1,7 @@
 <?php
-if($model_user->admin()!=1){
-    header("Location:/dashboard");
-}
-
+    if($model_user->admin()!=1){
+        header("Location:/dashboard");
+    }
 ?>
 
 <h2>Paramètres</h2>
@@ -35,18 +34,25 @@ if($model_user->admin()!=1){
             </tbody>
         </table>
 
-
     </div>
     <div class="col m6 s12">
         <h4>Ajouter un modo</h4>
 
         <?php
-            if(isset($_POST['submit'])){
-
-                $name = htmlspecialchars(trim($_POST['name']));
-                $email = htmlspecialchars(trim($_POST['email']));
-                $email_again = htmlspecialchars(trim($_POST['email_again']));
-                $role = htmlspecialchars(trim($_POST['role']));
+            if(filter_has_var(INPUT_POST, 'submit')){
+                if(filter_has_var(INPUT_POST, 'name')){
+                    $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+                }
+                if(filter_has_var(INPUT_POST, 'email')){
+                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
+                }
+                if(filter_has_var(INPUT_POST, 'email_again')){
+                    $email_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email_again', FILTER_SANITIZE_STRING)));
+                }
+                if(filter_has_var(INPUT_POST, 'role')){
+                    $role = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING)));
+                }
+                
                 $token = $model_user->token(30);
 
                 $errors = [];
@@ -69,7 +75,7 @@ if($model_user->admin()!=1){
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error."<br/>";
+                                    return $error;
                                 }
                                 ?>
                             </div>
@@ -77,7 +83,7 @@ if($model_user->admin()!=1){
                     <?php
                 }else{
                     $model_user->add_modo($name,$email,$role,$token);
-                    header("Location:index.php?page=settings");
+                    header("Location:/gestion-des-admins-et-modos");
                 }
             }
         ?>
@@ -103,10 +109,8 @@ if($model_user->admin()!=1){
                     <option value="modo">Modérateur</option>
                     <option value="admin">Administrateur</option>
                 </select>
-
                 <div class="row"></div>
                 <div class="row"></div>
-                
                 <div class="col s12">
                     <button type="submit" name="submit" class="btn">Ajouter</button>
                 </div>
