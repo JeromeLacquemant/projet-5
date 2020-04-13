@@ -16,7 +16,7 @@
                 $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING)));
             }
 
-            $posted = filter_var(INPUT_POST, 'public') ? "1" : "0";
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
 
             $errors = [];
 
@@ -51,7 +51,6 @@
                     $model_article->post_img($_FILES['image']['tmp_name'], $extension);
                     header("Location:/liste-de-tous-les-articles");
                 }else{
-                    $this->db->lastInsertId();
                    header("Location:/liste-de-tous-les-articles");
                 }
             }

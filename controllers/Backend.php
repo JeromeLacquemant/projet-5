@@ -10,7 +10,6 @@ class Backend
 {
     public function dashboard()
     {
-        $model_article = new Article();
         $model_comment = new Comment();
         $model_dashboard = new Dashboard();
         $model_user = new User();
@@ -42,7 +41,6 @@ class Backend
     public function list()
     {
         $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
 
         $page="backend/list";
@@ -71,7 +69,6 @@ class Backend
     public function postback()
     {
         $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/postback";
