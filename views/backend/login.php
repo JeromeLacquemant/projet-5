@@ -16,13 +16,13 @@
             <?php
                 if(filter_has_var(INPUT_POST, 'submit')){
                     if(filter_has_var(INPUT_POST, 'email')){
+
                         $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING, FILTER_VALIDATE_EMAIL)));
                     }
                     if(filter_has_var(INPUT_POST, 'password')){
                         $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
 
                     }
-
                     $errors = [];
 
                     if(empty($email) || empty($password)){
@@ -38,6 +38,7 @@
                                 <?php
                                     foreach($errors as $error){
                                         echo $error;
+
                                     }
                                 ?>
                             </div>

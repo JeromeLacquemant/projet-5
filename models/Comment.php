@@ -86,7 +86,9 @@ class Comment extends Model
     function form_comment_verification(){
         if(filter_has_var(INPUT_POST, 'submit')){
             $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
+
             $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING,)));
+
             $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING)));
             $errors = [];
 

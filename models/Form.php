@@ -11,6 +11,7 @@ class Form extends Model
 
                 $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
                 $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL)));
+
                 $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING)));
                 $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING)));
 
@@ -29,7 +30,7 @@ class Form extends Model
                 if(strlen($message) < 5){
                     $errors['message'] = "Votre message doit contenir au moins 50 caractères.";
                 }
-                
+
                 if(!empty($errors)){
                     ?>
                         <div class="card red">
