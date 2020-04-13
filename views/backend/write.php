@@ -12,7 +12,7 @@
             if(filter_has_var(INPUT_POST, 'title')){
                 $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
             }
-            if(isset($_POST['content'])){
+            if(filter_has_var(INPUT_POST, 'content')){
                 $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING)));
             }
 

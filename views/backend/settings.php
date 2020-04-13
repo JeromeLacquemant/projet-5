@@ -39,7 +39,7 @@
         <h4>Ajouter un modo</h4>
 
         <?php
-            if(isset($_POST['submit'])){
+            if(filter_has_var(INPUT_POST, 'submit')){
                 if(filter_has_var(INPUT_POST, 'name')){
                     $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
                 }

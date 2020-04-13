@@ -14,11 +14,11 @@
             </div>
             <h4 class="center-align">Se connecter</h4>
             <?php
-                if(isset($_POST['submit'])){
-                    if(isset($_POST['email'])){
+                if(filter_has_var(INPUT_POST, 'submit')){
+                    if(filter_has_var(INPUT_POST, 'email')){
                         $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
                     }
-                    if(isset($_POST['password'])){
+                    if(filter_has_var(INPUT_POST, 'password')){
                         $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
                     }
                     

@@ -15,9 +15,9 @@
             <h4 class="center-align">Choisir un mot de passe</h4>
 
             <?php
-                if(isset($_POST['submit'])){
-                    $password = htmlspecialchars(trim($_POST['password']));
-                    $password_again = htmlspecialchars(trim($_POST['password_again']));
+                if(filter_has_var(INPUT_POST, 'submit')){
+                    $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
+                    $password_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password_again', FILTER_SANITIZE_STRING)));
 
                     $errors = [];
                     if(empty($password) || empty($password_again)){
