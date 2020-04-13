@@ -46,16 +46,16 @@ $model_comment->form_comment_verification();
             <form method="post">
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input type="text" name="name" id="name"/>
-                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Nom"/>
+                        <label for="name"></label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input type="email" name="email" id="email"/>
-                        <label for="email">Adresse email</label>
+                        <input type="email" name="email" id="email" placeholder="Adresse email"/>
+                        <label for="email"></label>
                     </div>
                     <div class="input-field col s12">
-                        <textarea name="comment" id="comment" class="materialize-textarea"></textarea>
-                        <label for="comment">Commentaire</label>
+                        <textarea name="comment" id="comment" class="materialize-textarea" placeholder="Commentaire"></textarea>
+                        <label for="comment"></label>
                     </div>
 
                     <div class="col s12">
