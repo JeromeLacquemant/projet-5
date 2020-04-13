@@ -1,15 +1,19 @@
-<h2>Blog</h2>
+<h2>TOUS LES ARTICLES</h2>
 
 <?php
-    $posts = $model_article->get_posts_blog();
+    $posts = $model_article->get_posts_blog_all();
     foreach($posts as $post){
 ?>
 
     <div class="row">
         <div class="col s12 m12 l12">
             <h1><?= $post->title ?></h1>
-
+            <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->date)); ?> par <?= $post->name ?></h5>
             <div class="row">
+                <div class="col s12 ">
+                    <?= substr(nl2br($post->chapo),0,1200) ?>...
+                </div>
+                <div class="row"></div>
                 <div class="col s12 m6 l8">
                     <?= substr(nl2br($post->content),0,1200) ?>...
                 </div>

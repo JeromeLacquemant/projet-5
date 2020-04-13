@@ -37,16 +37,15 @@
 
             if($showcookie)
             { ?>
-        <div class="container">
             <div class="cookie-container center">
                 <p>
                     En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies 
                     pour vous proposer des contenus et services adaptés à vos centres d'intérêts.
                 </p>
-
-                <a class="cookie-btn" href="config/accept_cookie.php">Ok</a>
+                <div>
+                    <a class="cookie-btn" href="config/accept_cookie.php">Ok</a>
+                </div>
             </div>
-        </div>
             <?php } ?>
         
         <body>
@@ -62,28 +61,23 @@
                 ?>
             </div>
             
-
-            
             <div class="row">
             <!-- Mise en place du footer -->
             <?php
                 include 'views/footer.php';
             ?>
             </div>
-            
-        
+ 
         <script src="public/css/bootstrap/lib/jquery/jquery.min.js"></script>
         <script src="public/css/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/css/bootstrap/lib/php-mail-form/validate.js"></script>
         <script src="public/css/bootstrap/lib/chart/chart.js"></script>
         <script src="public/css/bootstrap/lib/easing/easing.min.js"></script>
         <script src="public/css/bootstrap/js/main.js"></script>
-    
-        
+         
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="public/js/materialize.js"></script>
         <script type="text/javascript" src="public/js/script.js"></script>  
-        <script type="text/javascript" src="../public/js/post.func.js"></script>
         <script type="text/javascript" src="public/js/dashboard.func.js"></script>
         <script type="text/javascript" src="public/js/cookie.js"></script>
 

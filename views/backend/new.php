@@ -1,8 +1,7 @@
 <?php
-if(isset($_SESSION['admin'])){
-    header("Location:/dashboard");
-}
-
+    if(isset($_SESSION['admin'])){
+        header("Location:/dashboard");
+    }
 ?>
 
 <div class="row">
@@ -16,10 +15,9 @@ if(isset($_SESSION['admin'])){
             <h4 class="center-align">Se connecter</h4>
 
             <?php
-
-                if(isset($_POST['submit'])){
-                    $email = htmlspecialchars(trim($_POST['email']));
-                    $token = htmlspecialchars(trim($_POST['token']));
+                if(filter_has_var(INPUT_POST, 'submit')){
+                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
+                    $token = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'token')));
 
                     $errors = [];
 
@@ -27,7 +25,7 @@ if(isset($_SESSION['admin'])){
                         $errors['empty'] = "Tous les champs n'ont pas été remplis";
                     }else if($model_user->is_modo($email,$token) == 0){
                         $errors['exist'] = "Ce modérateur n'existe pas";
-                    }
+                    }                
 
                     if(!empty($errors)){
                         ?>
@@ -35,7 +33,7 @@ if(isset($_SESSION['admin'])){
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error."<br/>";
+                                    echo $error;
                                 }
                                 ?>
                             </div>
@@ -43,7 +41,7 @@ if(isset($_SESSION['admin'])){
                     <?php
                     }else{
                         $_SESSION['admin'] = $email;
-                        header("Location:index.php?page=password");
+                        header("Location:/modification-du-mot-de-passe");
                     }
                 }
             ?>
@@ -64,12 +62,11 @@ if(isset($_SESSION['admin'])){
                             Se connecter
                         </button>
                         <br/><br/>
-                        <a href="index.php?page=login">Déjà modérateur / administrateur</a>
+                        <a href="/connexion-espace-membre">Déjà modérateur / administrateur</a>
                     </center>
                 </div>
-
             </form>
         </div>
-<div id="alaska"></div>
+    <div id="alaska"></div>
     </div>
 </div>

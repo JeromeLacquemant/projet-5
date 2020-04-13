@@ -23,16 +23,13 @@
                             <li class="<?php echo ($page=="list")?"active" : ""; ?>"><a href="/liste-de-tous-les-articles"><i class="material-icons">view_list</i></a></li>
                             <li class="<?php echo ($page=="settings")?"active" : ""; ?>"><a href="/gestion-des-admins-et-modos"><i class="material-icons">settings</i></a></li>
 
-                            <?php
+                        <?php
                         }
-
                         ?>
 
-                        <li><a href="/articles-a-la-une">Quitter</a></li>
+                        <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
                         <li><a href="index.php?page=logout">Déconnexion</a></li>
-
                     </ul>
-
                     <ul class="side-nav" id="mobile-menu">
                         <?php
                         if($model_user->admin()==1){
@@ -53,7 +50,7 @@
                         }
 
                         ?>
-                        <li><a href="/articles-a-la-une">Quitter</a></li>
+                        <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
                         <li><a href="index.php?page=logout">Déconnexion</a></li>
 
                     </ul>

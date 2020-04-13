@@ -1,3 +1,5 @@
+<h2>MENTIONS LEGALES</h2>
+
 <div class ="row">
 
     <h2>Informations légales</h2>

@@ -1,15 +1,13 @@
-    <?php
-        if($model_user->admin()!=1){
-            header("Location:/dashboard");
-        }
+<?php
+    if($model_user->admin()!=1){
+        header("Location:/dashboard");
+    }
 
-
-        $post = $model_article->get_post();
-        if($post == false){
-            header("Location:/page-erreur-administrateur");
-        }
-   
-    ?>
+    $post = $model_article->get_post();
+    if($post == false){
+        header("Location:/page-erreur-administrateur");
+    }
+?>
 
 <h2>Modifier un article</h2>
         <div class="row center">
@@ -19,31 +17,46 @@
         </div>
     <div class="container">
 
-    <?php
-        if(isset($_POST['delete'])){
-            $article = $model_article->delete_article();
-            $comment = $model_comment->delete_article_comments();
+<?php
+        if(filter_has_var(INPUT_POST, 'delete')){
+            $model_article->delete_article_comments();
+            $model_article->delete_article();
         }
 
-        if(isset($_POST['submit'])){
-            $title = htmlspecialchars(trim($_POST['title']));
-            $content = htmlspecialchars(trim($_POST['content']));
-            $posted = isset($_POST['public']) ? "1" : "0";
+        if(filter_has_var(INPUT_POST, 'submit')){
+            if(filter_has_var(INPUT_POST, 'title')){
+                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title')));
+            }
+            if(filter_has_var(INPUT_POST, 'chapo')){
+                $chapo = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'chapo')));
+            }
+            if(filter_has_var(INPUT_POST, 'content')){
+                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content')));
+            }
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
+            
             $errors = [];
 
-            if(empty($title) || empty($content)){
-                $errors['empty'] = "Veuillez remplir tous les champs";
+            if(empty($title) || empty($content) || empty($chapo)){
+                $errors['empty'] = "Veuillez remplir tous les champs svp";
+            }
+            if(strlen($title) < 5){
+                $errors['title'] = "Votre message doit contenir au moins 5 caractères.";
+            }
+            if(strlen($chapo) < 5){
+                $errors['chapo'] = "Votre chapô doit contenir au moins 5 caractères.";
+            }
+            if(strlen($content) < 5){
+                $errors['content'] = "Votre article doit contenir au moins 5 caractères.";
             }
 
             if(!empty($_FILES['image']['name'])){
                 $file = $_FILES['image']['name'];
                 $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
                 $extension = strrchr($file,'.');
-                var_dump($_FILES);
   
                 if(!in_array($extension,$extensions)){
                     $errors['image'] = "Cette image n'est pas valable.";
-                      
                 }
             }
             
@@ -53,14 +66,14 @@
                     <div class="card-content white-text">
                         <?php
                         foreach($errors as $error){
-                            echo $error."<br/>";
+                            echo $error."</br>";
                         }
                         ?>
                     </div>
                 </div>
                 <?php
             }else{
-                $model_article->edit($title,$content,$posted,$_GET['id']);
+                $model_article->edit($title,$chapo,$content,$posted, filter_input(INPUT_GET, 'id'));
              
                 if(!empty($_FILES['image']['name']))
                 {
@@ -74,32 +87,30 @@
                 
                 ?>
                     <script>
-                        window.location.replace("index.php?page=postback&id=<?= $_GET['id'] ?>");
+                        window.location.replace("index.php?page=postback&id=<?= filter_input(INPUT_GET, 'id') ?>");
                     </script> 
                 <?php
             }
         }
-    ?>
-
+?>
 
     <form method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
-             
+            </div>
+            <div class="input-field col s12">
+                <textarea id="content" name="chapo" class="materialize-textarea"><?= $post->chapo ?></textarea>
             </div>
             <div class="input-field col s12">
                 <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
-       
             </div>
-
             <div class="col s12">
                 <div class="input-field">
                     <input type="file" name="image" class="col s12"/>
                     <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
                 </div>
             </div>
-
             <div class="col s6">
                 <p>Public</p>
                 <div class="switch">
@@ -111,7 +122,6 @@
                     </label>
                 </div>
             </div>
-
             <div class="col s6 right-align">
                 <br/><br/>
                 <button type="submit" class="btn" name="submit" onclick="return window.confirm(`Êtes vous sur de vouloir modifier cet article ?!`)">Modifier l'article</button>

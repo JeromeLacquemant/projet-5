@@ -7,51 +7,66 @@
 <h2>Poster un article</h2>
 
 <?php
-    if(isset($_POST['post'])){
-        $title = htmlspecialchars(trim($_POST['title']));
-        $content = htmlspecialchars(trim($_POST['content']));
-        $posted = isset($_POST['public']) ? "1" : "0";
-
-        $errors = [];
-
-        if(empty($title) || empty($content)){
-            $errors['empty'] = "Veuillez remplir tous les champs";
-        }
-
-        if(!empty($_FILES['image']['name'])){
-            $file = $_FILES['image']['name'];
-            $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
-            $extension = strrchr($file,'.');
-            if(!in_array($extension,$extensions)){
-                $errors['image'] = "Cette image n'est pas valable";
+   //Fonction permettant de vérifier les données envoyées par l'utilsiateur
+        if(filter_has_var(INPUT_POST, 'post')){
+            if(filter_has_var(INPUT_POST, 'title')){
+                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title')));
             }
-        }
+            if(filter_has_var(INPUT_POST, 'chapo')){
+                $chapo = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'chapo')));
+            }
+           if(filter_has_var(INPUT_POST, 'content')){
+                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content')));
+            }
 
-        if(!empty($errors)){
-            ?>
-                <div class="card red">
-                    <div class="card-content white-text">
-                        <?php
-                            foreach($errors as $error){
-                                echo $error."<br/>";
-                            }
-                        ?>
-                    </div>
-                </div>
-            <?php
-        }else{
-            $model_article->post($title,$content,$posted);
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
+
+            $errors = [];
+
+            if(empty($title) || empty($content) || empty($chapo)){
+                $errors['empty'] = "Veuillez remplir tous les champs";
+            }
+            if(strlen($title) < 5){
+                $errors['title'] = "Votre titre doit contenir au moins 5 caractères.";
+            }
+            if(strlen($chapo) < 5){
+                $errors['chapo'] = "Votre chapô doit contenir au moins 5 caractères.";
+            }
+            if(strlen($title) < 5){
+                $errors['content'] = "Votre article doit contenir au moins 100 caractères.";
+            }
+
             if(!empty($_FILES['image']['name'])){
-            
-                $model_article->post_img($_FILES['image']['tmp_name'], $extension);
+                $file = $_FILES['image']['name'];
+                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+                $extension = strrchr($file,'.');
+                if(!in_array($extension,$extensions)){
+                    $errors['image'] = "Cette image n'est pas valable";
+                }
+            }
 
+            if(!empty($errors)){
+                ?>
+                    <div class="card red">
+                        <div class="card-content white-text">
+                            <?php
+                                foreach($errors as $error){
+                                    echo $error."</br>";
+                                }
+                            ?>
+                        </div>
+                    </div>
+                <?php
             }else{
-                $db = getPdo();
-                $id = $db->lastInsertId();
-               header("Location:/liste-de-tous-les-articles");
+                $model_article->post($title,$chapo,$content,$posted);
+                if(!empty($_FILES['image']['name'])){
+                    $model_article->post_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:/liste-de-tous-les-articles");
+                }else{
+                   header("Location:/liste-de-tous-les-articles");
+                }
             }
         }
-    }
 ?>
 
 <form method="post" enctype="multipart/form-data">
@@ -60,23 +75,23 @@
             <input type="text" name="title" id="title"/>
             <label for="title">Titre de l'article</label>
         </div>
-
+        <div class="input-field col s12">
+            <textarea name="chapo" id="content" class="materialize-textarea"></textarea>
+            <label for="chapo">Châpo de l'article</label>
+        </div>
         <div class="input-field col s12">
             <textarea name="content" id="content" class="materialize-textarea"></textarea>
             <label for="content">Contenu de l'article</label>
         </div>
-
         <div class="col s12">
             <div class="input-field">                 
                 <input type="file" name="image" class="col s12"/>
                 <input type="text" class="file-path col s10" readonly/> <!-- readyonly bloque l'utilisateur pour changer le chemin -->
             </div>
-     
         </div>
                <div class="row">
             <p>Veuillez insérer une image de 940*530 px pour que les articles soient homogènes sur le site.</p>
             </div>
-
         <div class="col s6">
             <p>Public</p>
             <div class="switch">
@@ -88,12 +103,10 @@
                 </label>
             </div>
         </div>
-
         <div class="col s6 right-align">
             <br/><br/>
             <button class="btn" type="submit" name="post">Publier</button>
         </div>
-
     </div>
     <div id="alaska"></div>
 </form>

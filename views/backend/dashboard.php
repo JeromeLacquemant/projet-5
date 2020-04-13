@@ -30,14 +30,13 @@
             <?php
         }
     ?>
-
-
 </div>
 
 <h4>Commentaires non lus</h4>
 <?php
     $comments = $model_comment->get_comments();
 ?>
+
 <table>
     <thead>
         <tr>
@@ -52,11 +51,11 @@
         if(!empty($comments)) {
             foreach ($comments as $comment) {
 
-                if(isset($_GET['delete'])){
+                if(filter_has_var(INPUT_GET, 'delete')){
                     $comment = $model_comment->delete_comment();
                 }
                 
-                if(isset($_GET['approve'])){
+                if(filter_has_var(INPUT_GET, 'approve')){
                     $comment = $model_comment->approve_comment();
                 }
         ?>
