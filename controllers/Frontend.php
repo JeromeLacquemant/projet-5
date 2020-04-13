@@ -3,7 +3,6 @@
 require_once('models/Article.php');
 require_once('models/Comment.php');
 require_once('models/Form.php');
-require_once('models/Model.php');
 
 class Frontend
 {

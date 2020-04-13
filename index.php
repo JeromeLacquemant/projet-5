@@ -50,7 +50,7 @@ if (filter_has_var(INPUT_GET, 'page'))
         case 'post':
             if(filter_has_var(INPUT_GET, 'id')){
                 $controller = new Frontend();
-                $controller->post(filter_INPUT(INPUT_GET, 'id'));
+                $controller->post(filter_input(INPUT_GET, 'id'));
             }
         break;
         

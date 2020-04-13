@@ -1,5 +1,4 @@
 <?php
-
 // Permet d'avoir accès à la base de données
 require_once('Model.php');
 
