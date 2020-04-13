@@ -1,9 +1,9 @@
 <?php
 
-require_once('models/Article.php');
-require_once('models/Comment.php');
-require_once('models/Dashboard.php');
-require_once('models/User.php');
+require_once "models/Article.php";
+require_once "models/Comment.php";
+require_once "models/Dashboard.php";
+require_once "models/User.php";
 
 class Backend
 {
@@ -15,7 +15,7 @@ class Backend
         
         $page="backend/dashboard";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function write()
@@ -25,7 +25,7 @@ class Backend
         
         $page="backend/write";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function settings()
@@ -34,7 +34,7 @@ class Backend
         
         $page="backend/settings";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function list()
@@ -44,7 +44,7 @@ class Backend
 
         $page="backend/list";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function logout()
@@ -53,7 +53,7 @@ class Backend
         
         $page="backend/logout";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function password()
@@ -62,7 +62,7 @@ class Backend
         
         $page="backend/password";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function postback()
@@ -72,7 +72,7 @@ class Backend
         
         $page="backend/postback";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function login()
@@ -81,7 +81,7 @@ class Backend
         
         $page="backend/login";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
     
     public function new()
@@ -90,7 +90,7 @@ class Backend
         
         $page="backend/new";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 
     public function errorback()
@@ -99,6 +99,6 @@ class Backend
         
         $page="backend/errorback";
         $topbar="backend/topbar";
-        require('views/layout.php');
+        require "views/layout.php";
     }
 }
