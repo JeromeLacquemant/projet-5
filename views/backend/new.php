@@ -15,9 +15,9 @@
             <h4 class="center-align">Se connecter</h4>
 
             <?php
-                if(isset($_POST['submit'])){
-                    $email = htmlspecialchars(trim($_POST['email']));
-                    $token = htmlspecialchars(trim($_POST['token']));
+                if(filter_has_var(INPUT_POST, 'submit')){
+                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
+                    $token = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING)));
 
                     $errors = [];
 
@@ -33,7 +33,7 @@
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error;
+                                    return $error;
                                 }
                                 ?>
                             </div>

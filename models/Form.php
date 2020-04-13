@@ -1,6 +1,6 @@
 <?php
-
-require_once('Model.php');
+// Permet d'avoir accès à la base de données
+require_once "Model.php";
 
 // Cette classe sert à manipuler tout ce qui concerne le formulaire de contact de la page d'accueil
 class Form extends Model

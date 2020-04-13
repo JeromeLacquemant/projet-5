@@ -12,11 +12,11 @@
             if(filter_has_var(INPUT_POST, 'title')){
                 $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
             }
-            if(isset($_POST['content'])){
+            if(filter_has_var(INPUT_POST, 'content')){
                 $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING)));
             }
 
-            $posted = filter_var(INPUT_POST, 'public') ? "1" : "0";
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
 
             $errors = [];
 
@@ -39,7 +39,7 @@
                         <div class="card-content white-text">
                             <?php
                                 foreach($errors as $error){
-                                    echo $error;
+                                    return $error;
                                 }
                             ?>
                         </div>
@@ -51,7 +51,6 @@
                     $model_article->post_img($_FILES['image']['tmp_name'], $extension);
                     header("Location:/liste-de-tous-les-articles");
                 }else{
-                    $this->db->lastInsertId();
                    header("Location:/liste-de-tous-les-articles");
                 }
             }

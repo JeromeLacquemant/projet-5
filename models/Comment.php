@@ -1,6 +1,6 @@
 <?php
-
-require_once('Model.php');
+// Permet d'avoir accès à la base de données
+require_once "Model.php";
 
 // Cette classe sert à manipuler tout ce qui touche aux commentaires
 class Comment extends Model
@@ -26,7 +26,7 @@ class Comment extends Model
             'name'      => $name,
             'email'     => $email,
             'comment'   => $comment,
-            'article_id'   => $_GET["id"]
+            'article_id'   => filter_input(INPUT_GET, 'id')
             );
         }
     
