@@ -3,7 +3,6 @@
 require_once('models/Article.php');
 require_once('models/Comment.php');
 require_once('models/Dashboard.php');
-require_once('models/Form.php');
 require_once('models/Model.php');
 require_once('models/User.php');
 
@@ -24,7 +23,6 @@ class Backend
     public function write()
     {
         $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/write";
@@ -34,8 +32,6 @@ class Backend
 
     public function settings()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/settings";
@@ -56,8 +52,6 @@ class Backend
 
     public function logout()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/logout";
@@ -67,8 +61,6 @@ class Backend
 
     public function password()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/password";
@@ -89,8 +81,6 @@ class Backend
 
     public function login()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/login";
@@ -100,8 +90,6 @@ class Backend
     
     public function new()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
         $model_user = new User();
         
         $page="backend/new";
