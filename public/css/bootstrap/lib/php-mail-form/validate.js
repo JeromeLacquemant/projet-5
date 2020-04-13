@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
             break;
 
           case "checked":
-            if (! i.is(':checked')) {
+            if (! i.is(":checked")) {
               ferror = ierror = true;
             }
             break;
@@ -54,7 +54,7 @@ jQuery(document).ready(function($) {
             }
             break;
         }
-        i.next(".validate").html((ierror ? (i.attr("data-msg") !== undefined ? i.attr("data-msg") : "wrong Input") : '')).show("blind");
+        i.next(".validate").html((ierror ? (i.attr("data-msg") !== undefined ? i.attr("data-msg") : "wrong Input") : "")).show("blind");
       }
     });
     f.children("textarea").each(function() { // run all inputs
@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
 
       if (rule !== undefined) {
         var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
+        var pos = rule.indexOf(":", 0);
         if (pos >= 0) {
           var exp = rule.substr(pos + 1, rule.length);
           rule = rule.substr(0, pos);
@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
 
         switch (rule) {
           case "required":
-            if (i.val() === '') {
+            if (i.val() === "") {
               ferror = ierror = true;
             }
             break;
@@ -85,7 +85,7 @@ jQuery(document).ready(function($) {
             }
             break;
         }
-        i.next(".validate").html((ierror ? (i.attr("data-msg") != undefined ? i.attr("data-msg") : "wrong Input") : '')).show("blind");
+        i.next(".validate").html((ierror ? (i.attr("data-msg") != undefined ? i.attr("data-msg") : "wrong Input") : "")).show("blind");
       }
     });
     if (ferror) return false;
@@ -104,10 +104,10 @@ jQuery(document).ready(function($) {
       url: action,
       data: str,
       success: function(msg) {
-        if (msg == 'OK') {
+        if (msg == "OK") {
           this_form.find(".loading").slideUp();
           this_form.find(".sent-message").slideDown();
-          this_form.find("input, textarea").val('');
+          this_form.find("input, textarea").val("");
         } else {
           this_form.find(".loading").slideUp();
           this_form.find(".error-message").slideDown().html(msg);
