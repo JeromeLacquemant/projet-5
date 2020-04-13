@@ -75,7 +75,7 @@
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    return $error;
+                                    echo $error;
                                 }
                                 ?>
                             </div>

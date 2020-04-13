@@ -23,6 +23,12 @@
             if(empty($title) || empty($content)){
                 $errors['empty'] = "Veuillez remplir tous les champs";
             }
+            if(strlen($title) < 5){
+                $errors['title'] = "Votre titre doit contenir au moins 5 caractères.";
+            }
+            if(strlen($title) < 5){
+                $errors['content'] = "Votre article doit contenir au moins 100 caractères.";
+            }
 
             if(!empty($_FILES['image']['name'])){
                 $file = $_FILES['image']['name'];
@@ -39,7 +45,7 @@
                         <div class="card-content white-text">
                             <?php
                                 foreach($errors as $error){
-                                    return $error;
+                                    echo $error."</br>";
                                 }
                             ?>
                         </div>

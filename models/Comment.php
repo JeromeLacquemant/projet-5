@@ -86,7 +86,7 @@ class Comment extends Model
     function form_comment_verification(){
         if(filter_has_var(INPUT_POST, 'submit')){
             $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
-            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
+            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING,)));
             $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING)));
             $errors = [];
 
@@ -96,6 +96,12 @@ class Comment extends Model
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                     $errors['email'] = "L'adresse email n'est pas valide";
                 }
+                if(strlen($name) < 5){
+                    $errors['name'] = "Votre nom doit contenir au moins 5 caractères.";
+                }
+                if(strlen($comment) < 5){
+                    $errors['comment'] = "Votre message doit contenir au moins 5 caractères.";
+                }
             }
 
             if(!empty($errors)){
@@ -104,7 +110,7 @@ class Comment extends Model
                     <div class="card-content white-text">
                         <?php
                             foreach($errors as $error){
-                                echo $error;
+                                echo $error."</br>";
                             }
                         ?>
                     </div>

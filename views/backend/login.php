@@ -16,12 +16,13 @@
             <?php
                 if(filter_has_var(INPUT_POST, 'submit')){
                     if(filter_has_var(INPUT_POST, 'email')){
-                        $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING)));
+                        $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING, FILTER_VALIDATE_EMAIL)));
                     }
                     if(filter_has_var(INPUT_POST, 'password')){
                         $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
+
                     }
-                    
+
                     $errors = [];
 
                     if(empty($email) || empty($password)){
@@ -29,14 +30,14 @@
                     }else if($model_user->is_admin($email,$password) == 0){
                         $errors['exist']  = "Cet administrateur n'existe pas";
                     }
-
+                    
                     if(!empty($errors)){
                         ?>
                         <div class="card red">
                             <div class="card-content white-text">
                                 <?php
                                     foreach($errors as $error){
-                                        return $error;
+                                        echo $error;
                                     }
                                 ?>
                             </div>

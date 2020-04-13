@@ -28,13 +28,19 @@
                         $errors['different'] = "Les mots de passe sont différents";
                     }
 
+                    if (preg_match('#^(?=.*[a-z])(?=.*[A-Z]).{8,}$#', $password)) {
+                    }
+                    else{
+                        $errors['non conforme'] = 'Votre mot de passe doit contenir des minuscules et des majuscules et posséder une longueur de 8 caractères au minimum';
+                    }	
+                    
                     if(!empty($errors)){
                         ?>
                         <div class="card red">
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    return $error;
+                                    echo $error;
                                 }
                                 ?>
                             </div>

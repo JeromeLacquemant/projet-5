@@ -10,7 +10,7 @@ class Form extends Model
       if(filter_has_var(INPUT_POST, 'submit')){
 
                 $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
-                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
+                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL)));
                 $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING)));
                 $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING)));
 
@@ -20,14 +20,23 @@ class Form extends Model
                 if(empty($name) || empty($email) || empty($subject) || empty($message)){
                     $errors['empty'] = "Veuillez remplier tous les champs";
                 }
-
+                if(strlen($name) < 5){
+                    $errors['name'] = "Votre nom doit contenir au moins 5 caractères.";
+                }
+                if(strlen($subject) < 5){
+                    $errors['subject'] = "Votre sujet doit contenir au moins 5 caractères.";
+                }
+                if(strlen($message) < 5){
+                    $errors['message'] = "Votre message doit contenir au moins 50 caractères.";
+                }
+                
                 if(!empty($errors)){
                     ?>
                         <div class="card red">
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error;
+                                    echo $error."</br>";
                                 }
                                 ?>
                             </div>

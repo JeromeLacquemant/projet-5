@@ -25,7 +25,7 @@
                         $errors['empty'] = "Tous les champs n'ont pas été remplis";
                     }else if($model_user->is_modo($email,$token) == 0){
                         $errors['exist'] = "Ce modérateur n'existe pas";
-                    }
+                    }                
 
                     if(!empty($errors)){
                         ?>
@@ -33,7 +33,7 @@
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    return $error;
+                                    echo $error;
                                 }
                                 ?>
                             </div>
