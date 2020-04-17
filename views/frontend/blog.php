@@ -1,7 +1,6 @@
 <h2>TOUS LES ARTICLES</h2>
 
 <?php
-    $posts = $model_article->get_posts_blog_all();
     foreach($posts as $post){
 ?>
 

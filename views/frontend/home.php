@@ -2,7 +2,6 @@
 <div class="row">
 
 <?php
-$posts = $model_article->get_posts_blog();
 foreach($posts as $post){
         ?><div class="col l6 m6 s12">
             <div class="card">
