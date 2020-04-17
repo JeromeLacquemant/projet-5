@@ -9,7 +9,7 @@
         ];
 
         $colors = [
-            "articles"      =>  "green",
+            "articles"      =>  "blue",
             "comments"      =>  "red",
             "admins"        =>  "blue"
         ];
