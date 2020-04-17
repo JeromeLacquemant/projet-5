@@ -1,8 +1,3 @@
-<?php
-    if(isset($_SESSION['admin'])){
-        header("Location:/dashboard");
-    }
-?>
 
 <div class="row">
     <div class="col l4 m6 s12 offset-l4 offset-m3">

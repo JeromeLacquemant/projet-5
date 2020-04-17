@@ -10,6 +10,7 @@ class Dashboard extends Model
 
     // Fonction qui obtient les couleurs pour les différents encadrés du tableau de bord
     function getColor($table,$colors){
+        
         if(isset($colors[$table])){
             return $colors[$table];
         }else{

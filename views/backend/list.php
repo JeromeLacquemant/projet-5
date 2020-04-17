@@ -1,13 +1,7 @@
-<?php
-    if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
-?>
 <h2>Listing des articles</h2>
 <hr/>
 
 <?php
-$posts = $model_article->get_posts();
     foreach($posts as $post){
         ?>
         <div class="row">

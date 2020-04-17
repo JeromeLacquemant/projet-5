@@ -1,9 +1,3 @@
-<?php
-    if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
-?>
-
 <h2>Poster un article</h2>
 
 <?php

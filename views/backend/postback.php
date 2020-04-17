@@ -1,14 +1,3 @@
-<?php
-    if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
-
-    $post = $model_article->get_post();
-    if($post == false){
-        header("Location:/page-erreur-administrateur");
-    }
-?>
-
 <h2>Modifier un article</h2>
         <div class="row center">
             <div class="row">

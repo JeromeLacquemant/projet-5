@@ -9,7 +9,7 @@
         ];
 
         $colors = [
-            "articles"      =>  "blue",
+            "articles"      =>  "green",
             "comments"      =>  "red",
             "admins"        =>  "blue"
         ];
@@ -34,7 +34,7 @@
 
 <h4>Commentaires non lus</h4>
 <?php
-    $comments = $model_comment->get_comments();
+    $comments
 ?>
 
 <table>
@@ -50,14 +50,6 @@
         <?php   
         if(!empty($comments)) {
             foreach ($comments as $comment) {
-
-                if(filter_has_var(INPUT_GET, 'delete')){
-                    $comment = $model_comment->delete_comment();
-                }
-                
-                if(filter_has_var(INPUT_GET, 'approve')){
-                    $comment = $model_comment->approve_comment();
-                }
         ?>
         
         <div>

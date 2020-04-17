@@ -1,9 +1,3 @@
-<?php
-    if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
-?>
-
 <h2>Paramètres</h2>
 <div class="row">
     <div class="col m6 s12">

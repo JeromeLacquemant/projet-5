@@ -10,8 +10,8 @@ class Frontend
     {
         $model_form = new Form();
         
-            $formulaire = $model_form->form_page_home_cv();
-             $page="frontend/home_cv";
+        $formulaire = $model_form->form_page_home_cv();
+        $page="frontend/home_cv";
         $topbar="topbar_frontend";
         require "views/layout.php";
 
@@ -42,7 +42,7 @@ class Frontend
     {
         $model_article = new Article();
         $model_comment = new Comment();
-      $posts = $model_article->get_posts_blog_all();
+        $posts = $model_article->get_posts_blog_all();
         
         $page="frontend/blog";
         $topbar="topbar_frontend";
@@ -58,14 +58,14 @@ class Frontend
         $responses = $model_comment->get_comments_blog();
         $post = $model_article->get_article_blog();
         $model_comment->form_comment_verification();
-    if($post == false){
-        header("Location:/page-erreur");
-    }else{
-
+        
+        if($post == false){
+            header("Location:/page-erreur");
+        }else{
         $page="frontend/post";
         $topbar="topbar_frontend";
         require "views/layout.php";
-    }
+        }
     }
     
     public function error()
