@@ -6,6 +6,11 @@ require_once "models/Form.php";
 
 class Frontend
 {
+    public function showHome()
+    {
+        echo "Daniel";
+    }
+    
     public function home_cv()
     {
         $model_form = new Form();
@@ -59,3 +64,5 @@ class Frontend
         require "views/layout.php";
     }
 }
+
+ 
