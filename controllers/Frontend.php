@@ -11,14 +11,14 @@ class Frontend
         $model_form = new Form();
         
         $page="frontend/home_cv";
-        $topbar="frontend/topbar";
+        $topbar="topbar_frontend";
         require "views/layout.php";
     }
 
     public function legalnotice()
     {
         $page="frontend/legalnotice";
-        $topbar="frontend/topbar";
+        $topbar="topbar_frontend";
         require "views/layout.php";
     }
     
@@ -28,7 +28,7 @@ class Frontend
         $model_comment = new Comment();
 
         $page="frontend/home";
-        $topbar="frontend/topbar";
+        $topbar="topbar_frontend";
         require "views/layout.php";
     }
 
@@ -38,7 +38,7 @@ class Frontend
         $model_comment = new Comment();
         
         $page="frontend/blog";
-        $topbar="frontend/topbar";
+        $topbar="topbar_frontend";
         require "views/layout.php";
     }
 
@@ -48,14 +48,14 @@ class Frontend
         $model_comment = new Comment();
                 
         $page="frontend/post";
-        $topbar="frontend/topbar";
+        $topbar="topbar_frontend";
         require "views/layout.php";
     }
     
     public function error()
     {
         $page="frontend/error";
-        $topbar="frontend/topbar";
+        $topbar="topbar_frontend";
         require "views/layout.php";
     }
 }

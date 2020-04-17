@@ -14,7 +14,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/dashboard";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -24,7 +24,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/write";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -33,7 +33,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/settings";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -43,7 +43,7 @@ class Backend
         $model_user = new User();
 
         $page="backend/list";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -52,7 +52,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/logout";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -61,7 +61,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/password";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -71,7 +71,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/postback";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -80,7 +80,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/login";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
     
@@ -89,7 +89,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/new";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 
@@ -98,7 +98,7 @@ class Backend
         $model_user = new User();
         
         $page="backend/errorback";
-        $topbar="backend/topbar";
+        $topbar="topbar_backend";
         require "views/layout.php";
     }
 }
