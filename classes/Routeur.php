@@ -18,7 +18,17 @@ class Routeur
                         "home" => ["controller" => 'Frontend', "method" => 'home'],
                         "home_cv" => ["controller" => 'Frontend', "method" => 'home_cv'],
                         "legal_notice" => ["controller" => 'Frontend', "method" => 'legal_notice'],
-                        "post" => ["controller" => 'Frontend', "method" => 'post']    
+                        "post" => ["controller" => 'Frontend', "method" => 'post'],
+                        "dashboard" => ["controller" => 'Backend', "method" => 'dashboard'],
+                        "errorback" => ["controller" => 'Backend', "method" => 'errorback'], 
+                        "list" => ["controller" => 'Backend', "method" => 'list'], 
+                        "login" => ["controller" => 'Backend', "method" => 'login'], 
+                        "logout" => ["controller" => 'Backend', "method" => 'logout'], 
+                        "new" => ["controller" => 'Backend', "method" => 'new'], 
+                        "password" => ["controller" => 'Backend', "method" => 'password'], 
+                        "postback" => ["controller" => 'Backend', "method" => 'postback'], 
+                        "settings" => ["controller" => 'Backend', "method" => 'settings'], 
+                        "write" => ["controller" => 'Backend', "method" => 'write'], 
         ];
     
     public function __construct($request)
