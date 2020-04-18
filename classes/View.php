@@ -9,11 +9,12 @@ class View
         $this->template = $template;
     }
     
-    public function render($posts = null)
+    public function render($params = array())
     {
         // Affichage de la topbar
         $topbar="views/topbar_frontend.php";
         
+        extract($params); // extrac() parcourt le tableau de $params et créé posts, responses, post, etc.
         //Affichage du contenu
         $template = $this->template;
         

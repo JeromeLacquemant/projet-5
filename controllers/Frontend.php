@@ -29,7 +29,7 @@ class Frontend
         $posts = $model_article->get_posts_blog();
         
         $myView = new View('home');
-        $myView->render($posts);
+        $myView->render(array('posts' => $posts));
     }
 
     public function blog()
@@ -39,7 +39,7 @@ class Frontend
         $posts = $model_article->get_posts_blog_all();
         
         $myView = new View('blog');
-        $myView->render($posts);
+        $myView->render(array('posts' => $posts));
     }
 
     public function post()
@@ -56,7 +56,7 @@ class Frontend
             header("Location:/page-erreur");
         }else{
         $myView = new View('post');
-        $myView->render($posts);
+        $myView->render(array('responses' => $responses, 'post' => $post));
         }
     }
     
