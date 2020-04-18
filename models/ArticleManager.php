@@ -25,8 +25,6 @@ class ArticleManager extends Model
             LIMIT 0,5
         ");
         
-        $results = array();
-        
         while($row = $req->fetch()){
             
             $post   = new Article();
@@ -58,12 +56,19 @@ class ArticleManager extends Model
             ORDER BY date DESC
         ");
         
-        $results = array();
-        
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
+        while($row = $req->fetch()){
+            
+            $post   = new Article();
+            $post   ->setId($row['id']);
+            $post   ->setTitle($row['title']);
+            $post   ->setChapo($row['chapo']);
+            $post   ->setContent($row['content']);
+            $post   ->setDate($row['date']);
+            $post   ->setImage($row['image']);
+                        
+            $posts[] = $post;
         }
-        return $results;
+        return $posts;
     }
     
     // Fonction qui récupère un article avec le posted = 1
@@ -83,8 +88,20 @@ class ArticleManager extends Model
             AND articles.posted = '1'
         ");
     
-        $result = $req->fetchObject();
-        return $result;
+        $post = [];
+        while($row = $req->fetch()){
+            
+            $post   = new Article();
+            $post   ->setId($row['id']);
+            $post   ->setTitle($row['title']);
+            $post   ->setChapo($row['chapo']);
+            $post   ->setContent($row['content']);
+            $post   ->setDate($row['date']);
+            $post   ->setImage($row['image']);
+                        
+            $posts[] = $post;
+        }
+        return $post;
     }
 
 

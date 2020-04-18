@@ -19,7 +19,7 @@ foreach($posts as $post){
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
-                    <p><a class="btn light-blue waves-effect waves-light center" href="/article/<?= transforme_en_url($post->getTitle) ?>-<?= $post->getId() ?>">Voir l'article complet</a></p>
+                    <p><a class="btn light-blue waves-effect waves-light center" href="/article/<?= transforme_en_url($post->getTitle()) ?>-<?= $post->getId() ?>">Voir l'article complet</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><?= $post->getTitle() ?> <i class="material-icons right">close</i></span>

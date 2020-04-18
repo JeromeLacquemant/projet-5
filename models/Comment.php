@@ -89,7 +89,7 @@ class Comment
      * 
      * @return mixed
      */
-    public function getArticle_id()
+    public function getArticleId()
     {
         return $this->article_id;
     }
@@ -98,7 +98,7 @@ class Comment
      * 
      * @param mixed $article_id
      */
-    public function setArticle_id($article_id)
+    public function setArticleId($article_id)
     {
         $this->article_id = $article_id;
     }

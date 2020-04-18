@@ -1,13 +1,13 @@
-    <div class="row center">
+<div class="row center">
         <div class=" row ">
-            <img class="responsive-img" src="/public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+            <img class="responsive-img" src="/public/img/posts/<?= $post->getImage() ?>" alt="<?= $post->getTitle() ?>"/>
         </div>
     </div>
     
     <div class="container">
-        <h1><?= $post->title ?></h1>
-        <h6>Par <?= $post->name ?> le <?= date("d/m/Y à H:i", strtotime($post->date)) ?></h6>
-        <p><?= nl2br($post->content); ?></p>
+        <h1><?= $post->getTitle() ?></h1>
+        <h6>Par <?= $post->getTitle() ?> le <?= date("d/m/Y à H:i", strtotime($post->getDate())) ?></h6>
+        <p><?= nl2br($post->getContent()); ?></p>
         <hr>
         <h4>Commentaires:</h4>
         <?php
@@ -15,8 +15,8 @@
                 foreach($responses as $response){
                     ?>
                         <blockquote>
-                             <strong><?= $response->name ?> (<?= date("d/m/Y", strtotime($response->date)) ?>)</strong>
-                             <p><?= nl2br($response->comment); ?></p>
+                             <strong><?= $response->getName() ?> (<?= date("d/m/Y", strtotime($response->getDate())) ?>)</strong>
+                             <p><?= nl2br($response->getComment()); ?></p>
                          </blockquote>
                     <?php
                  }
@@ -44,7 +44,7 @@
                 <div class="col s12">
                     <button type="submit" name="submit" class="btn waves-effect" 
                             onclick="return window.confirm(`Ce commentaire va être validé par notre équipe avant d'être affiché`)"
-                        href="/article/<?= transforme_en_url($post->title) ?>-<?= $post->id ?>">
+                        href="/article/<?= transforme_en_url($post->getTitle()) ?>-<?= $post->getId() ?>">
                         Commenter ce post
                     </button>
                 </div>

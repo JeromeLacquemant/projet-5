@@ -2,6 +2,7 @@
 
 require_once "models/Article.php";
 require_once "models/ArticleManager.php";
+require_once "models/CommentManager.php";
 require_once "models/Comment.php";
 require_once "models/Form.php";
 
@@ -42,20 +43,27 @@ class Frontend
 
     public function post()
     {
-        $manager = new ArticleManager();
-        $post = $manager->get_article_blog();
+        if(isset($_GET['id']))
+        {
+            $id = $_GET['id'];
+            $manager = new ArticleManager();
+            $posts = $manager->get_article_blog();
+            
+            $manager_comment = new CommentManager();
+            $responses = $manager_comment->get_comments_blog();
+            //model_comment->form_comment_verification();  
+  
+        }
+        else{
+            $posts = new Article();
+        }
         
-        $model_comment = new Comment();
-                
-        $responses = $model_comment->get_comments_blog();
-        
-        $model_comment->form_comment_verification();
-        
-        if($post == false){
+        if($posts == false){
             header("Location:/page-erreur");
-        }else{
-        $myView = new View('post');
-        $myView->render(array('responses' => $responses, 'post' => $post));
+        }
+        else{
+            $myView = new View('post');
+            $myView->render(array('responses' => $responses, 'post' => $posts));
         }
     }
     

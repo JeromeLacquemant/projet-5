@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col s12 m12 l12">
             <h1><?= $post->getTitle() ?></h1>
-            <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->getDate())); ?> par <?= $post->getName() ?></h5>
+            <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->getDate())); ?> par <?= $post->getTitle() ?></h5>
             <div class="row">
                 <div class="col s12 ">
                     <?= substr(nl2br($post->getChapo()),0,1200) ?>...
