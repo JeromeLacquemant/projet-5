@@ -1,11 +1,5 @@
 <?php
 
-require_once "models/Article.php";
-require_once "models/ArticleManager.php";
-require_once "models/CommentManager.php";
-require_once "models/Comment.php";
-require_once "models/Form.php";
-
 class Frontend
 {
     public function home_cv()
@@ -52,7 +46,6 @@ class Frontend
             $manager_comment = new CommentManager();
             $responses = $manager_comment->get_comments_blog();
             //model_comment->form_comment_verification();  
-  
         }
         else{
             $posts = new Article();

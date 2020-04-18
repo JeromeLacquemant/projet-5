@@ -9,8 +9,11 @@ error_reporting(E_ALL);
 
 // Appel d'un fichier pour l'url rewritting
 require_once "config/function_url.php";
-require_once "config/autoload.php";
 
+//Appel de l'autoloader
+require_once("config/autoload.php");
+
+//AFFICHAGE DES PAGES
 // Affichage de la page d'accueil lors du lancement de l'index.php
 //if (!filter_has_var(INPUT_GET, 'page'))
 //{
@@ -20,13 +23,7 @@ require_once "config/autoload.php";
 //}
 
 
-
-MyAutoload::start();
-
-
 // Affichage des autres page en fonction du GET
-
-
 $request = $_GET['page'];
 
 include_once("classes/Routeur.php");

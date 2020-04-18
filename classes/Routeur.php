@@ -6,8 +6,7 @@
  * Créé les routes et trouve les controlleurs
  */
 
-include_once("controllers/Frontend.php");
-class Routeur
+class Routeur 
 {
     private $request;
     

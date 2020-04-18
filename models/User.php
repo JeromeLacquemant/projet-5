@@ -1,6 +1,4 @@
 <?php 
-// Permet d'avoir accès à la base de données
-require_once "Model.php";
 
 // Cette classe sert à manipuler tout ce qui touche aux users
 class User

@@ -1,17 +1,10 @@
 <?php
+spl_autoload_register('myAutoLoader');
 
-class MyAutoload
-{
-    public static function start()
-    {
-        spl_autoload_register('MyAutoload::autoload');
-    }
-    
-    public static function autoload($class)
-    {
-        if(file_exists("model/$class.php"))
+function myAutoLoader($class){
+        if(file_exists("models/$class.php"))
         {
-            include_once("model/$class.php");
+            include_once("models/$class.php");
         }
         else if (file_exists("controllers/$class.php"))
         {
@@ -21,6 +14,4 @@ class MyAutoload
         {
             include_once("classes/$class.php");
         }
-    }
-}
-
+};

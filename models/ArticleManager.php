@@ -1,10 +1,8 @@
 <?php
-// Permet d'avoir accès à la base de données
-require_once "Model.php";
 
+require_once("Model.php");
 class ArticleManager extends Model
 {
-
 // FONCTIONS POUR LE FRONTEND
     
     // Fonction qui permet de récupérer les détails des articles postés
