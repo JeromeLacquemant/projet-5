@@ -4,12 +4,7 @@ require_once "Model.php";
 
 class ArticleManager extends Model
 {
-    private $bdd;
-    
-    public function __construct()
-    {
-        
-    }
+
 // FONCTIONS POUR LE FRONTEND
     
     // Fonction qui permet de récupérer les détails des articles postés
@@ -32,19 +27,19 @@ class ArticleManager extends Model
         
         $results = array();
         
-        while($rows = $req->fetchObject()){
+        while($row = $req->fetch()){
             
-            $posts = new Article();
-            $posts->setId();
-            $posts->setTitle();
-            $posts->setChapo();
-            $posts->setContent();
-            $posts->setImage();
-            $posts->setDate();
-            
-            $results[] = $rows;
+            $post   = new Article();
+            $post   ->setId($row['id']);
+            $post   ->setTitle($row['title']);
+            $post   ->setChapo($row['chapo']);
+            $post   ->setContent($row['content']);
+            $post   ->setDate($row['date']);
+            $post   ->setImage($row['image']);
+                        
+            $posts[] = $post;
         }
-        return $results;
+        return $posts;
     }
     
      public function get_posts_blog_all(){

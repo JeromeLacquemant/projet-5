@@ -1,18 +1,19 @@
 <?php
 
-// Cette classe sert à manipuler tout ce qui touche aux articles
 class Article
 {
     private $id;
     private $title;
     private $chapo;
-    private $image;
     private $content;
     private $date;
+    private $writer;
+    private $posted;
+    private $image;
     
     /**
      * 
-     * @return type
+     * @return mixed
      */
     public function getId()
     {
@@ -21,7 +22,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @param mixed $id
      */
     public function setId($id)
     {
@@ -30,7 +31,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @return mixed
      */
     public function getTitle()
     {
@@ -39,7 +40,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @param mixed $title
      */
     public function setTitle($title)
     {
@@ -48,7 +49,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @return mixed
      */
     public function getChapo()
     {
@@ -57,7 +58,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @param mixed $chapo
      */
     public function setChapo($chapo)
     {
@@ -66,25 +67,7 @@ class Article
     
     /**
      * 
-     * @return type
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-    
-    /**
-     * 
-     * @return type
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-    
-    /**
-     * 
-     * @return type
+     * @return mixed
      */
     public function getContent()
     {
@@ -93,7 +76,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @param mixed $content
      */
     public function setContent($content)
     {
@@ -102,7 +85,7 @@ class Article
     
     /**
      * 
-     * @return type
+     * @return mixed
      */
     public function getDate()
     {
@@ -111,13 +94,64 @@ class Article
     
     /**
      * 
-     * @return type
+     * @param mixed $date
      */
     public function setDate($date)
     {
         $this->date = $date;
     }
-
     
-  
+    /**
+     * 
+     * @return mixed
+     */
+    public function getWriter()
+    {
+        return $this->writer;
+    }
+    
+    /**
+     * 
+     * @param mixed $writer
+     */
+    public function setWriter($writer)
+    {
+        $this->writer = $writer;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getPosted()
+    {
+        return $this->posted;
+    }
+    
+    /**
+     * 
+     * @param mixed $posted
+     */
+    public function setPosted($posted)
+    {
+        $this->posted = $posted;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+    
+    /**
+     * 
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }  
 }

@@ -33,9 +33,8 @@ class Frontend
 
     public function blog()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
-        $posts = $model_article->get_posts_blog_all();
+        $manager = new ArticleManager();
+        $posts = $manager->get_posts_blog_all();
         
         $myView = new View('blog');
         $myView->render(array('posts' => $posts));
@@ -43,12 +42,13 @@ class Frontend
 
     public function post()
     {
+        $manager = new ArticleManager();
+        $post = $manager->get_article_blog();
         
-        $model_article = new Article();
         $model_comment = new Comment();
                 
         $responses = $model_comment->get_comments_blog();
-        $post = $model_article->get_article_blog();
+        
         $model_comment->form_comment_verification();
         
         if($post == false){
