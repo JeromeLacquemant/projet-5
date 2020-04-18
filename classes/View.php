@@ -15,6 +15,7 @@ class View
         $topbar="views/topbar_frontend.php";
         
         extract($params); // extrac() parcourt le tableau de $params et créé posts, responses, post, etc.
+        
         //Affichage du contenu
         $template = $this->template;
         

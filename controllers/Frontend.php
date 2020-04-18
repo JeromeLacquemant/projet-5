@@ -1,6 +1,7 @@
 <?php
 
 require_once "models/Article.php";
+require_once "models/ArticleManager.php";
 require_once "models/Comment.php";
 require_once "models/Form.php";
 
@@ -13,7 +14,6 @@ class Frontend
         $formulaire = $model_form->form_page_home_cv();
         $myView = new View('home_cv');
         $myView->render();
-
     }
 
     public function legalnotice()
@@ -24,9 +24,8 @@ class Frontend
     
     public function home()
     {
-        $model_article = new Article();
-        $model_comment = new Comment();
-        $posts = $model_article->get_posts_blog();
+        $manager = new ArticleManager();
+        $posts = $manager->get_posts_blog();
         
         $myView = new View('home');
         $myView->render(array('posts' => $posts));
