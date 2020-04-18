@@ -11,19 +11,15 @@ class Frontend
         $model_form = new Form();
         
         $formulaire = $model_form->form_page_home_cv();
-        $page="frontend/home_cv";
-        $topbar="topbar_frontend";
-        require "views/layout.php";
+        $myView = new View('home_cv');
+        $myView->render();
 
-        //$myView = new View('home_cv');
-       // $myView->render;
     }
 
     public function legalnotice()
     {
-        $page="frontend/legalnotice";
-        $topbar="topbar_frontend";
-        require "views/layout.php";
+        $myView = new View('legalnotice');
+        $myView->render();
     }
     
     public function home()
@@ -32,10 +28,8 @@ class Frontend
         $model_comment = new Comment();
         $posts = $model_article->get_posts_blog();
         
-
-        $page="frontend/home";
-        $topbar="topbar_frontend";
-        require "views/layout.php";
+        $myView = new View('home');
+        $myView->render($posts);
     }
 
     public function blog()
@@ -44,9 +38,8 @@ class Frontend
         $model_comment = new Comment();
         $posts = $model_article->get_posts_blog_all();
         
-        $page="frontend/blog";
-        $topbar="topbar_frontend";
-        require "views/layout.php";
+        $myView = new View('blog');
+        $myView->render($posts);
     }
 
     public function post()
@@ -62,17 +55,15 @@ class Frontend
         if($post == false){
             header("Location:/page-erreur");
         }else{
-        $page="frontend/post";
-        $topbar="topbar_frontend";
-        require "views/layout.php";
+        $myView = new View('post');
+        $myView->render($posts);
         }
     }
     
     public function error()
     {
-        $page="frontend/error";
-        $topbar="topbar_frontend";
-        require "views/layout.php";
+        $myView = new View('error');
+        $myView->render();
     }
 }
 
