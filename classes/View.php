@@ -12,7 +12,7 @@ class View
     public function render($params = array())
     {
         // Affichage de la topbar
-        //$topbar="views/topbar_backend.php";
+        $topbar="views/topbar_backend.php";
         
         extract($params); // extrac() parcourt le tableau de $params et créé posts, responses, post, etc.
         

@@ -103,6 +103,7 @@ class CommentManager extends Model{
         
         while($row = $req->fetch()){   
             $comment   = new Comment();
+            $comment   ->setId($row['id']);
             $comment   ->setName($row['name']);
             $comment   ->setDate($row['date']);
             $comment   ->setComment($row['comment']);

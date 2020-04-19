@@ -1,10 +1,5 @@
 <?php
 
-require_once "models/Article.php";
-require_once "models/Comment.php";
-require_once "models/Dashboard.php";
-require_once "models/User.php";
-
 class Backend
 {
     public function dashboard()
@@ -16,13 +11,13 @@ class Backend
         //$model_user = new UserManager();
 
        
-        //if(filter_has_var(INPUT_GET, 'delete')){
-        //    $comment = $manager_comment->delete_comment();
-        //}
+        if(filter_has_var(INPUT_GET, 'delete')){
+            $comment = $manager_comment->delete_comment();
+        }
                 
-        //if(filter_has_var(INPUT_GET, 'approve')){
-        //    $comment = $manager_comment->approve_comment();
-        //}
+        if(filter_has_var(INPUT_GET, 'approve')){
+            $comment = $manager_comment->approve_comment();
+        }
         
         $myView = new View('dashboard');
         $myView->render(array('comments' => $comments));
@@ -57,16 +52,18 @@ class Backend
 
     public function list()
     {
-        $model_article = new Article();
-        $model_user = new User();
-        $posts = $model_article->get_posts();
+        $manager_article = new ArticleManager();
+        $posts = $manager_article->get_posts();
         
-        if($model_user->admin()!=1){
-        header("Location:/dashboard");
-        }
-        $page="backend/list";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+    
+        //$model_user = new User();
+
+        
+        //if($model_user->admin()!=1){
+        //header("Location:/dashboard");
+        //}
+        $myView = new View('list');
+        $myView->render(array('posts' => $posts));
     }
 
     public function logout()

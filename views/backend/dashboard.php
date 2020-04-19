@@ -43,7 +43,7 @@
 
                         <div class="modal" id="comment_<?=$comment->getId() ?>">
                             <div class="modal-content">
-                                <h4><?= $comment->title ?></h4>
+                                <h4><?= $comment->getName() ?></h4>
 
                                 <p>Commentaire posté par
                                     <strong><?= $comment->getName() . " (" . $comment->getEmail() . ")</strong><br/>Le " . date("d/m/Y à H:i", strtotime($comment->getDate())) ?>
