@@ -40,15 +40,16 @@ class Backend
 
     public function settings()
     {
-        $model_user = new User();
+        $manager_user = new UserManager();
+        $modos = $manager_user->get_modos();
+        $manager_user->settings_verification();
         
-        if($model_user->admin()!=1){
-        header("Location:/dashboard");
-        }
+        //if($model_user->admin()!=1){
+        //header("Location:/dashboard");
+        //}
         
-        $page="backend/settings";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+        $myView = new View('settings');
+        $myView->render(array('modos' => $modos));
     }
 
     public function list()

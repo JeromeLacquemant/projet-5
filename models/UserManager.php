@@ -187,4 +187,55 @@ class UserManager extends Model
                     }
                 }
     }
+    
+    function settings_verification()
+    {
+          if(filter_has_var(INPUT_POST, 'submit')){
+                if(filter_has_var(INPUT_POST, 'name')){
+                    $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
+                }
+                if(filter_has_var(INPUT_POST, 'email')){
+                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
+                }
+                if(filter_has_var(INPUT_POST, 'email_again')){
+                    $email_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email_again', FILTER_VALIDATE_EMAIL)));
+                }
+                if(filter_has_var(INPUT_POST, 'role')){
+                    $role = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'role')));
+                }
+                
+                $token = UserManager::token(30);
+
+                $errors = [];
+
+                if(empty($name) || empty($email) || empty($email_again)){
+                    $errors['empty'] = "Veuillez remplier tous les champs";
+                }
+
+                if($email != $email_again){
+                    $errors['different'] = "Les adresses email ne correspondent pas";
+                }
+
+                if(UserManager::email_taken($email)){
+                    $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
+                }
+
+                if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                }else{
+                    Usermanager::add_modo($name,$email,$role,$token);
+                    header("Location:/gestion-des-admins-et-modos");
+                }
+            }
+    }
 }
