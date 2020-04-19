@@ -9,23 +9,23 @@ class Backend
 {
     public function dashboard()
     {
-        $model_comment = new Comment();
-        $model_dashboard = new Dashboard();
-        $model_user = new User();
+        $manager_comment = new CommentManager();
+        $comments = $manager_comment->get_comments();
         
-        $comments = $model_comment->get_comments();
+        //$model_dashboard = new Dashboard();
+        //$model_user = new UserManager();
 
        
-                        if(filter_has_var(INPUT_GET, 'delete')){
-                    $comment = $model_comment->delete_comment();
-                }
+        //if(filter_has_var(INPUT_GET, 'delete')){
+        //    $comment = $manager_comment->delete_comment();
+        //}
                 
-                if(filter_has_var(INPUT_GET, 'approve')){
-                    $comment = $model_comment->approve_comment();
-                }
-        $page="backend/dashboard";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+        //if(filter_has_var(INPUT_GET, 'approve')){
+        //    $comment = $manager_comment->approve_comment();
+        //}
+        
+        $myView = new View('dashboard');
+        $myView->render(array('comments' => $comments));
     }
 
     public function write()
@@ -111,15 +111,15 @@ class Backend
 
     public function login()
     {
-        $model_user = new User();
+        $manager_user = new UserManager();
+        $manager_user->user_verification();
         
-            if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['admin'])){
         header("Location:/dashboard");
     }
     
-        $page="backend/login";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+        $myView = new View('login');
+        $myView->render();
     }
     
     public function new()

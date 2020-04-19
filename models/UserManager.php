@@ -148,4 +148,43 @@ class UserManager extends Model
         
         return $result;
     }
+    
+    function user_verification()
+    {
+           if(filter_has_var(INPUT_POST, 'submit')){
+                    if(filter_has_var(INPUT_POST, 'email')){
+
+                        $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
+                    }
+                    if(filter_has_var(INPUT_POST, 'password')){
+                        $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
+
+                    }
+                    $errors = [];
+
+                    if(empty($email) || empty($password)){
+                        $errors['empty'] = "Tous les champs n'ont pas été remplis!";
+                    }else if(Usermanager::is_admin($email,$password) == 0){
+                        $errors['exist']  = "Cet administrateur n'existe pas";
+                    }
+                    
+                    if(!empty($errors)){
+                        ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                    foreach($errors as $error){
+                                        echo $error;
+
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }else{
+                        $_SESSION['admin'] = $email;
+                        header("Location:/dashboard");
+                    }
+                }
+    }
 }

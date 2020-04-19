@@ -12,7 +12,7 @@ class View
     public function render($params = array())
     {
         // Affichage de la topbar
-        $topbar="views/topbar_frontend.php";
+        //$topbar="views/topbar_backend.php";
         
         extract($params); // extrac() parcourt le tableau de $params et créé posts, responses, post, etc.
         
@@ -20,7 +20,7 @@ class View
         $template = $this->template;
         
         ob_start(); //On met dans une mémoire tampon.
-        include("views/frontend/$template.php");
+        include("views/backend/$template.php");
         $contentPage = ob_get_clean();
 
         include_once("views/layout.php");

@@ -99,11 +99,18 @@ class CommentManager extends Model{
                 ORDER BY comments.date ASC
             ");
 
-            $results = [];
-            while($rows = $req->fetchObject()){
-                $results[] = $rows;
-            }
-            return $results;
+        $comments=[]; // Obligé d'initialisé avant  la boucle sinon cela ne fonctionne pas.
+        
+        while($row = $req->fetch()){   
+            $comment   = new Comment();
+            $comment   ->setName($row['name']);
+            $comment   ->setDate($row['date']);
+            $comment   ->setComment($row['comment']);
+            $comment   ->setArticleId($row['article_id']);
+                        
+            $comments[] = $comment;
+        }
+        return $comments;
         }
 
         // Fonction permettant de supprimer un commentaire

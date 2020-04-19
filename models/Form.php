@@ -1,7 +1,7 @@
 <?php
 // Permet d'avoir accès à la base de données
 
-// Cette classe sert à manipuler tout ce qui concerne le formulaire de contact de la page d'accueil
+// Cette classe sert à manipuler tout ce qui concerne le formulaire de contact de la page d'accueil (qui ne concerne ni un article, ni un commentaire)
 class Form extends Model
 {
     //Formulaire d'accueil

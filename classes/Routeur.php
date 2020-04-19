@@ -18,6 +18,7 @@ class Routeur
                         "home_cv" => ["controller" => 'Frontend', "method" => 'home_cv'],
                         "legalnotice" => ["controller" => 'Frontend', "method" => 'legalnotice'],
                         "post" => ["controller" => 'Frontend', "method" => 'post'],
+        
                         "dashboard" => ["controller" => 'Backend', "method" => 'dashboard'],
                         "errorback" => ["controller" => 'Backend', "method" => 'errorback'], 
                         "list" => ["controller" => 'Backend', "method" => 'list'], 
