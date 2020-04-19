@@ -15,12 +15,12 @@ require_once("config/autoload.php");
 
 //AFFICHAGE DES PAGES
 // Affichage de la page d'accueil lors du lancement de l'index.php
-//if (!filter_has_var(INPUT_GET, 'page'))
-//{
-//    $controller = new Frontend();
-//    $controller->home_cv();
-//    require_once "views/frontend/home_cv.php";
-//}
+if (!filter_has_var(INPUT_GET, 'page'))
+{
+    $controller = new Frontend();
+    $controller->home_cv();
+    require_once "views/frontend/home_cv.php";
+}
 
 
 // Affichage des autres page en fonction du GET

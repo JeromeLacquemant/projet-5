@@ -4,7 +4,7 @@ class View
 {
     private $template;
     
-    public function __construct($template)
+    public function __construct($template = null)
     {
         $this->template = $template;
     }
