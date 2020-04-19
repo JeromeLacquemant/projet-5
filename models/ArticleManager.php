@@ -1,6 +1,5 @@
 <?php
 
-require_once("Model.php");
 class ArticleManager extends Model
 {
 // FONCTIONS POUR LE FRONTEND

@@ -95,19 +95,18 @@ class Backend
         $id = $_GET['id'];
         $manager_article = new ArticleManager();
         $posts = $manager_article->get_post();
+        $manager_article->postback_verification();
         
         //$manager_user = new UserManager();
         }
         //if($model_user->admin()!=1){
         //header("Location:/dashboard");
-          if($posts == false){
-        header("Location:/page-erreur-administrateur");
-    }
-            if($posts == false){
-            header("Location:/page-erreur");
+        if($posts == false){
+            header("Location:/page-erreur-administrateur");
         }
+
         else{
-           $myView = new View('postback');
+            $myView = new View('postback');
             $myView->render(array('post' => $posts));
         }
     }

@@ -1,5 +1,4 @@
 <?php
-// Permet d'avoir accès à la base de données
 
 class CommentManager extends Model{
     
