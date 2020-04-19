@@ -70,23 +70,21 @@ class Backend
 
     public function logout()
     {
-        $model_user = new User();
+        $manager_user = new UserManager();
         
-        $page="backend/logout";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+        $myView = new View('logout');
+        $myView->render();
     }
 
     public function password()
     {
-        $model_user = new User();
-        
-            if($model_user->hasnt_password() == 0){
+        $manager_user = new UserManager();
+   
+        if($manager_user->hasnt_password() == 0){
         header("Location:/dashboard");
     }
-        $page="backend/password";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+        $myView = new View('password');
+        $myView->render();
     }
 
     public function postback()
@@ -123,22 +121,21 @@ class Backend
     
     public function new()
     {
-        $model_user = new User();
+        $manager_user = new UserManager();
+        $manager_user->new_verification();
         
         if(isset($_SESSION['admin'])){
         header("Location:/dashboard");
     }
-        $page="backend/new";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+        $myView = new View('new');
+        $myView->render();
     }
 
     public function errorback()
     {
         $model_user = new User();
         
-        $page="backend/errorback";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+       $myView = new View('errorback');
+        $myView->render();
     }
 }

@@ -7,9 +7,6 @@
                 </div>    
             </div>
             <h4 class="center-align">Se connecter</h4>
-            <?php
-             
-            ?>
 
             <form method="post">
                 <div class="row">

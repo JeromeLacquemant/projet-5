@@ -238,4 +238,37 @@ class UserManager extends Model
                 }
             }
     }
+    
+    function new_verification(){
+        
+                        if(filter_has_var(INPUT_POST, 'submit')){
+                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
+                    $token = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'token')));
+
+                    $errors = [];
+
+                    if(empty($email) || empty($token)){
+                        $errors['empty'] = "Tous les champs n'ont pas été remplis";
+                    }else if(Usermanager::is_modo($email,$token) == 0){
+                        $errors['exist'] = "Ce modérateur n'existe pas";
+                    }                
+
+                    if(!empty($errors)){
+                        ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }else{
+                        $_SESSION['admin'] = $email;
+                        header("Location:/modification-du-mot-de-passe");
+                    }
+                }
+    }
 }
