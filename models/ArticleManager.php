@@ -242,4 +242,67 @@ class ArticleManager extends Model
 
         header("Location: /liste-de-tous-les-articles");
     }
+    function write_verification()
+    {
+ //Fonction permettant de vérifier les données envoyées par l'utilsiateur
+        if(filter_has_var(INPUT_POST, 'post')){
+            if(filter_has_var(INPUT_POST, 'title')){
+                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title')));
+            }
+            if(filter_has_var(INPUT_POST, 'chapo')){
+                $chapo = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'chapo')));
+            }
+           if(filter_has_var(INPUT_POST, 'content')){
+                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content')));
+            }
+
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
+
+            $errors = [];
+
+            if(empty($title) || empty($content) || empty($chapo)){
+                $errors['empty'] = "Veuillez remplir tous les champs";
+            }
+            if(strlen($title) < 5){
+                $errors['title'] = "Votre titre doit contenir au moins 5 caractères.";
+            }
+            if(strlen($chapo) < 5){
+                $errors['chapo'] = "Votre chapô doit contenir au moins 5 caractères.";
+            }
+            if(strlen($title) < 5){
+                $errors['content'] = "Votre article doit contenir au moins 100 caractères.";
+            }
+
+            if(!empty($_FILES['image']['name'])){
+                $file = $_FILES['image']['name'];
+                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+                $extension = strrchr($file,'.');
+                if(!in_array($extension,$extensions)){
+                    $errors['image'] = "Cette image n'est pas valable";
+                }
+            }
+
+            if(!empty($errors)){
+                ?>
+                    <div class="card red">
+                        <div class="card-content white-text">
+                            <?php
+                                foreach($errors as $error){
+                                    echo $error."</br>";
+                                }
+                            ?>
+                        </div>
+                    </div>
+                <?php
+            }else{
+                ArticleManager::post($title,$chapo,$content,$posted);
+                if(!empty($_FILES['image']['name'])){
+                    Articlemanager::post_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:/liste-de-tous-les-articles");
+                }else{
+                   header("Location:/liste-de-tous-les-articles");
+                }
+            }
+        }
+    }
 }

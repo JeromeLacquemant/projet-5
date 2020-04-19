@@ -26,7 +26,7 @@ class Backend
     public function write()
     {
         $manager_article = new ArticleManager();
-    
+        $manager_article->write_verification();
 
         //$model_user = new User();
         
