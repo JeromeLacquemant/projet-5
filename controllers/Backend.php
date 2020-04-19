@@ -25,16 +25,17 @@ class Backend
 
     public function write()
     {
-        $model_article = new Article();
-        $model_user = new User();
-        
-            if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
+        $manager_article = new ArticleManager();
     
-        $page="backend/write";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+
+        //$model_user = new User();
+        
+        //    if($model_user->admin()!=1){
+        //header("Location:/dashboard");
+    //}
+    
+        $myView = new View('write');
+        $myView->render();
     }
 
     public function settings()
