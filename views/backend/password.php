@@ -8,45 +8,6 @@
             </div>
             <h4 class="center-align">Choisir un mot de passe</h4>
 
-            <?php
-                if(filter_has_var(INPUT_POST, 'submit')){
-                    $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
-                    $password_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password_again')));
-
-                    $errors = [];
-                    if(empty($password) || empty($password_again)){
-                        $errors['empty'] = "Tous les champs n'ont pas été remplis";
-                    }
-
-                    if($password != $password_again){
-                        $errors['different'] = "Les mots de passe sont différents";
-                    }
-
-                    if (preg_match('#^(?=.*[a-z])(?=.*[A-Z]).{8,}$#', $password)) {
-                    }
-                    else{
-                        $errors['non conforme'] = 'Votre mot de passe doit contenir des minuscules et des majuscules et posséder une longueur de 8 caractères au minimum';
-                    }	
-                    
-                    if(!empty($errors)){
-                        ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                foreach($errors as $error){
-                                    echo $error;
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                    }else{
-                        $model_user->update_password($password);
-                        header("Location:/modification-du-mot-de-passe");
-                    }
-                }
-            ?>
-
             <form method="post">
                 <div class="row">
                     <div class="input-field col s12">

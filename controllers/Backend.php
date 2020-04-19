@@ -79,6 +79,7 @@ class Backend
     public function password()
     {
         $manager_user = new UserManager();
+        $manager_user->password_verification();
    
         if($manager_user->hasnt_password() == 0){
         header("Location:/dashboard");
@@ -89,22 +90,28 @@ class Backend
 
     public function postback()
     {
-        $model_article = new Article();
-        $model_user = new User();
+        if(isset($_GET['id']))
+        {
+        $id = $_GET['id'];
+        $manager_article = new ArticleManager();
+        $posts = $manager_article->get_post();
         
-            if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
-
-    $post = $model_article->get_post();
-    if($post == false){
+        //$manager_user = new UserManager();
+        }
+        //if($model_user->admin()!=1){
+        //header("Location:/dashboard");
+          if($posts == false){
         header("Location:/page-erreur-administrateur");
     }
-    
-        $page="backend/postback";
-        $topbar="topbar_backend";
-        require "views/layout.php";
+            if($posts == false){
+            header("Location:/page-erreur");
+        }
+        else{
+           $myView = new View('postback');
+            $myView->render(array('post' => $posts));
+        }
     }
+
 
     public function login()
     {
@@ -133,7 +140,7 @@ class Backend
 
     public function errorback()
     {
-        $model_user = new User();
+        //$model_user = new User();
         
        $myView = new View('errorback');
         $myView->render();

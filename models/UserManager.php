@@ -239,7 +239,8 @@ class UserManager extends Model
             }
     }
     
-    function new_verification(){
+    function new_verification()
+    {
         
                         if(filter_has_var(INPUT_POST, 'submit')){
                     $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
@@ -249,7 +250,7 @@ class UserManager extends Model
 
                     if(empty($email) || empty($token)){
                         $errors['empty'] = "Tous les champs n'ont pas été remplis";
-                    }else if(Usermanager::is_modo($email,$token) == 0){
+                    }else if(UserManager::is_modo($email,$token) == 0){
                         $errors['exist'] = "Ce modérateur n'existe pas";
                     }                
 
@@ -267,6 +268,46 @@ class UserManager extends Model
                     <?php
                     }else{
                         $_SESSION['admin'] = $email;
+                        header("Location:/modification-du-mot-de-passe");
+                    }
+                }
+    }
+    
+    function password_verification()
+    {
+   if(filter_has_var(INPUT_POST, 'submit')){
+                    $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
+                    $password_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password_again')));
+
+                    $errors = [];
+                    if(empty($password) || empty($password_again)){
+                        $errors['empty'] = "Tous les champs n'ont pas été remplis";
+                    }
+
+                    if($password != $password_again){
+                        $errors['different'] = "Les mots de passe sont différents";
+                    }
+
+                    if (preg_match('#^(?=.*[a-z])(?=.*[A-Z]).{8,}$#', $password)) {
+                    }
+                    else{
+                        $errors['non conforme'] = 'Votre mot de passe doit contenir des minuscules et des majuscules et posséder une longueur de 8 caractères au minimum';
+                    }	
+                    
+                    if(!empty($errors)){
+                        ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }else{
+                        Usermanager::update_password($password);
                         header("Location:/modification-du-mot-de-passe");
                     }
                 }

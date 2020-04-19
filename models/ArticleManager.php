@@ -132,10 +132,20 @@ class ArticleManager extends Model
             ON articles.writer = admins.email
             WHERE articles.id = '{$_GET['id']}'
         ");
-
-        $result = $req->fetchObject();
-        
-        return $result;
+     $post = [];
+        while($row = $req->fetch()){
+            
+            $post   = new Article();
+            $post   ->setId($row['id']);
+            $post   ->setTitle($row['title']);
+            $post   ->setChapo($row['chapo']);
+            $post   ->setContent($row['content']);
+            $post   ->setDate($row['date']);
+            $post   ->setImage($row['image']);
+                        
+            $posts[] = $post;
+        }
+        return $post;
     }
 
     // Fonction permettant d'éditer un article 
@@ -302,6 +312,84 @@ class ArticleManager extends Model
                 }else{
                    header("Location:/liste-de-tous-les-articles");
                 }
+            }
+        }
+    }
+    
+    function postback_verification()
+    {
+                if(filter_has_var(INPUT_POST, 'delete')){
+            ArticleManager::delete_article_comments();
+            ArticleManager::delete_article();
+        }
+
+        if(filter_has_var(INPUT_POST, 'submit')){
+            if(filter_has_var(INPUT_POST, 'title')){
+                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title')));
+            }
+            if(filter_has_var(INPUT_POST, 'chapo')){
+                $chapo = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'chapo')));
+            }
+            if(filter_has_var(INPUT_POST, 'content')){
+                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content')));
+            }
+            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
+            
+            $errors = [];
+
+            if(empty($title) || empty($content) || empty($chapo)){
+                $errors['empty'] = "Veuillez remplir tous les champs svp";
+            }
+            if(strlen($title) < 5){
+                $errors['title'] = "Votre message doit contenir au moins 5 caractères.";
+            }
+            if(strlen($chapo) < 5){
+                $errors['chapo'] = "Votre chapô doit contenir au moins 5 caractères.";
+            }
+            if(strlen($content) < 5){
+                $errors['content'] = "Votre article doit contenir au moins 5 caractères.";
+            }
+
+            if(!empty($_FILES['image']['name'])){
+                $file = $_FILES['image']['name'];
+                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
+                $extension = strrchr($file,'.');
+  
+                if(!in_array($extension,$extensions)){
+                    $errors['image'] = "Cette image n'est pas valable.";
+                }
+            }
+            
+            if(!empty($errors)){
+                ?>
+                <div class="card red">
+                    <div class="card-content white-text">
+                        <?php
+                        foreach($errors as $error){
+                            echo $error."</br>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php
+            }else{
+                ArticleManager::edit($title,$chapo,$content,$posted, filter_input(INPUT_GET, 'id'));
+             
+                if(!empty($_FILES['image']['name']))
+                {
+                    ArticleManager::update_img($_FILES['image']['tmp_name'], $extension);
+                    header("Location:/liste-de-tous-les-articles");
+                }
+                else
+                {
+                    header("Location:/liste-de-tous-les-articles");
+                }
+                
+                ?>
+                    <script>
+                        window.location.replace("index.php?page=postback&id=<?= filter_input(INPUT_GET, 'id') ?>");
+                    </script> 
+                <?php
             }
         }
     }

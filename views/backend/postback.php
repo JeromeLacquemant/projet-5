@@ -1,98 +1,21 @@
 <h2>Modifier un article</h2>
         <div class="row center">
             <div class="row">
-                <img class="responsive-img" src="/public/img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
+                <img class="responsive-img" src="/public/img/posts/<?= $post->getImage() ?>" alt="<?= $post->getTitle() ?>"/>
             </div>
         </div>
     <div class="container">
 
-<?php
-        if(filter_has_var(INPUT_POST, 'delete')){
-            $model_article->delete_article_comments();
-            $model_article->delete_article();
-        }
-
-        if(filter_has_var(INPUT_POST, 'submit')){
-            if(filter_has_var(INPUT_POST, 'title')){
-                $title = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'title')));
-            }
-            if(filter_has_var(INPUT_POST, 'chapo')){
-                $chapo = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'chapo')));
-            }
-            if(filter_has_var(INPUT_POST, 'content')){
-                $content = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'content')));
-            }
-            $posted = filter_input(INPUT_POST, 'public') ? "1" : "0";
-            
-            $errors = [];
-
-            if(empty($title) || empty($content) || empty($chapo)){
-                $errors['empty'] = "Veuillez remplir tous les champs svp";
-            }
-            if(strlen($title) < 5){
-                $errors['title'] = "Votre message doit contenir au moins 5 caractères.";
-            }
-            if(strlen($chapo) < 5){
-                $errors['chapo'] = "Votre chapô doit contenir au moins 5 caractères.";
-            }
-            if(strlen($content) < 5){
-                $errors['content'] = "Votre article doit contenir au moins 5 caractères.";
-            }
-
-            if(!empty($_FILES['image']['name'])){
-                $file = $_FILES['image']['name'];
-                $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
-                $extension = strrchr($file,'.');
-  
-                if(!in_array($extension,$extensions)){
-                    $errors['image'] = "Cette image n'est pas valable.";
-                }
-            }
-            
-            if(!empty($errors)){
-                ?>
-                <div class="card red">
-                    <div class="card-content white-text">
-                        <?php
-                        foreach($errors as $error){
-                            echo $error."</br>";
-                        }
-                        ?>
-                    </div>
-                </div>
-                <?php
-            }else{
-                $model_article->edit($title,$chapo,$content,$posted, filter_input(INPUT_GET, 'id'));
-             
-                if(!empty($_FILES['image']['name']))
-                {
-                    $model_article->update_img($_FILES['image']['tmp_name'], $extension);
-                    header("Location:/liste-de-tous-les-articles");
-                }
-                else
-                {
-                    header("Location:/liste-de-tous-les-articles");
-                }
-                
-                ?>
-                    <script>
-                        window.location.replace("index.php?page=postback&id=<?= filter_input(INPUT_GET, 'id') ?>");
-                    </script> 
-                <?php
-            }
-        }
-?>
-
     <form method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
+                <input type="text" name="title" id="title" value="<?= $post->getTitle() ?>"/>
             </div>
             <div class="input-field col s12">
-                <textarea id="content" name="chapo" class="materialize-textarea"><?= $post->chapo ?></textarea>
+                <textarea id="content" name="chapo" class="materialize-textarea"><?= $post->getChapo() ?></textarea>
             </div>
             <div class="input-field col s12">
-                <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
+                <textarea id="content" name="content" class="materialize-textarea"><?= $post->getContent() ?></textarea>
             </div>
             <div class="col s12">
                 <div class="input-field">
@@ -105,7 +28,7 @@
                 <div class="switch">
                     <label>
                         Non
-                        <input type="checkbox" name="public" <?php echo ($post->posted == "1")?"checked" : "" ?>/>
+                        <input type="checkbox" name="public" <?php echo ($post->getPosted() == "1")?"checked" : "" ?>/>
                         <span class="lever"></span>
                         Oui
                     </label>
