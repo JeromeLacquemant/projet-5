@@ -12,7 +12,9 @@ class View
     
     public function render($params = array())
     {
+        //On récupère dans le controller, le fait que c'est du backend ou du frontend
         $frontback = $this->frontback;
+        
         // Affichage de la topbar
         $topbar="views/topbar_$frontback.php";
         
@@ -23,7 +25,7 @@ class View
         
         ob_start(); //On met dans une mémoire tampon.
 
-                  include("views/$frontback/$template.php");
+        include("views/$frontback/$template.php");
         $contentPage = ob_get_clean();
 
         include_once("views/layout.php");
