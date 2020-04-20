@@ -4,15 +4,17 @@ class View
 {
     private $template;
     
-    public function __construct($template = null)
+    public function __construct($template, $frontback)
     {
         $this->template = $template;
+        $this->frontback = $frontback;
     }
     
     public function render($params = array())
     {
+        $frontback = $this->frontback;
         // Affichage de la topbar
-        $topbar="views/topbar_backend.php";
+        $topbar="views/topbar_$frontback.php";
         
         extract($params); // extrac() parcourt le tableau de $params et créé posts, responses, post, etc.
         
@@ -20,10 +22,12 @@ class View
         $template = $this->template;
         
         ob_start(); //On met dans une mémoire tampon.
-        include("views/backend/$template.php");
+
+                  include("views/$frontback/$template.php");
         $contentPage = ob_get_clean();
 
         include_once("views/layout.php");
+        }
+ 
     }
-}
 

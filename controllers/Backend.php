@@ -19,7 +19,7 @@ class Backend
             $comment = $manager_comment->approve_comment();
         }
         
-        $myView = new View('dashboard');
+        $myView = new View('dashboard', 'backend');
         $myView->render(array('comments' => $comments));
     }
 
@@ -34,7 +34,7 @@ class Backend
         //header("Location:/dashboard");
     //}
     
-        $myView = new View('write');
+        $myView = new View('write', 'backend');
         $myView->render();
     }
 
@@ -48,7 +48,7 @@ class Backend
         //header("Location:/dashboard");
         //}
         
-        $myView = new View('settings');
+        $myView = new View('settings', 'backend');
         $myView->render(array('modos' => $modos));
     }
 
@@ -64,7 +64,7 @@ class Backend
         //if($model_user->admin()!=1){
         //header("Location:/dashboard");
         //}
-        $myView = new View('list');
+        $myView = new View('list', 'backend');
         $myView->render(array('posts' => $posts));
     }
 
@@ -84,7 +84,7 @@ class Backend
         if($manager_user->hasnt_password() == 0){
         header("Location:/dashboard");
     }
-        $myView = new View('password');
+        $myView = new View('password', 'backend');
         $myView->render();
     }
 
@@ -106,7 +106,7 @@ class Backend
         }
 
         else{
-            $myView = new View('postback');
+            $myView = new View('postback', 'backend');
             $myView->render(array('post' => $posts));
         }
     }
@@ -121,7 +121,7 @@ class Backend
         header("Location:/dashboard");
     }
     
-        $myView = new View('login');
+        $myView = new View('login', 'backend');
         $myView->render();
     }
     
@@ -133,7 +133,7 @@ class Backend
         if(isset($_SESSION['admin'])){
         header("Location:/dashboard");
     }
-        $myView = new View('new');
+        $myView = new View('new', 'backend');
         $myView->render();
     }
 
@@ -141,7 +141,7 @@ class Backend
     {
         //$model_user = new User();
         
-       $myView = new View('errorback');
+       $myView = new View('errorback', 'backend');
         $myView->render();
     }
 }

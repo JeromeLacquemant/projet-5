@@ -47,8 +47,8 @@
         
         <body>
             <!-- Mise en place de la topbar -->
-            <?php
-                include ($topbar);
+                <?php
+                include ($topbar);            
             ?>
 
             <!-- Mise en place du contenu -->

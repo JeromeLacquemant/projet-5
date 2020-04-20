@@ -7,13 +7,13 @@ class Frontend
         $model_form = new Form();
         $formulaire = $model_form->form_page_home_cv();
         
-        $myView = new View('home_cv');
+        $myView = new View('home_cv', 'frontend');
         $myView->render();
     }
 
     public function legalnotice()
     {
-        $myView = new View('legalnotice');
+        $myView = new View('legalnotice', 'frontend');
         $myView->render();
     }
     
@@ -22,7 +22,7 @@ class Frontend
         $manager = new ArticleManager();
         $posts = $manager->get_posts_blog();
         
-        $myView = new View('home');
+        $myView = new View('home', 'frontend');
         $myView->render(array('posts' => $posts));
     }
 
@@ -31,7 +31,7 @@ class Frontend
         $manager = new ArticleManager();
         $posts = $manager->get_posts_blog_all();
         
-        $myView = new View('blog');
+        $myView = new View('blog', 'frontend');
         $myView->render(array('posts' => $posts));
     }
 
@@ -56,14 +56,14 @@ class Frontend
             header("Location:/page-erreur");
         }
         else{
-            $myView = new View('post');
+            $myView = new View('post', 'frontend');
             $myView->render(array('responses' => $responses, 'post' => $posts));
         }
     }
     
     public function error()
     {
-        $myView = new View('error');
+        $myView = new View('error', 'frontend');
         $myView->render();
     }
 }

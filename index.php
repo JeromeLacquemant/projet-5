@@ -26,8 +26,6 @@ if (!filter_has_var(INPUT_GET, 'page'))
 // Affichage des autres page en fonction du GET
 $request = $_GET['page'];
 
-include_once("classes/Routeur.php");
-
 $routeur = new Routeur($request);
 $routeur->renderController();
 
