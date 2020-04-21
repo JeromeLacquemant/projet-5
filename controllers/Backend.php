@@ -30,8 +30,8 @@ class Backend
     public function write()
     {
         $manager_article = new ArticleManager();
-        $manager_article->write_verification();
-
+        $errors = $manager_article->write_verification();
+         
         //$model_user = new User();
         
         //    if($model_user->admin()!=1){
@@ -39,7 +39,7 @@ class Backend
     //}
     
         $myView = new View('write', 'backend');
-        $myView->render();
+        $myView->render(array('errors' => $errors));
     }
 
     public function settings()
@@ -74,14 +74,8 @@ class Backend
 
     public function logout()
     {
-        $manager_user = new UserManager();
-        
-            unset($_SESSION['admin']);
-    header("Location:/articles-a-la-une");
-
-    
-        $myView = new View('logout');
-        $myView->render();
+        unset($_SESSION['admin']);
+        header("Location:/articles-a-la-une");
     }
 
     public function password()

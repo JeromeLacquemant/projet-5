@@ -291,19 +291,8 @@ class ArticleManager extends Model
                 }
             }
 
-            if(!empty($errors)){
-                ?>
-                    <div class="card red">
-                        <div class="card-content white-text">
-                            <?php
-                                foreach($errors as $error){
-                                    echo $error."</br>";
-                                }
-                            ?>
-                        </div>
-                    </div>
-                <?php
-            }else{
+            if(empty($errors)){
+               
                 ArticleManager::post($title,$chapo,$content,$posted);
                 if(!empty($_FILES['image']['name'])){
                     Articlemanager::post_img($_FILES['image']['tmp_name'], $extension);
@@ -313,6 +302,9 @@ class ArticleManager extends Model
                 }
             }
         }
+        else
+            $errors =[];
+        return $errors;
     }
     
     function postback_verification()

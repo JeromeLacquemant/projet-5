@@ -28,7 +28,7 @@
                         ?>
 
                         <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
-                        <li><a href="index.php?page=logout">Déconnexion</a></li>
+                        <li><a href="index.php?page=logout" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)">Déconnexion</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
                         <?php
@@ -51,7 +51,7 @@
 
                         ?>
                         <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
-                        <li><a href="index.php?page=logout">Déconnexion</a></li>
+                        <li><a href="index.php?page=logout" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)">Déconnexion</a></li>
 
                     </ul>
                 <?php
