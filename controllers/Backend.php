@@ -22,6 +22,7 @@ class Backend
             $comment = $manager_comment->approve_comment();
         }
         
+        require_once "config/dashboard.php";
         $myView = new View('dashboard', 'backend');
         $myView->render(array('comments' => $comments));
     }

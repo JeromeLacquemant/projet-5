@@ -1,11 +1,6 @@
 <?php
-// Permet d'avoir accès à la base de données
 
-// Cette classe sert à manipuler tout ce qui concerne le formulaire de contact de la page d'accueil (qui ne concerne ni un article, ni un commentaire)
-class Form extends Model
-{
-    //Formulaire d'accueil
-    function form_page_home_cv(){
+function form_page_home_cv(){
       if(filter_has_var(INPUT_POST, 'submit')){
 
                 $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
@@ -43,8 +38,8 @@ class Form extends Model
                         </div>
                     <?php
                 }else{
-                    Form::contact_mail($name,$email,$subject,$message);
-                    Form::contact_mail_user($name,$email,$subject,$message);
+                    contact_mail($name,$email,$subject,$message);
+                    contact_mail_user($name,$email,$subject,$message);
                 }
             }
     }
@@ -108,4 +103,3 @@ class Form extends Model
 
         mail($email,$subject_mail,$message_mail,$header);
     }
-}

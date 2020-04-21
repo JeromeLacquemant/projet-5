@@ -1,7 +1,3 @@
-<?php 
-require_once "config/dashboard.php";
-?>
-
 <h2>Tableau de bord</h2>
 <div class="row">
     <?php
