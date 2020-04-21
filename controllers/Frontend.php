@@ -4,10 +4,9 @@ class Frontend
 {
     public function home_cv()
     {
-        $model_form = new Form();
-        
         require_once "config/formulaires.php";
         $formulaire = form_page_home_cv();
+        
         $myView = new View('home_cv', 'frontend');
         $myView->render();
     }
