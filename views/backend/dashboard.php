@@ -50,7 +50,6 @@ require_once "config/dashboard.php";
         <?php   
         if(!empty($comments)) {
             foreach ($comments as $comment) {  
-
         ?>
         
         <div>

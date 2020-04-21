@@ -7,8 +7,7 @@ class Backend
         $manager_comment = new CommentManager();
         $comments = $manager_comment->get_comments();
         
-        
-   
+
         //$manager_user = new Usermanager();
         //$comments = $manager_user->
         //$model_dashboard = new Dashboard();
