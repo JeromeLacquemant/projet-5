@@ -292,7 +292,6 @@ class ArticleManager extends Model
             }
 
             if(empty($errors)){
-               
                 ArticleManager::post($title,$chapo,$content,$posted);
                 if(!empty($_FILES['image']['name'])){
                     Articlemanager::post_img($_FILES['image']['tmp_name'], $extension);
@@ -304,12 +303,13 @@ class ArticleManager extends Model
         }
         else
             $errors =[];
+        
         return $errors;
     }
     
     function postback_verification()
     {
-                if(filter_has_var(INPUT_POST, 'delete')){
+            if(filter_has_var(INPUT_POST, 'delete')){
             ArticleManager::delete_article_comments();
             ArticleManager::delete_article();
         }
@@ -351,19 +351,7 @@ class ArticleManager extends Model
                 }
             }
             
-            if(!empty($errors)){
-                ?>
-                <div class="card red">
-                    <div class="card-content white-text">
-                        <?php
-                        foreach($errors as $error){
-                            echo $error."</br>";
-                        }
-                        ?>
-                    </div>
-                </div>
-                <?php
-            }else{
+            if(empty($errors)){
                 ArticleManager::edit($title,$chapo,$content,$posted, filter_input(INPUT_GET, 'id'));
              
                 if(!empty($_FILES['image']['name']))
@@ -381,7 +369,9 @@ class ArticleManager extends Model
                         window.location.replace("index.php?page=postback&id=<?= filter_input(INPUT_GET, 'id') ?>");
                     </script> 
                 <?php
+            }}else{
+                $errors = []; 
             }
+            return $errors;
         }
     }
-}

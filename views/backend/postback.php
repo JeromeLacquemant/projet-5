@@ -1,3 +1,17 @@
+<?php // Affichage des erreurs           
+if(!empty($errors)){
+                ?>
+                <div class="card red">
+                    <div class="card-content white-text">
+                        <?php
+                        foreach($errors as $error){
+                            echo $error."</br>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php } ?>
+            
 <h2>Modifier un article</h2>
         <div class="row center">
             <div class="row">
