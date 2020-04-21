@@ -76,6 +76,10 @@ class Backend
     {
         $manager_user = new UserManager();
         
+            unset($_SESSION['admin']);
+    header("Location:/articles-a-la-une");
+
+    
         $myView = new View('logout');
         $myView->render();
     }
