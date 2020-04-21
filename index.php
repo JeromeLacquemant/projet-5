@@ -19,7 +19,9 @@ if (!filter_has_var(INPUT_GET, 'page'))
 {
     $controller = new Frontend();
     $controller->home_cv();
-    require_once "views/frontend/home_cv.php";
+    
+    $myView = new View('home_cv', 'frontend');
+    $myView->render();
 }
 
 

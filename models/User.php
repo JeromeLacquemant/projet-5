@@ -99,4 +99,22 @@ class User
     {
         $this->token = $token;
     }
+    
+        /**
+     * 
+     * @return mixed
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    
+    /**
+     * 
+     * @param mixed $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
 }

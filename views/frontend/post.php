@@ -6,7 +6,7 @@
     
     <div class="container">
         <h1><?= $post->getTitle() ?></h1>
-        <h6>Par <?= $post->getTitle() ?> le <?= date("d/m/Y à H:i", strtotime($post->getDate())) ?></h6>
+        <h6>Par <?= $admin->getName() ?> le <?= date("d/m/Y à H:i", strtotime($post->getDate())) ?></h6>
         <p><?= nl2br($post->getContent()); ?></p>
         <hr>
         <h4>Commentaires:</h4>

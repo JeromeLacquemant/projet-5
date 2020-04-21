@@ -43,13 +43,13 @@ class Frontend
             $manager = new ArticleManager();
             $posts = $manager->get_article_blog();
             
+            $manager_user = new UserManager();
+            $admins = $manager_user->article_admin();
+            
             $manager_comment = new CommentManager();
             $responses = $manager_comment->get_comments_blog();
             $manager_comment->form_comment_verification();
             //model_comment->form_comment_verification();  
-        }
-        else{
-            $posts = new Article();
         }
         
         if($posts == false){
@@ -57,7 +57,7 @@ class Frontend
         }
         else{
             $myView = new View('post', 'frontend');
-            $myView->render(array('responses' => $responses, 'post' => $posts));
+            $myView->render(array('responses' => $responses, 'post' => $posts, 'admin' => $admins));
         }
     }
     

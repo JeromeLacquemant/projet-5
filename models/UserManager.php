@@ -2,6 +2,27 @@
 
 class UserManager extends Model
 {
+    // Fonction permettant de récupérer le nom d'un admin pour un article précis.
+    function article_admin(){
+     $req = $this->db->query("
+            SELECT  
+                    admins.name
+            FROM articles
+            JOIN admins
+            ON articles.writer=admins.email
+            WHERE articles.id = '{$_GET['id']}'
+
+        ");
+         $admin = [];
+        while($row = $req->fetch()){
+            
+            $admin   = new User();
+            $admin   ->setName($row['name']);
+               
+            $admins[] = $admin;
+        }
+        return $admin;
+}
     // Fonction permettant de vérifier que la session est bien active sous le role administrateur
     function admin(){
         if(isset($_SESSION['admin'])){
