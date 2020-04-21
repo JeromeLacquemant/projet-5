@@ -1,10 +1,41 @@
-<h2>Tableau de bord</h2>
+<?php 
+require_once "config/dashboard.php";
+?>
 
+<h2>Tableau de bord</h2>
+<div class="row">
+    <?php
+        $tables = [
+            "Publications"      =>  "articles",
+            "Commentaires"      =>  "comments",
+            "Admin / Modo"   =>  "admins"
+        ];
+
+        $colors = [
+            "articles"      =>  "green",
+            "comments"      =>  "red",
+            "admins"        =>  "blue"
+        ];
+    ?>
+
+    <?php
+        foreach($tables as $table_name => $table){
+            ?>
+                <div class="col l4 m6 s12">
+                    <div class="card">
+                        <div class="card-content <?= getColor($table,$colors) ?> ">
+                            <span class="card-title"><?= $table_name ?></span>
+                            <?php $nbrInTable = inTable($table); ?>
+                            <h4 class="chiffres"><?= $nbrInTable[0] ?></h4>
+                        </div>
+                    </div>
+                </div>
+            <?php
+        }
+    ?>
+</div>
 
 <h4>Commentaires non lus</h4>
-<?php
-    $comments
-?>
 
 <table>
     <thead>
@@ -67,9 +98,7 @@
                 </tr>
             
             <?php
-                }
-                
-         
+                }            
         }else{
             ?>
                 <tr>
