@@ -363,12 +363,6 @@ class ArticleManager extends Model
                 {
                     header("Location:/liste-de-tous-les-articles");
                 }
-                
-                ?>
-                    <script>
-                        window.location.replace("index.php?page=postback&id=<?= filter_input(INPUT_GET, 'id') ?>");
-                    </script> 
-                <?php
             }}else{
                 $errors = []; 
             }
