@@ -13,16 +13,18 @@ class UserManager extends Model
             WHERE articles.id = '{$_GET['id']}'
 
         ");
-         $admin = [];
+        
+        $admin = [];
+        
         while($row = $req->fetch()){
-            
             $admin   = new User();
             $admin   ->setName($row['name']);
                
             $admins[] = $admin;
         }
         return $admin;
-}
+    }
+    
     // Fonction permettant de vérifier que la session est bien active sous le role administrateur
     function admin(){
         if(isset($_SESSION['admin'])){
@@ -170,35 +172,32 @@ class UserManager extends Model
         return $result;
     }
     
-    function login_verification()
-    {
-           if(filter_has_var(INPUT_POST, 'submit')){
-                    if(filter_has_var(INPUT_POST, 'email')){
+    function login_verification(){
+       if(filter_has_var(INPUT_POST, 'submit')){
+            if(filter_has_var(INPUT_POST, 'email')){
+                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
+            }
+            if(filter_has_var(INPUT_POST, 'password')){
+                $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
+            }
+            
+            $errors = [];
 
-                        $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
-                    }
-                    if(filter_has_var(INPUT_POST, 'password')){
-                        $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
-
-                    }
-                    $errors = [];
-
-                    if(empty($email) || empty($password)){
-                        $errors['empty'] = "Tous les champs n'ont pas été remplis!";
-                    }else if(Usermanager::is_admin($email,$password) == 0){
-                        $errors['exist']  = "Cet administrateur n'existe pas";
-                    }
+            if(empty($email) || empty($password)){
+                $errors['empty'] = "Tous les champs n'ont pas été remplis!";
+            }else if(Usermanager::is_admin($email,$password) == 0){
+                $errors['exist']  = "Cet administrateur n'existe pas";
+            }
                     
-                    if(empty($errors)){
-                        $_SESSION['admin'] = $email;
-                        header("Location:/dashboard");
-                    }
-                    return $errors;
-                }
+            if(empty($errors)){
+                $_SESSION['admin'] = $email;
+                header("Location:/dashboard");
+            }
+            return $errors;
+        }
     }
     
-    function settings_verification()
-    {
+    function settings_verification(){
           if(filter_has_var(INPUT_POST, 'submit')){
                 if(filter_has_var(INPUT_POST, 'name')){
                     $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
@@ -238,54 +237,53 @@ class UserManager extends Model
     }
     
     function new_verification()
-    {
-        
-                        if(filter_has_var(INPUT_POST, 'submit')){
-                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
-                    $token = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'token')));
+    {  
+        if(filter_has_var(INPUT_POST, 'submit')){
+            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
+            $token = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'token')));
 
-                    $errors = [];
+            $errors = [];
 
-                    if(empty($email) || empty($token)){
-                        $errors['empty'] = "Tous les champs n'ont pas été remplis";
-                    }else if(UserManager::is_modo($email,$token) == 0){
-                        $errors['exist'] = "Ce modérateur n'existe pas";
-                    }                
+            if(empty($email) || empty($token)){
+                $errors['empty'] = "Tous les champs n'ont pas été remplis";
+            }else if(UserManager::is_modo($email,$token) == 0){
+                $errors['exist'] = "Ce modérateur n'existe pas";
+            }                
 
-                    if(empty($errors)){
-                        $_SESSION['admin'] = $email;
-                        header("Location:/modification-du-mot-de-passe");
-                    }
-                    return $errors;
-                }
+            if(empty($errors)){
+                $_SESSION['admin'] = $email;
+                header("Location:/modification-du-mot-de-passe");
+            }
+                return $errors;
+            }
     }
     
-    function password_verification()
-    {
-   if(filter_has_var(INPUT_POST, 'submit')){
-                    $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
-                    $password_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password_again')));
+    function password_verification(){
+        if(filter_has_var(INPUT_POST, 'submit')){
+            $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
+            $password_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password_again')));
 
-                    $errors = [];
-                    if(empty($password) || empty($password_again)){
-                        $errors['empty'] = "Tous les champs n'ont pas été remplis";
-                    }
+            $errors = [];
+            
+            if(empty($password) || empty($password_again)){
+                $errors['empty'] = "Tous les champs n'ont pas été remplis";
+            }
 
-                    if($password != $password_again){
-                        $errors['different'] = "Les mots de passe sont différents";
-                    }
+            if($password != $password_again){
+                $errors['different'] = "Les mots de passe sont différents";
+            }
 
-                    if (preg_match('#^(?=.*[a-z])(?=.*[A-Z]).{8,}$#', $password)) {
-                    }
-                    else{
-                        $errors['non conforme'] = 'Votre mot de passe doit contenir des minuscules et des majuscules et posséder une longueur de 8 caractères au minimum';
-                    }	
+            if (preg_match('#^(?=.*[a-z])(?=.*[A-Z]).{8,}$#', $password)) {
+            }
+            else{
+                $errors['non conforme'] = 'Votre mot de passe doit contenir des minuscules et des majuscules et posséder une longueur de 8 caractères au minimum';
+            }	
                     
-                    if(empty($errors)){
-                        Usermanager::update_password($password);
-                        header("Location:/modification-du-mot-de-passe");
-                    }
-                    return $errors;
-                }
+            if(empty($errors)){
+                Usermanager::update_password($password);
+                header("Location:/modification-du-mot-de-passe");
+            }
+            return $errors;
+        }
     }
 }

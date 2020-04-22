@@ -3,7 +3,6 @@
 class ArticleManager extends Model
 {
 // FONCTIONS POUR LE FRONTEND
-    
     // Fonction qui permet de récupérer les détails des articles postés
     public function get_posts_blog(){
         $req = $this->db->query("
@@ -100,7 +99,6 @@ class ArticleManager extends Model
         }
         return $post;
     }
-
 
 //FONCTIONS POUR LE BACKEND
     // Fonction permettant de récupérer l'ensemble des articles

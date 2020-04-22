@@ -23,7 +23,6 @@ class Routeur
                         "errorback" => ["controller" => 'Backend', "method" => 'errorback'], 
                         "list" => ["controller" => 'Backend', "method" => 'list'], 
                         "login" => ["controller" => 'Backend', "method" => 'login'], 
-                        "logout" => ["controller" => 'Backend', "method" => 'logout'], 
                         "new" => ["controller" => 'Backend', "method" => 'new'], 
                         "password" => ["controller" => 'Backend', "method" => 'password'], 
                         "postback" => ["controller" => 'Backend', "method" => 'postback'], 

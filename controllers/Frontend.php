@@ -49,7 +49,6 @@ class Frontend
             $manager_comment = new CommentManager();
             $responses = $manager_comment->get_comments_blog();
             $errors = $manager_comment->form_comment_verification();
-            //model_comment->form_comment_verification();  
         }
         
         if($posts == false){

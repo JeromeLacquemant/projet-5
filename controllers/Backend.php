@@ -5,14 +5,7 @@ class Backend
     public function dashboard()
     {
         $manager_comment = new CommentManager();
-        $comments = $manager_comment->get_comments();
-        
-
-        //$manager_user = new Usermanager();
-        //$comments = $manager_user->
-        //$model_dashboard = new Dashboard();
-        //$model_user = new UserManager();
-
+        $comments = $manager_comment->get_comments(); 
        
         if(filter_has_var(INPUT_GET, 'delete')){
             $comment = $manager_comment->delete_comment();
@@ -31,12 +24,6 @@ class Backend
     {
         $manager_article = new ArticleManager();
         $errors = $manager_article->write_verification();
-         
-        //$model_user = new User();
-        
-        //    if($model_user->admin()!=1){
-        //header("Location:/dashboard");
-    //}
     
         $myView = new View('write', 'backend');
         $myView->render(array('errors' => $errors));
@@ -47,11 +34,7 @@ class Backend
         $manager_user = new UserManager();
         $modos = $manager_user->get_modos();
         $errors = $manager_user->settings_verification();
-        
-        //if($model_user->admin()!=1){
-        //header("Location:/dashboard");
-        //}
-        
+ 
         $myView = new View('settings', 'backend');
         $myView->render(array('modos' => $modos, 'errors' => $errors));
     }
@@ -61,21 +44,15 @@ class Backend
         $manager_article = new ArticleManager();
         $posts = $manager_article->get_posts();
         
-    
-        //$model_user = new User();
-
+        $manager_user = new UserManager();
+        $users = $manager_user->admin();
         
-        //if($model_user->admin()!=1){
-        //header("Location:/dashboard");
-        //}
+        if($users=0){
+        header("Location:/dashboard");
+        }
+        
         $myView = new View('list', 'backend');
         $myView->render(array('posts' => $posts));
-    }
-
-    public function logout()
-    {
-        unset($_SESSION['admin']);
-        header("Location:/articles-a-la-une");
     }
 
     public function password()
@@ -98,11 +75,8 @@ class Backend
         $manager_article = new ArticleManager();
         $posts = $manager_article->get_post();
         $errors = $manager_article->postback_verification();
-        
-        //$manager_user = new UserManager();
         }
-        //if($model_user->admin()!=1){
-        //header("Location:/dashboard");
+
         if($posts == false){
             header("Location:/page-erreur-administrateur");
         }
@@ -140,9 +114,7 @@ class Backend
 
     public function errorback()
     {
-        //$model_user = new User();
-        
-       $myView = new View('errorback', 'backend');
+        $myView = new View('errorback', 'backend');
         $myView->render();
     }
 }

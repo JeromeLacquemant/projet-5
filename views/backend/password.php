@@ -1,3 +1,17 @@
+                    <?php if(!empty($errors)){
+                        ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }?>
+
 <div class="row">
     <div class="col l4 m6 s12 offset-l4 offset-m3">
         <div class="card-panel">
