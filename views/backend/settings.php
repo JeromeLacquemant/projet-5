@@ -28,12 +28,23 @@
         </table>
 
     </div>
+
     <div class="col m6 s12">
         <h4>Ajouter un modo</h4>
 
-        <?php
-      
-        ?>
+                   <?php if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error."</br>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                }?>
 
         <form method="post">
             <div class="row">

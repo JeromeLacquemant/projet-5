@@ -46,14 +46,14 @@ class Backend
     {
         $manager_user = new UserManager();
         $modos = $manager_user->get_modos();
-        $manager_user->settings_verification();
+        $errors = $manager_user->settings_verification();
         
         //if($model_user->admin()!=1){
         //header("Location:/dashboard");
         //}
         
         $myView = new View('settings', 'backend');
-        $myView->render(array('modos' => $modos));
+        $myView->render(array('modos' => $modos, 'errors' => $errors));
     }
 
     public function list()

@@ -229,22 +229,11 @@ class UserManager extends Model
                     $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
                 }
 
-                if(!empty($errors)){
-                    ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                foreach($errors as $error){
-                                    echo $error;
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                }else{
-                    Usermanager::add_modo($name,$email,$role,$token);
+                if(empty($errors)){
+                    UserManager::add_modo($name,$email,$role,$token);
                     header("Location:/gestion-des-admins-et-modos");
                 }
+                return $errors;
             }
     }
     
