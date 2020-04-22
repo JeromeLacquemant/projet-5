@@ -170,7 +170,7 @@ class UserManager extends Model
         return $result;
     }
     
-    function user_verification()
+    function login_verification()
     {
            if(filter_has_var(INPUT_POST, 'submit')){
                     if(filter_has_var(INPUT_POST, 'email')){
@@ -189,23 +189,11 @@ class UserManager extends Model
                         $errors['exist']  = "Cet administrateur n'existe pas";
                     }
                     
-                    if(!empty($errors)){
-                        ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                    foreach($errors as $error){
-                                        echo $error;
-
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                        <?php
-                    }else{
+                    if(empty($errors)){
                         $_SESSION['admin'] = $email;
                         header("Location:/dashboard");
                     }
+                    return $errors;
                 }
     }
     

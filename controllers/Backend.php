@@ -117,14 +117,14 @@ class Backend
     public function login()
     {
         $manager_user = new UserManager();
-        $manager_user->user_verification();
+        $errors = $manager_user->login_verification();
         
         if(isset($_SESSION['admin'])){
         header("Location:/dashboard");
     }
     
         $myView = new View('login', 'backend');
-        $myView->render();
+        $myView->render(array('errors' => $errors));
     }
     
     public function new()
