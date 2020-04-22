@@ -5,10 +5,10 @@ class Frontend
     public function home_cv()
     {
         require_once "config/formulaires.php";
-        $formulaire = form_page_home_cv();
+        $errors = form_page_home_cv();
         
         $myView = new View('home_cv', 'frontend');
-        $myView->render();
+        $myView->render(array('errors' => $errors));
     }
 
     public function legalnotice()

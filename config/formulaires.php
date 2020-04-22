@@ -25,22 +25,11 @@ function form_page_home_cv(){
                     $errors['message'] = "Votre message doit contenir au moins 50 caractères.";
                 }
 
-                if(!empty($errors)){
-                    ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                foreach($errors as $error){
-                                    echo $error."</br>";
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                }else{
+                if(empty($errors)){
                     contact_mail($name,$email,$subject,$message);
                     contact_mail_user($name,$email,$subject,$message);
                 }
+                    return $errors;
             }
     }
             

@@ -201,6 +201,19 @@
 <!--FOOTER DESCRIPTION -->
   <section id="contact">
 
+                     <?php if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error."</br>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                }?>
     <div id="footwrap">
       <div class="container">
         <div class="row">
