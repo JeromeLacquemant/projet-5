@@ -25,7 +25,22 @@
              }
         ?>
         <h4>Commenter:</h4>
-            
+<?php
+if(!empty($errors)){
+                ?>
+                    <div class="card red">
+                        <div class="card-content white-text">
+                            <?php
+                                foreach($errors as $error){
+                                    echo $error."</br>";
+                                }
+                            ?>
+                        </div>
+                    </div>
+                <?php
+                }
+?>
+        
         <form method="post">
             <div class="row">
                 <div class="input-field col s12 m6">

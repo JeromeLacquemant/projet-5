@@ -48,7 +48,7 @@ class Frontend
             
             $manager_comment = new CommentManager();
             $responses = $manager_comment->get_comments_blog();
-            $manager_comment->form_comment_verification();
+            $errors = $manager_comment->form_comment_verification();
             //model_comment->form_comment_verification();  
         }
         
@@ -57,7 +57,7 @@ class Frontend
         }
         else{
             $myView = new View('post', 'frontend');
-            $myView->render(array('responses' => $responses, 'post' => $posts, 'admin' => $admins));
+            $myView->render(array('responses' => $responses, 'post' => $posts, 'admin' => $admins, 'errors' => $errors));
         }
     }
     
