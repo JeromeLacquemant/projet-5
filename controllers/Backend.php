@@ -81,13 +81,13 @@ class Backend
     public function password()
     {
         $manager_user = new UserManager();
-        $manager_user->password_verification();
+        $errors = $manager_user->password_verification();
    
         if($manager_user->hasnt_password() == 0){
         header("Location:/dashboard");
     }
         $myView = new View('password', 'backend');
-        $myView->render();
+        $myView->render(array('errors' => $errors));
     }
 
     public function postback()
@@ -113,7 +113,6 @@ class Backend
         }
     }
 
-
     public function login()
     {
         $manager_user = new UserManager();
@@ -130,13 +129,13 @@ class Backend
     public function new()
     {
         $manager_user = new UserManager();
-        $manager_user->new_verification();
+        $errors = $manager_user->new_verification();
         
         if(isset($_SESSION['admin'])){
         header("Location:/dashboard");
     }
         $myView = new View('new', 'backend');
-        $myView->render();
+        $myView->render(array('errors' => $errors));
     }
 
     public function errorback()

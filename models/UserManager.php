@@ -252,22 +252,11 @@ class UserManager extends Model
                         $errors['exist'] = "Ce modérateur n'existe pas";
                     }                
 
-                    if(!empty($errors)){
-                        ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                foreach($errors as $error){
-                                    echo $error;
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                    }else{
+                    if(empty($errors)){
                         $_SESSION['admin'] = $email;
                         header("Location:/modification-du-mot-de-passe");
                     }
+                    return $errors;
                 }
     }
     
@@ -292,22 +281,11 @@ class UserManager extends Model
                         $errors['non conforme'] = 'Votre mot de passe doit contenir des minuscules et des majuscules et posséder une longueur de 8 caractères au minimum';
                     }	
                     
-                    if(!empty($errors)){
-                        ?>
-                        <div class="card red">
-                            <div class="card-content white-text">
-                                <?php
-                                foreach($errors as $error){
-                                    echo $error;
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                    }else{
+                    if(empty($errors)){
                         Usermanager::update_password($password);
                         header("Location:/modification-du-mot-de-passe");
                     }
+                    return $errors;
                 }
     }
 }
