@@ -106,7 +106,7 @@ class Backend
         $errors = $manager_user->new_verification();
         
         if(isset($_SESSION['admin'])){
-        header("Location:/dashboard");
+        header("Location:/modification-du-mot-de-passe");
     }
         $myView = new View('new', 'backend');
         $myView->render(array('errors' => $errors));

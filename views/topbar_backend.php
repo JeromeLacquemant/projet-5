@@ -3,15 +3,14 @@
         <div class="nav-wrapper">
             <a href="/accueil-de-jerome" class="brand-logo">Accueil</a>
             <?php
-            $model_user = new UserManager();
-            
+
             if($_GET['page']!= 'login' && $_GET['page']!= 'new' && $_GET['page']!= 'password'){
                 ?>
                     <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
                     <ul class="right hide-on-med-and-down">
                     <?php
-                        if($model_user->admin()==1){
+                        if($exist==1){
                          ?>
                         <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="/dashboard"><i class="material-icons">dashboard</i></a></li>
                         <?php
@@ -19,7 +18,7 @@
                         ?>
                         
                         <?php
-                        if($model_user->admin()==1){
+                        if($exist==1){
                             ?>
                             <li class="<?php echo ($page=="write")?"active" : ""; ?>"><a href="/ecrire-un-article"><i class="material-icons">edit</i></a></li>
                             <li class="<?php echo ($page=="list")?"active" : ""; ?>"><a href="/liste-de-tous-les-articles"><i class="material-icons">view_list</i></a></li>
@@ -29,12 +28,12 @@
                         }
                         ?>
 
-                        <li><a href="/articles-a-la-une" <?php unset($_SESSION['admin'])?>>Top 5 des articles</a></li>
-                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)">Déconnexion</a></li>
+                        <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
+                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)" <?php unset($_SESSION['admin'])?>>Déconnexion</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
                         <?php
-                        if($model_user->admin()==1){
+                        if($exist==1){
                          ?>
                         <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="/dashboard">Tableau de bord</a></li>
                         
@@ -43,7 +42,7 @@
                         ?>
 
                         <?php
-                        if($model_user->admin()==1){
+                        if($exist==1){
                             ?>
                                 <li class="<?php echo ($page=="write")?"active" : ""; ?>"><a href="/ecrire-un-article">Publier un article</a></li>
                                 <li class="<?php echo ($page=="list")?"active" : ""; ?>"><a href="/liste-de-tous-les-articles">Listing des articles</a></li>
@@ -52,8 +51,8 @@
                         }
 
                         ?>
-                        <li><a href="/articles-a-la-une" <?php unset($_SESSION['admin'])?>>Top 5 des articles</a></li>
-                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)">Déconnexion</a></li>
+                        <li><a href="/articles-a-la-une">>Top 5 des articles</a></li>
+                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)" <?php unset($_SESSION['admin'])?> >Déconnexion</a></li>
 
                     </ul>
                 <?php

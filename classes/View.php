@@ -15,6 +15,9 @@ class View
         //On récupère dans le controller, le fait que c'est du backend ou du frontend
         $frontback = $this->frontback;
         
+        $manager_user = new UserManager();
+        $exist = $manager_user->admin();
+        
         // Affichage de la topbar
         $topbar="views/topbar_$frontback.php";
         
