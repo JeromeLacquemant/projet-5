@@ -21,34 +21,6 @@ class CommentManager extends Model{
         }
         return $responses;
         }
-        // Fonction permettant de vérifier que les données envoyées pat l'utilisateur sont bonnes.
-    function form_comment_verification(){
-        if(filter_has_var(INPUT_POST, 'submit')){
-            $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
-            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
-            $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment')));
-            $errors = [];
-
-            if(empty($name) || empty($email) || empty($comment)){
-                $errors['empty'] = "Tous les champs n'ont pas été remplis";
-            }else{
-                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                    $errors['email'] = "L'adresse email n'est pas valide";
-                }
-                if(strlen($name) < 5){
-                    $errors['name'] = "Votre nom doit contenir au moins 5 caractères.";
-                }
-                if(strlen($comment) < 5){
-                    $errors['comment'] = "Votre message doit contenir au moins 5 caractères.";
-                }
-            }
-
-            if(empty($errors)){
-                Commentmanager::insert_comment($name,$email,$comment);
-            }
-            return $errors;
-        }
-    }
         
     // Fonction qui insère un commentaire dans la base de données avec un seen = 0
     function insert_comment($name,$email,$comment){

@@ -1,38 +1,5 @@
 <?php
-
-function form_page_home_cv(){
-      if(filter_has_var(INPUT_POST, 'submit')){
-
-                $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
-                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
-
-                $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject')));
-                $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message')));
-
-                
-                $errors = [];
-
-                if(empty($name) || empty($email) || empty($subject) || empty($message)){
-                    $errors['empty'] = "Veuillez remplier tous les champs";
-                }
-                if(strlen($name) < 5){
-                    $errors['name'] = "Votre nom doit contenir au moins 5 caractères.";
-                }
-                if(strlen($subject) < 5){
-                    $errors['subject'] = "Votre sujet doit contenir au moins 5 caractères.";
-                }
-                if(strlen($message) < 5){
-                    $errors['message'] = "Votre message doit contenir au moins 50 caractères.";
-                }
-
-                if(empty($errors)){
-                    contact_mail($name,$email,$subject,$message);
-                    contact_mail_user($name,$email,$subject,$message);
-                }
-                    return $errors;
-            }
-    }
-            
+           
     // Fonction permettant de m'envoyer un mail lorsqu'un client m'envoie un message
     function contact_mail($name,$email,$subject,$message){
         $subject_mail= "Message d'un utilisateur de mon blog";

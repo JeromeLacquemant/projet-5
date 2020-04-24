@@ -5,7 +5,38 @@ class Frontend
     public function home_cv()
     {
         require_once "config/formulaires.php";
-        $errors = form_page_home_cv();
+      if(filter_has_var(INPUT_POST, 'submit')){
+
+                $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
+                $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
+
+                $subject = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'subject')));
+                $message = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'message')));
+
+                
+                $errors = [];
+
+                if(empty($name) || empty($email) || empty($subject) || empty($message)){
+                    $errors['empty'] = "Veuillez remplier tous les champs";
+                }
+                if(strlen($name) < 5){
+                    $errors['name'] = "Votre nom doit contenir au moins 5 caractères.";
+                }
+                if(strlen($subject) < 5){
+                    $errors['subject'] = "Votre sujet doit contenir au moins 5 caractères.";
+                }
+                if(strlen($message) < 5){
+                    $errors['message'] = "Votre message doit contenir au moins 50 caractères.";
+                }
+
+                if(empty($errors)){
+                    contact_mail($name,$email,$subject,$message);
+                    contact_mail_user($name,$email,$subject,$message);
+                }
+            }
+            else{
+                $errors = [];
+            }
         
         $myView = new View('home_cv', 'frontend');
         $myView->render(array('errors' => $errors));
@@ -48,7 +79,33 @@ class Frontend
             
             $manager_comment = new CommentManager();
             $responses = $manager_comment->get_comments_blog();
-            $errors = $manager_comment->form_comment_verification();
+            
+            if(filter_has_var(INPUT_POST, 'submit')){
+            $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
+            $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
+            $comment = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'comment')));
+            $errors = [];
+
+            if(empty($name) || empty($email) || empty($comment)){
+                $errors['empty'] = "Tous les champs n'ont pas été remplis";
+            }else{
+                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    $errors['email'] = "L'adresse email n'est pas valide";
+                }
+                if(strlen($name) < 5){
+                    $errors['name'] = "Votre nom doit contenir au moins 5 caractères.";
+                }
+                if(strlen($comment) < 5){
+                    $errors['comment'] = "Votre message doit contenir au moins 5 caractères.";
+                }
+            }
+
+            if(empty($errors)){
+                $manager_comment->insert_comment($name,$email,$comment);
+            }
+            }
+            else
+                $errors =[];
         }
 
         if($posts == false){
