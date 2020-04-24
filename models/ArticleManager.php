@@ -127,12 +127,22 @@ class ArticleManager extends Model
     function get_posts(){
         $req = $this->db->query("SELECT * FROM articles ORDER BY date DESC");
         
-        $results = [];
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
-        }
+        $post = [];
         
-        return $results;
+        while($row = $req->fetch()){
+            
+            $post   = new Article();
+            $post   ->setId($row['id']);
+            $post   ->setTitle($row['title']);
+            $post   ->setChapo($row['chapo']);
+            $post   ->setContent($row['content']);
+            $post   ->setDate($row['date']);
+            $post   ->setImage($row['image']);
+            $post   ->setPosted($row['posted']);
+                        
+            $posts[] = $post;
+        }
+        return $posts;
     }
 
 // Fonction permettant d'obtenir un article en particulier
@@ -151,7 +161,9 @@ class ArticleManager extends Model
             ON articles.writer = admins.email
             WHERE articles.id = '{$_GET['id']}'
         ");
-     $post = [];
+            
+        $post = [];
+        
         while($row = $req->fetch()){
             
             $post   = new Article();
