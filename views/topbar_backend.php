@@ -53,7 +53,7 @@
 
                         ?>
                         <li><a href="/articles-a-la-une">>Top 5 des articles</a></li>
-                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)"  >Déconnexion</a></li>
+                        <li><a href="/logout" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)"  >Déconnexion</a></li>
 
                     </ul>
                 <?php

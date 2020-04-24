@@ -7,6 +7,10 @@ class Backend
         $manager_comment = new CommentManager();
         $comments = $manager_comment->get_comments(); 
        
+        if(!isset($_SESSION['admin'])){
+            header("location: /articles-a-la-une");
+        }
+        
         if(filter_has_var(INPUT_GET, 'delete')){
             $comment = $manager_comment->delete_comment();
         }
@@ -25,6 +29,10 @@ class Backend
         $manager_article = new ArticleManager();
         $errors = $manager_article->write_verification();
     
+        if(!isset($_SESSION['admin'])){
+            header("location: /articles-a-la-une");
+        }
+        
         $myView = new View('write', 'backend');
         $myView->render(array('errors' => $errors));
     }
@@ -35,6 +43,10 @@ class Backend
         $modos = $manager_user->get_modos();
         $errors = $manager_user->settings_verification();
  
+        if(!isset($_SESSION['admin'])){
+            header("location: /articles-a-la-une");
+        }
+        
         $myView = new View('settings', 'backend');
         $myView->render(array('modos' => $modos, 'errors' => $errors));
     }
@@ -43,6 +55,10 @@ class Backend
     {
         $manager_article = new ArticleManager();
         $posts = $manager_article->get_posts();
+
+        if(!isset($_SESSION['admin'])){
+            header("location: /articles-a-la-une");
+        }
         
         $myView = new View('list', 'backend');
         $myView->render(array('posts' => $posts));
@@ -70,6 +86,10 @@ class Backend
         $errors = $manager_article->postback_verification();
         }
 
+        if(!isset($_SESSION['admin'])){
+            header("location: /articles-a-la-une");
+        }
+        
         if($posts == false){
             header("Location:/page-erreur-administrateur");
         }
@@ -85,6 +105,9 @@ class Backend
         $manager_user = new UserManager();
         $errors = $manager_user->login_verification();
     
+        if(isset($_SESSION['admin'])){
+            header("location: /dashboard");
+        }
 
         $myView = new View('login', 'backend');
         $myView->render(array('errors' => $errors));
