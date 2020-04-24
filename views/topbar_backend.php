@@ -33,7 +33,7 @@
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
                         <?php
-                        if($exist==0){
+                        if($exist==0 || 1){
                          ?>
                         <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="/dashboard">Tableau de bord</a></li>
                         

@@ -86,6 +86,7 @@ class UserManager extends Model
             $exist = $req->rowCount($sql);
 
             return $exist;
+            
         }else{
             $exist = 0;
             return $exist;
@@ -106,6 +107,7 @@ class UserManager extends Model
         return $exist;
     }
 
+    // Fonction permettant de savoir si un administrateur a un mot de passe
     function hasnt_password(){
         $sql = "SELECT * FROM admins WHERE email = '{$_SESSION['admin']}' AND password = ''";
         $req = $this->db->prepare($sql);
@@ -189,7 +191,7 @@ class UserManager extends Model
         }
         return $admins;
     }
-
+    
     // Fonction qui vérifie qu'un utilisateur est bien modérateur ou admin
     function is_modo($email,$token){
         $tableau = [
@@ -225,5 +227,28 @@ class UserManager extends Model
         $result = $req->fetchObject();
         
         return $result;
+    }
+    
+// Fonction permettant d'obtenir un article en particulier
+    function get_post_admin(){
+        $req = $this->db->query("
+            SELECT  
+                    admins.email
+            FROM articles
+            JOIN admins
+            ON articles.writer = admins.email
+            WHERE articles.id = '{$_GET['id']}'
+        ");
+            
+        $admin = [];
+        
+        while($row = $req->fetch()){
+            
+            $admin   = new User();
+            $admin   ->setEmail($row['email']);
+                
+            $admins[] = $admin;
+        }
+        return $admin;
     }
 }

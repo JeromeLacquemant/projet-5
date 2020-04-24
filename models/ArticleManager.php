@@ -181,16 +181,17 @@ class ArticleManager extends Model
     }
 
     // Fonction permettant d'éditer un article 
-    function edit($title,$chapo,$content,$posted,$id){
+    function edit($title,$chapo,$content,$posted, $admins, $id){
         $tableau = [
             'title'     => $title,
             'chapo'     => $chapo,
             'content'   => $content,
             'posted'    => $posted,
-            'id'        => $id
+            'id'        => $id,
+            'writer'    => $admins
         ];
 
-        $sql = "UPDATE articles SET title=:title, chapo=:chapo, content=:content, date=NOW(), posted=:posted WHERE id=:id";
+        $sql = "UPDATE articles SET title=:title, chapo=:chapo, writer=:writer, content=:content, date=NOW(), posted=:posted WHERE id=:id";
         $req = $this->db->prepare($sql);
         $req->execute($tableau);
     }
