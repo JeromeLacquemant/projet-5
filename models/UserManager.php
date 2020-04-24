@@ -39,6 +39,8 @@ class UserManager extends Model
  
         ");
         
+        $admin = [];
+        
         while($row = $req->fetch()){
             
             $admin   = new User();
@@ -169,16 +171,23 @@ class UserManager extends Model
     
     // Fonction permettant d'obtenir tous les modérateurs / administrateurs
     function get_modos(){
-         $req = $this->db->query("
+        $req = $this->db->query("
             SELECT * FROM admins
         ");
 
-        $results = [];
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
-        }
+        $admin = [];
         
-        return $results;
+        while($row = $req->fetch()){
+            
+            $admin   = new User();
+            $admin   ->setName($row['name']);
+            $admin   ->setEmail($row['email']);
+            $admin   ->setRole($row['role']);
+            $admin   ->setPassword($row['password']);
+                        
+            $admins[] = $admin;
+        }
+        return $admins;
     }
 
     // Fonction qui vérifie qu'un utilisateur est bien modérateur ou admin

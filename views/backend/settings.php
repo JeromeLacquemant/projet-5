@@ -16,10 +16,10 @@
                 foreach($modos as $modo){
                     ?>
                         <tr>
-                            <td><?= $modo->name ?></td>
-                            <td><?= $modo->email ?></td>
-                            <td><?= $modo->role ?></td>
-                            <td><i class="material-icons"><?php echo (!empty($modo->password)) ? "verified_user" : "av_timer" ?></i></td>
+                            <td><?= $modo->getName() ?></td>
+                            <td><?= $modo->getEmail() ?></td>
+                            <td><?= $modo->getRole() ?></td>
+                            <td><i class="material-icons"><?php echo (!empty($modo->getPassword())) ? "verified_user" : "av_timer" ?></i></td>
                         </tr>
                     <?php
                 }
