@@ -1,13 +1,13 @@
 <h2>TOUS LES ARTICLES</h2>
 
 <?php
+$count = 0;
     foreach($posts as $post){
 ?>
-
     <div class="row">
         <div class="col s12 m12 l12">
             <h1><?= $post->getTitle() ?></h1>
-            <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->getDate())); ?> par <?= $post->getTitle() ?></h5>
+            <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->getDate())); ?> par <?= $admins[$count]->getName() ?></h5>
             <div class="row">
                 <div class="col s12 ">
                     <?= substr(nl2br($post->getChapo()),0,1200) ?>...
@@ -24,6 +24,6 @@
             </div>
         </div>
     </div>
-
     <?php
+    $count ++;
 }

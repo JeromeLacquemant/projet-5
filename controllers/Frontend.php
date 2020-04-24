@@ -5,7 +5,7 @@ class Frontend
     public function home_cv()
     {
         require_once "config/formulaires.php";
-      if(filter_has_var(INPUT_POST, 'submit')){
+        if(filter_has_var(INPUT_POST, 'submit')){
 
                 $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
                 $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
@@ -50,20 +50,26 @@ class Frontend
     
     public function home()
     {
-        $manager = new ArticleManager();
-        $posts = $manager->get_posts_blog();
+        $manager_article = new ArticleManager();
+        $posts = $manager_article->get_posts_blog();
+        
+        $manager_user = new UserManager();
+        $admins = $manager_user->get_posts_blog_admin();
         
         $myView = new View('home', 'frontend');
-        $myView->render(array('posts' => $posts));
+        $myView->render(array('posts' => $posts, 'admins' => $admins));
     }
 
     public function blog()
     {
-        $manager = new ArticleManager();
-        $posts = $manager->get_posts_blog_all();
+        $manager_article = new ArticleManager();
+        $posts = $manager_article->get_posts_blog_all();
+        
+        $manager_user = new UserManager();
+        $admins = $manager_user->get_posts_blog_all_admin();
         
         $myView = new View('blog', 'frontend');
-        $myView->render(array('posts' => $posts));
+        $myView->render(array('posts' => $posts, 'admins' => $admins));
     }
 
     public function post()
@@ -75,7 +81,7 @@ class Frontend
             $posts = $manager->get_article_blog();
             
             $manager_user = new UserManager();
-            $admins = $manager_user->article_admin();
+            $admins = $manager_user->get_article_blog_admin();
             
             $manager_comment = new CommentManager();
             $responses = $manager_comment->get_comments_blog();

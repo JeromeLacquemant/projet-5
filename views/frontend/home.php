@@ -2,12 +2,13 @@
 <div class="row">
 
 <?php
+$count = 0;
 foreach($posts as $post){
         ?><div class="col l6 m6 s12">
             <div class="card">
                 <div class="card-content">
                     <h1 class="grey-text text-darken-2"><?= $post->getTitle() ?></h1>
-                    <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->getDate())); ?> par <?= $post->getTitle() ?></h5>
+                    <h5 class="grey-text">Le <?= date("d/m/Y à H:i",strtotime($post->getDate())); ?> par <?= $admins[$count]->getName() ?></h5>
                 </div>
                 <div class="row">
                     <div class="col s12">
@@ -27,6 +28,7 @@ foreach($posts as $post){
                 </div>
             </div>
         </div><?php
+        $count++;
 }
 ?>
 </div>

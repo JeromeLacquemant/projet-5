@@ -3,7 +3,7 @@
 class UserManager extends Model
 {
     // Fonction permettant de récupérer le nom d'un admin pour un article précis.
-    function article_admin(){
+    function get_article_blog_admin(){
      $req = $this->db->query("
             SELECT  
                     admins.name
@@ -23,6 +23,51 @@ class UserManager extends Model
             $admins[] = $admin;
         }
         return $admin;
+    }
+    
+        // Fonction qui permet de récupérer les détails des articles postés
+    public function get_posts_blog_admin(){
+        $req = $this->db->query("
+            SELECT  
+                    admins.name
+            FROM articles
+            JOIN admins
+            ON articles.writer=admins.email
+            WHERE posted='1'
+                        ORDER BY date DESC
+            LIMIT 0,5
+ 
+        ");
+        
+        while($row = $req->fetch()){
+            
+            $admin   = new User();
+            $admin   ->setName($row['name']);
+                        
+            $admins[] = $admin;
+        }
+        return $admins;
+    }
+    
+     public function get_posts_blog_all_admin(){
+        $req = $this->db->query("
+            SELECT  
+                    admins.name
+            FROM articles
+            JOIN admins
+            ON articles.writer=admins.email
+            WHERE posted='1'
+            ORDER BY date DESC
+        ");
+        
+        while($row = $req->fetch()){
+            
+            $admin   = new User();
+            $admin   ->setName($row['name']);
+                        
+            $admins[] = $admin;
+        }
+        return $admins;
     }
     
     // Fonction permettant de vérifier que la session est bien active sous le role administrateur
