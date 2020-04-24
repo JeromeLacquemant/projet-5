@@ -20,7 +20,6 @@ class Routeur
                         "post" => ["controller" => 'Frontend', "method" => 'post'],
         
                         "dashboard" => ["controller" => 'Backend', "method" => 'dashboard'],
-                        "errorback" => ["controller" => 'Backend', "method" => 'errorback'], 
                         "list" => ["controller" => 'Backend', "method" => 'list'], 
                         "login" => ["controller" => 'Backend', "method" => 'login'], 
                         "new" => ["controller" => 'Backend', "method" => 'new'], 

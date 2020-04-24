@@ -50,7 +50,7 @@ class Frontend
             $responses = $manager_comment->get_comments_blog();
             $errors = $manager_comment->form_comment_verification();
         }
-        
+
         if($posts == false){
             header("Location:/page-erreur");
         }

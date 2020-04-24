@@ -91,7 +91,7 @@ class Backend
         }
         
         if($posts == false){
-            header("Location:/page-erreur-administrateur");
+            header("Location:/page-erreur");
         }
 
         else{
@@ -120,12 +120,6 @@ class Backend
         
         $myView = new View('new', 'backend');
         $myView->render(array('errors' => $errors));
-    }
-
-    public function errorback()
-    {
-        $myView = new View('errorback', 'backend');
-        $myView->render();
     }
     
     public function logout()

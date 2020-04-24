@@ -1,4 +1,3 @@
-<?php var_dump($_SESSION);?>
 <nav class="light-green">
     <div class="container">
         <div class="nav-wrapper">
