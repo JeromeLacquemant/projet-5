@@ -139,6 +139,7 @@ class ArticleManager extends Model
             $post   ->setContent($row['content']);
             $post   ->setDate($row['date']);
             $post   ->setImage($row['image']);
+            
                         
             $posts[] = $post;
         }

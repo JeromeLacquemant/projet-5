@@ -1,3 +1,4 @@
+<?php var_dump($_SESSION);?>
 <nav class="light-green">
     <div class="container">
         <div class="nav-wrapper">
@@ -10,7 +11,7 @@
 
                     <ul class="right hide-on-med-and-down">
                     <?php
-                        if($exist==1){
+                        if($exist==0 || 1){
                          ?>
                         <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="/dashboard"><i class="material-icons">dashboard</i></a></li>
                         <?php
@@ -29,11 +30,11 @@
                         ?>
 
                         <li><a href="/articles-a-la-une">Top 5 des articles</a></li>
-                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)" <?php unset($_SESSION['admin'])?>>Déconnexion</a></li>
+                        <li><a href="/logout" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)" >Déconnexion</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
                         <?php
-                        if($exist==1){
+                        if($exist==0){
                          ?>
                         <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="/dashboard">Tableau de bord</a></li>
                         
@@ -52,7 +53,7 @@
 
                         ?>
                         <li><a href="/articles-a-la-une">>Top 5 des articles</a></li>
-                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)" <?php unset($_SESSION['admin'])?> >Déconnexion</a></li>
+                        <li><a href="/articles-a-la-une" onclick="return window.confirm(`Êtes vous sur de vouloir vous déconnecter ?!`)"  >Déconnexion</a></li>
 
                     </ul>
                 <?php

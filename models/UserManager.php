@@ -40,7 +40,8 @@ class UserManager extends Model
 
             return $exist;
         }else{
-            return 0;
+            $exist = 0;
+            return $exist;
         }
     }
 
@@ -185,16 +186,18 @@ class UserManager extends Model
 
             if(empty($email) || empty($password)){
                 $errors['empty'] = "Tous les champs n'ont pas été remplis!";
-            }else if(Usermanager::is_admin($email,$password) == 0){
+            }else if(UserManager::is_admin($email,$password) == 0){
                 $errors['exist']  = "Cet administrateur n'existe pas";
             }
                     
             if(empty($errors)){
                 $_SESSION['admin'] = $email;
-                header("Location:/dashboard");
+                header("Location: /dashboard");
+
             }
             return $errors;
         }
+
     }
     
     function settings_verification(){

@@ -44,13 +44,6 @@ class Backend
         $manager_article = new ArticleManager();
         $posts = $manager_article->get_posts();
         
-        $manager_user = new UserManager();
-        $users = $manager_user->admin();
-        
-        if($users=0){
-        header("Location:/dashboard");
-        }
-        
         $myView = new View('list', 'backend');
         $myView->render(array('posts' => $posts));
     }
@@ -91,11 +84,8 @@ class Backend
     {
         $manager_user = new UserManager();
         $errors = $manager_user->login_verification();
-        
-        if(isset($_SESSION['admin'])){
-        header("Location:/dashboard");
-    }
     
+
         $myView = new View('login', 'backend');
         $myView->render(array('errors' => $errors));
     }
@@ -105,9 +95,6 @@ class Backend
         $manager_user = new UserManager();
         $errors = $manager_user->new_verification();
         
-        if(isset($_SESSION['admin'])){
-        header("Location:/modification-du-mot-de-passe");
-    }
         $myView = new View('new', 'backend');
         $myView->render(array('errors' => $errors));
     }
@@ -116,5 +103,11 @@ class Backend
     {
         $myView = new View('errorback', 'backend');
         $myView->render();
+    }
+    
+    public function logout()
+    {
+        UNSET($_SESSION['admin']);
+        header("Location: /articles-a-la-une");
     }
 }

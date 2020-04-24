@@ -28,6 +28,7 @@ class Routeur
                         "postback" => ["controller" => 'Backend', "method" => 'postback'], 
                         "settings" => ["controller" => 'Backend', "method" => 'settings'], 
                         "write" => ["controller" => 'Backend', "method" => 'write'], 
+                        "logout" => ["controller" => 'Backend', "method" => 'logout'],
         ];
     
     public function __construct($request)

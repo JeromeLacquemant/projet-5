@@ -22,6 +22,7 @@ RewriteRule ^modification-du-mot-de-passe$ index.php?page=password [L]
 RewriteRule ^mentions-legales$ index.php?page=legalnotice [L]
 RewriteRule ^page-erreur$ index.php?page=error [L]
 RewriteRule ^page-erreur-administrateur$ index.php?page=errorback [L]
+RewriteRule ^logout$ index.php?page=logout [L]
 
 #GESTION DES ERREURS
 ErrorDocument 400 /views/frontend/error.php
