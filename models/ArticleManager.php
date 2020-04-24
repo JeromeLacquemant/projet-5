@@ -66,7 +66,29 @@ class ArticleManager extends Model
         }
         return $posts;
     }
-    
+        // Fonction qui récupère le titre d'un article qui possède des commentaires non vus par l'administrateur
+        function get_comments_article(){
+        $req = $this->db->query("
+            SELECT  
+                    articles.title
+            FROM comments
+            JOIN articles
+            ON comments.article_id = articles.id
+            WHERE comments.seen = '0'
+            ORDER BY comments.date ASC
+        ");
+
+        $posts = [];
+        
+        while($row = $req->fetch()){
+            $post = new Article();
+            $post ->setTitle($row['title']);
+            
+            $posts[] = $post;
+        }
+        return $posts;      
+        }
+        
     // Fonction qui récupère un article avec le posted = 1
     public function get_article_blog(){
         $req = $this->db->query("

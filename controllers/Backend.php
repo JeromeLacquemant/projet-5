@@ -6,6 +6,9 @@ class Backend
     {
         $manager_comment = new CommentManager();
         $comments = $manager_comment->get_comments(); 
+        
+        $manager_article = new ArticleManager();
+        $posts = $manager_article->get_comments_article(); 
        
         if(!isset($_SESSION['admin'])){
             header("location: /articles-a-la-une");
@@ -21,7 +24,7 @@ class Backend
         
         require_once "config/dashboard.php";
         $myView = new View('dashboard', 'backend');
-        $myView->render(array('comments' => $comments));
+        $myView->render(array('comments' => $comments, 'posts' => $posts));
     }
 
     public function write()

@@ -1,7 +1,7 @@
 <h2>TOUS LES ARTICLES</h2>
 
 <?php
-$count = 0;
+$count = 0; // Nécessaire pour pouvoir beaucoup sur les 2 tableaux $posts et $admins en même temps.
     foreach($posts as $post){
 ?>
     <div class="row">
