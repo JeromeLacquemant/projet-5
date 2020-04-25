@@ -22,6 +22,7 @@ if(!empty($errors)){
 
     <form method="post" enctype="multipart/form-data">
         <div class="row">
+            
             <div class="input-field col s12">
                 <div id="content" class="materialize-textarea"><?= $admins->getEmail() ?></div>
             </div>

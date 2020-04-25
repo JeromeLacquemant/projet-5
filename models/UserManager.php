@@ -34,12 +34,12 @@ class UserManager extends Model
             JOIN admins
             ON articles.writer=admins.email
             WHERE posted='1'
-                        ORDER BY date DESC
+            ORDER BY date DESC
             LIMIT 0,5
  
         ");
         
-        $admin = [];
+        $admins = [];
         
         while($row = $req->fetch()){
             
@@ -61,6 +61,8 @@ class UserManager extends Model
             WHERE posted='1'
             ORDER BY date DESC
         ");
+        
+        $admins = [];
         
         while($row = $req->fetch()){
             

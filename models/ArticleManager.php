@@ -21,6 +21,8 @@ class ArticleManager extends Model
             LIMIT 0,5
         ");
         
+        $posts = [];
+        
         while($row = $req->fetch()){
             
             $post   = new Article();
@@ -51,6 +53,8 @@ class ArticleManager extends Model
             WHERE posted='1'
             ORDER BY date DESC
         ");
+        
+        $posts = [];
         
         while($row = $req->fetch()){
             
@@ -107,6 +111,7 @@ class ArticleManager extends Model
         ");
     
         $post = [];
+        
         while($row = $req->fetch()){
             
             $post   = new Article();
