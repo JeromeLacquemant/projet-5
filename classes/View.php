@@ -29,10 +29,10 @@ class View
         
         ob_start(); //On met dans une mémoire tampon.
 
-        include("views/$frontback/$template.php");
+        include "views/$frontback/$template.php";
         $contentPage = ob_get_clean();
 
-        include("views/layout.php");        
+        include "views/layout.php";        
         }
  
     }

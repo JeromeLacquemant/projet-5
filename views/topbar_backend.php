@@ -4,7 +4,7 @@
             <a href="/accueil-de-jerome" class="brand-logo">Accueil</a>
             <?php
 
-            if($_GET['page']!= 'login' && $_GET['page']!= 'new' && $_GET['page']!= 'password'){
+            if(filter_input(INPUT_GET, 'page')!= 'login' && filter_input(INPUT_GET, 'page')!= 'new' && filter_input(INPUT_GET, 'page')!= 'password'){
                 ?>
                     <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 

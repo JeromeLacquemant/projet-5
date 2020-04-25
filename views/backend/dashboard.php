@@ -52,7 +52,7 @@
         <div>
                 <tr id="commentaire_<?= $comment->getId() ?>">
                     <td><?= $posts[$count]->getTitle() ?></td>
-                    <td><?= substr($comment->getComment(), 0, 100); ?>...</td>
+                    <td><?= substr($comment->getComment(), 0, 100); ?></td>
                     <td>
 
                         <a href="index.php?page=dashboard&approve=<?= $comment->getId() ?>" type="submit" 
