@@ -109,7 +109,7 @@ class Backend
                     $role = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'role')));
                 }
                 
-                $token = UserManager::token(30);
+                $token = $manager_user->token(30);
 
                 $errors = [];
 
@@ -158,7 +158,6 @@ class Backend
     public function password()
     {
         $manager_user = new UserManager();
-        $errors = $manager_user->password_verification();
    
          if(filter_has_var(INPUT_POST, 'submit')){
             $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
@@ -181,7 +180,7 @@ class Backend
             }	
                     
             if(empty($errors)){
-                Usermanager::update_password($password);
+                $manager_user->update_password($password);
                 header("Location:/modification-du-mot-de-passe");
             }
         }else
@@ -196,9 +195,9 @@ class Backend
 
     public function postback()
     {
-        if(isset($_GET['id']))
+        if(filter_var(filter_input(INPUT_GET,'id')))
         {
-        $id = $_GET['id'];
+        $id = filter_input(INPUT_GET, 'id');
         $manager_article = new ArticleManager();
         $posts = $manager_article->get_post();
         

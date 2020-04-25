@@ -74,9 +74,9 @@ class Frontend
 
     public function post()
     {
-        if(isset($_GET['id']))
+        if(filter_var(filter_input(INPUT_GET,'id')))
         {
-            $id = $_GET['id'];
+            $id = filter_input(INPUT_GET, 'id');
             $manager = new ArticleManager();
             $posts = $manager->get_article_blog();
             

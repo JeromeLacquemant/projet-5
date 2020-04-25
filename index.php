@@ -11,14 +11,13 @@ error_reporting(E_ALL);
 require_once "config/function_url.php";
 
 //Appel de l'autoloader
-require_once("config/autoload.php");
+require_once "config/autoload.php";
 
 //AFFICHAGE DES PAGES
-// Affichage de la page d'accueil lors du lancement de l'index.php
 if (filter_has_var(INPUT_GET, 'page'))
 {
     // Affichage des autres page en fonction du GET
-    $request = $_GET['page'];
+    $request = filter_input(INPUT_GET, 'page');
 }
 // Affichage de la page d'accueil lors du lancement de l'index.php
  else {
