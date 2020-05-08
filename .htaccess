@@ -22,17 +22,18 @@ RewriteRule ^modification-du-mot-de-passe$ index.php?page=password [L]
 RewriteRule ^mentions-legales$ index.php?page=legalnotice [L]
 RewriteRule ^page-erreur$ index.php?page=error [L]
 RewriteRule ^page-erreur-administrateur$ index.php?page=errorback [L]
+RewriteRule ^logout$ index.php?page=logout [L]
 
 #GESTION DES ERREURS
-ErrorDocument 400 /views/frontend/error.php
-ErrorDocument 401 /views/frontend/error.php
-ErrorDocument 402 /views/frontend/error.php
-ErrorDocument 403 /views/frontend/error.php
-ErrorDocument 404 /views/frontend/error.php
-ErrorDocument 405 /views/frontend/error.php
-ErrorDocument 500 /views/frontend/error.php
-ErrorDocument 501 /views/frontend/error.php
-ErrorDocument 502 /views/frontend/error.php
-ErrorDocument 503 /views/frontend/error.php
-ErrorDocument 504 /views/frontend/error.php
-ErrorDocument 505 /views/frontend/error.php
+ErrorDocument 400 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 401 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 402 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 403 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 404 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 405 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 500 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 501 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 502 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 503 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 504 http://jeromelacquemant.fr/index.php?page=error
+ErrorDocument 505 http://jeromelacquemant.fr/index.php?page=error

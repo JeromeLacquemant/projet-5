@@ -1,37 +1,4 @@
-<?php
-    if(isset($_SESSION['admin'])){
-        header("Location:/dashboard");
-    }
-?>
-
-<div class="row">
-    <div class="col l4 m6 s12 offset-l4 offset-m3">
-        <div class="card-panel">
-            <div class="row">
-                <div class="col s6 offset-s3">
-                    <img src="../../public/img/admin/admin.png" alt="Administrateur" width="100"/>
-                </div>    
-            </div>
-            <h4 class="center-align">Se connecter</h4>
-            <?php
-                if(filter_has_var(INPUT_POST, 'submit')){
-                    if(filter_has_var(INPUT_POST, 'email')){
-
-                        $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)));
-                    }
-                    if(filter_has_var(INPUT_POST, 'password')){
-                        $password = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'password')));
-
-                    }
-                    $errors = [];
-
-                    if(empty($email) || empty($password)){
-                        $errors['empty'] = "Tous les champs n'ont pas été remplis!";
-                    }else if($model_user->is_admin($email,$password) == 0){
-                        $errors['exist']  = "Cet administrateur n'existe pas";
-                    }
-                    
-                    if(!empty($errors)){
+            <?php if(!empty($errors)){
                         ?>
                         <div class="card red">
                             <div class="card-content white-text">
@@ -44,12 +11,16 @@
                             </div>
                         </div>
                         <?php
-                    }else{
-                        $_SESSION['admin'] = $email;
-                        header("Location:/dashboard");
-                    }
-                }
-            ?>
+                    }?>
+<div class="row">
+    <div class="col l4 m6 s12 offset-l4 offset-m3">
+        <div class="card-panel">
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <img src="../../public/img/admin/admin.png" alt="Administrateur" width="100"/>
+                </div>    
+            </div>
+            <h4 class="center-align">Se connecter</h4>
 
             <form method="post">
                 <div class="row">

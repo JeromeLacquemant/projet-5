@@ -1,221 +1,157 @@
 <?php
-// Permet d'avoir accès à la base de données
-require_once "Model.php";
 
-// Cette classe sert à manipuler tout ce qui touche aux articles
-class Article extends Model
+class Article
 {
-// FONCTIONS POUR LE FRONTEND
+    private $id;
+    private $title;
+    private $chapo;
+    private $content;
+    private $date;
+    private $writer;
+    private $posted;
+    private $image;
     
-    // Fonction qui permet de récupérer les détails des articles postés
-    public function get_posts_blog(){
-        $req = $this->db->query("
-            SELECT  articles.id,
-                    articles.title,
-                    articles.chapo,
-                    articles.image,
-                    articles.date,
-                    articles.content,
-                    admins.name
-            FROM articles
-            JOIN admins
-            ON articles.writer=admins.email
-            WHERE posted='1'
-            ORDER BY date DESC
-            LIMIT 0,5
-        ");
-        
-        $results = array();
-        
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
-        }
-        return $results;
+    /**
+     * 
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
     }
     
-   public function get_posts_blog_all(){
-        $req = $this->db->query("
-            SELECT  articles.id,
-                    articles.title,
-                    articles.chapo,
-                    articles.image,
-                    articles.date,
-                    articles.content,
-                    admins.name
-            FROM articles
-            JOIN admins
-            ON articles.writer=admins.email
-            WHERE posted='1'
-            ORDER BY date DESC
-        ");
-        
-        $results = array();
-        
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
-        }
-        return $results;
+    /**
+     * 
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
     
-    // Fonction qui récupère un article avec le posted = 1
-    public function get_article_blog(){
-        $req = $this->db->query("
-            SELECT  articles.id,
-                    articles.title,
-                    articles.chapo,
-                    articles.image,
-                    articles.content,
-                    articles.date,
-                    admins.name
-            FROM articles
-            JOIN admins
-            ON articles.writer = admins.email
-            WHERE articles.id='{$_GET['id']}'
-            AND articles.posted = '1'
-        ");
-    
-        $result = $req->fetchObject();
-        return $result;
-    }
-
-
-//FONCTIONS POUR LE BACKEND
-    // Fonction permettant de récupérer l'ensemble des articles
-    function get_posts(){
-        $req = $this->db->query("SELECT * FROM articles ORDER BY date DESC");
-        
-        $results = [];
-        while($rows = $req->fetchObject()){
-            $results[] = $rows;
-        }
-        
-        return $results;
-    }
-
-// Fonction permettant d'obtenir un article en particulier
-    function get_post(){
-        $req = $this->db->query("
-            SELECT  articles.id,
-                    articles.title,
-                    articles.chapo,
-                    articles.image,
-                    articles.date,
-                    articles.content,
-                    articles.posted,
-                    admins.name
-            FROM articles
-            JOIN admins
-            ON articles.writer = admins.email
-            WHERE articles.id = '{$_GET['id']}'
-        ");
-
-        $result = $req->fetchObject();
-        
-        return $result;
-    }
-
-    // Fonction permettant d'éditer un article 
-    function edit($title,$chapo,$content,$posted,$id){
-        $tableau = [
-            'title'     => $title,
-            'chapo'     => $chapo,
-            'content'   => $content,
-            'posted'    => $posted,
-            'id'        => $id
-        ];
-
-        $sql = "UPDATE articles SET title=:title, chapo=:chapo, content=:content, date=NOW(), posted=:posted WHERE id=:id";
-        $req = $this->db->prepare($sql);
-        $req->execute($tableau);
-    }
-
-    // Fonction permettant d'insérer un nouvel article dans la base de données
-    function post($title, $chapo, $content,$posted){
-        $tableau = [
-            'title'     =>  $title,
-            'chapo'     =>  $chapo,
-            'content'   =>  $content,
-            'writer'    =>  $_SESSION['admin'],
-            'posted'    =>  $posted
-        ];
-
-        $sql = "
-        INSERT INTO articles(title, content, chapo, writer, date, posted, image)
-        VALUES(:title,:content,:chapo,:writer,NOW(),:posted, '')
-        ";
-
-        $req = $this->db->prepare($sql);
-        $req->execute($tableau);
-    }
-
-    // Fonction permettant d'insérer une nouvelle image dans la base de données
-    function post_img($tmp_name, $extension){
-        $id = $this->db->lastInsertId(); //On doit mettre la fonction lastInsertId seulement après une fonction INSERT.
-        
-        $tableau = [
-            'id'    =>  $id,
-            'image' =>  $id.$extension  
-        ];
-
-        $sql = "UPDATE articles SET image = :image WHERE id = :id";
-        
-        $req = $this->db->prepare($sql);
-        $req->execute($tableau);
-        move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
-    }
-
-        // Fonction permettant de mettre à jour l'image d'un article
-    function update_img($tmp_name, $extension){
-        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-         
-        $tableau = [
-            'id'    =>  $id,
-            'image' =>  $id.$extension  
-        ];
-
-        $sql = "UPDATE articles SET image = :image WHERE id = :id";
-        
-        $req = $this->db->prepare($sql);
-        $req->execute($tableau);
-        move_uploaded_file($tmp_name, "public/img/posts/".$id.$extension);
+    /**
+     * 
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
     
-    // Fonction permettant de supprimer un article
-    function delete_article()
-    {  
-        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-        
-        $query = $this->db->prepare('
-            DELETE
-            FROM articles 
-            WHERE id = :id'
-        );
-        
-        $query->execute(['id' => $id]);
-        
-        unlink("public/img/posts/".$id.".png");
-        unlink("public/img/posts/".$id.".jpg");
-        unlink("public/img/posts/".$id.".jpeg");
-        unlink("public/img/posts/".$id.".gif");
-        unlink("public/img/posts/".$id.".PNG");
-        unlink("public/img/posts/".$id.".JPG");
-        unlink("public/img/posts/".$id.".JPEG");
-        unlink("public/img/posts/".$id.".GIF");
+    /**
+     * 
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title= $title;
     }
     
-      // Fonction permettant de supprimer les commentaires d'un article
-    function delete_article_comments()
-    {  
-        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-
-        $query = $this->db->prepare('
-            DELETE 
-            FROM comments 
-            WHERE article_id = :id
-        ');
-        
-        $query->execute(['id' => $id]);
-
-        header("Location: /liste-de-tous-les-articles");
+    /**
+     * 
+     * @return mixed
+     */
+    public function getChapo()
+    {
+        return $this->chapo;
     }
+    
+    /**
+     * 
+     * @param mixed $chapo
+     */
+    public function setChapo($chapo)
+    {
+        $this->chapo = $chapo;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+    
+    /**
+     * 
+     * @param mixed $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+    
+    /**
+     * 
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getWriter()
+    {
+        return $this->writer;
+    }
+    
+    /**
+     * 
+     * @param mixed $writer
+     */
+    public function setWriter($writer)
+    {
+        $this->writer = $writer;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getPosted()
+    {
+        return $this->posted;
+    }
+    
+    /**
+     * 
+     * @param mixed $posted
+     */
+    public function setPosted($posted)
+    {
+        $this->posted = $posted;
+    }
+    
+    /**
+     * 
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+    
+    /**
+     * 
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }  
 }

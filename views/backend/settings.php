@@ -1,9 +1,3 @@
-<?php
-    if($model_user->admin()!=1){
-        header("Location:/dashboard");
-    }
-?>
-
 <h2>Paramètres</h2>
 <div class="row">
     <div class="col m6 s12">
@@ -19,14 +13,13 @@
             </thead>
             <tbody>
             <?php
-                $modos= $model_user->get_modos();
                 foreach($modos as $modo){
                     ?>
                         <tr>
-                            <td><?= $modo->name ?></td>
-                            <td><?= $modo->email ?></td>
-                            <td><?= $modo->role ?></td>
-                            <td><i class="material-icons"><?php echo (!empty($modo->password)) ? "verified_user" : "av_timer" ?></i></td>
+                            <td><?= $modo->getName() ?></td>
+                            <td><?= $modo->getEmail() ?></td>
+                            <td><?= $modo->getRole() ?></td>
+                            <td><i class="material-icons"><?php echo (!empty($modo->getPassword())) ? "verified_user" : "av_timer" ?></i></td>
                         </tr>
                     <?php
                 }
@@ -35,58 +28,23 @@
         </table>
 
     </div>
+
     <div class="col m6 s12">
         <h4>Ajouter un modo</h4>
 
-        <?php
-            if(filter_has_var(INPUT_POST, 'submit')){
-                if(filter_has_var(INPUT_POST, 'name')){
-                    $name = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'name')));
-                }
-                if(filter_has_var(INPUT_POST, 'email')){
-                    $email = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email')));
-                }
-                if(filter_has_var(INPUT_POST, 'email_again')){
-                    $email_again = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'email_again', FILTER_VALIDATE_EMAIL)));
-                }
-                if(filter_has_var(INPUT_POST, 'role')){
-                    $role = filter_var(htmlspecialchars(filter_input(INPUT_POST, 'role')));
-                }
-                
-                $token = $model_user->token(30);
-
-                $errors = [];
-
-                if(empty($name) || empty($email) || empty($email_again)){
-                    $errors['empty'] = "Veuillez remplier tous les champs";
-                }
-
-                if($email != $email_again){
-                    $errors['different'] = "Les adresses email ne correspondent pas";
-                }
-
-                if($model_user->email_taken($email)){
-                    $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
-                }
-
-                if(!empty($errors)){
+                   <?php if(!empty($errors)){
                     ?>
                         <div class="card red">
                             <div class="card-content white-text">
                                 <?php
                                 foreach($errors as $error){
-                                    echo $error;
+                                    echo $error."</br>";
                                 }
                                 ?>
                             </div>
                         </div>
                     <?php
-                }else{
-                    $model_user->add_modo($name,$email,$role,$token);
-                    header("Location:/gestion-des-admins-et-modos");
-                }
-            }
-        ?>
+                }?>
 
         <form method="post">
             <div class="row">

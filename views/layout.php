@@ -1,7 +1,4 @@
-<?php
-    ob_start();
-?>
-                             
+                            
 <!DOCTYPE html>
     <html lang="fr">
         <head>
@@ -50,36 +47,40 @@
         
         <body>
             <!-- Mise en place de la topbar -->
-            <?php
-                include 'views/'.$topbar.'.php';
+                <?php
+                include ($topbar);            
             ?>
 
             <!-- Mise en place du contenu -->
             <div class="container">
                 <?php
-                    include 'views/'.$page.'.php';
+                    echo $contentPage;
                 ?>
             </div>
-            
-            <div class="row">
-            <!-- Mise en place du footer -->
-            <?php
-                include 'views/footer.php';
-            ?>
+        </body>
+        
+        <!-- FOOTER -->
+        <div id="copyrights">
+            <div class="container">
+                <p><a href="/connexion-espace-membre">Accès à l'espace d'administration</a></p>
+                <p><a href="/mentions-legales">Mentions légales</a></p>
+                <p>Blog créé dans le cadre d'un projet de formation OpenClassrooms by Jérôme Lacquemant</p>
+                <p>Created with Kelvin template by <a href="https://templatemag.com/">TemplateMag</a></p>
             </div>
- 
+          </div>
+        
+        <!-- SCRIPTS -->
         <script src="public/css/bootstrap/lib/jquery/jquery.min.js"></script>
         <script src="public/css/bootstrap/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/css/bootstrap/lib/php-mail-form/validate.js"></script>
         <script src="public/css/bootstrap/lib/chart/chart.js"></script>
         <script src="public/css/bootstrap/lib/easing/easing.min.js"></script>
         <script src="public/css/bootstrap/js/main.js"></script>
-         
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="public/js/materialize.js"></script>
         <script type="text/javascript" src="public/js/script.js"></script>  
         <script type="text/javascript" src="public/js/dashboard.func.js"></script>
         <script type="text/javascript" src="public/js/cookie.js"></script>
-
-        </body>
+            
     </html> 

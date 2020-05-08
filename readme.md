@@ -1,1 +1,1 @@
-projet-5 : Le blog en php.
+projet-5 : Le blog en p
