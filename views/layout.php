@@ -33,6 +33,7 @@
 
             if($showcookie)
             { ?>
+        <body>
             <div class="cookie-container center">
                 <p>
                     En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies 
@@ -44,7 +45,7 @@
             </div>
             <?php } ?>
         
-        <body>
+        
             <!-- Mise en place de la topbar -->
                 <?php
                 include ($topbar);            
