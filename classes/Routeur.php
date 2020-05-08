@@ -47,10 +47,6 @@ class Routeur
             $currentController = new $controller();
             $currentController->$method();
         }
-        else
-        {
-            echo '404';
-        }
     }
 }
 
