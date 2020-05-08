@@ -1,4 +1,3 @@
-                            
 <!DOCTYPE html>
     <html lang="fr">
         <head>
@@ -57,7 +56,7 @@
                     echo $contentPage;
                 ?>
             </div>
-        </body>
+       
         
         <!-- FOOTER -->
         <div id="copyrights">
@@ -68,6 +67,8 @@
                 <p>Created with Kelvin template by <a href="https://templatemag.com/">TemplateMag</a></p>
             </div>
           </div>
+        
+         </body>
         
         <!-- SCRIPTS -->
         <script src="public/css/bootstrap/lib/jquery/jquery.min.js"></script>

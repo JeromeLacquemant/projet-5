@@ -11,7 +11,6 @@
                     <th>Validé</th>
                 </tr>
             </thead>
-            <tbody>
             <?php
                 foreach($modos as $modo){
                     ?>
@@ -24,7 +23,6 @@
                     <?php
                 }
             ?>
-            </tbody>
         </table>
 
     </div>

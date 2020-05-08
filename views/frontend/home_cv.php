@@ -1,4 +1,4 @@
-<body data-spy="scroll" data-offset="64" data-target="#section-topbar">
+
     <div class="row"></div>
     <div class="col-lg-12 fond">
         <h1 class="accueil-h1">Jérôme Lacquemant</h1>
@@ -274,5 +274,4 @@
   </section>
   
   <div class="row"></div>
-  
-</body>
+ 
