@@ -13,6 +13,8 @@ require_once "config/function_url.php";
 //Appel de l'autoloader
 require_once "config/autoload.php";
 
+$request = filter_input(INPUT_GET, 'page');
+
 $routeur = new Routeur($request);
 $routeur->renderController();
 
