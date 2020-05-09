@@ -13,7 +13,15 @@ require_once "config/function_url.php";
 //Appel de l'autoloader
 require_once "config/autoload.php";
 
-$request = filter_input(INPUT_GET, 'page');
+if (filter_has_var(INPUT_GET, 'page'))
+{
+    // Affichage des autres page en fonction du GET
+    $request = filter_input(INPUT_GET, 'page');
+}
+// Affichage de la page d'accueil lors du lancement de l'index.php
+ else {
+    $request = 'home_cv';    
+}
 
 $routeur = new Routeur($request);
 $routeur->renderController();
